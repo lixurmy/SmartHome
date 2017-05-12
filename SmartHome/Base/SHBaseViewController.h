@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SHBaseViewController.h
 //  SmartHome
 //
 //  Created by Xu Li on 2017/5/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SHBaseViewController : UIViewController
 
 @end
-
