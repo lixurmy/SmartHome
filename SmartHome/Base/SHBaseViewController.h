@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SHNavigationBar.h"
 
 @interface SHBaseViewController : UIViewController
+
+@property (nonatomic, strong) SHNavigationBar *shNavigationBar;
+@property (nonatomic, assign) CGFloat shNavigationBarHeight;
+
+- (BOOL)hideNavigationBar;
+- (BOOL)hasSHNavigationBar;
 
 @end

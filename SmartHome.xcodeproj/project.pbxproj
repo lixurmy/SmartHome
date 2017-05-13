@@ -14,6 +14,12 @@
 		BDE559B61EC5F154006A8A6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDE559B41EC5F154006A8A6E /* LaunchScreen.storyboard */; };
 		BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */; };
 		BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B031EC6039C00CDBAA1 /* SHHomeViewController.m */; };
+		BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B091EC74D6500CDBAA1 /* SHNavigationBar.m */; };
+		BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B0D1EC757C400CDBAA1 /* SHLoginViewController.m */; };
+		BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B171EC75B9D00CDBAA1 /* SHBaseURL.m */; };
+		BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B1A1EC75C6800CDBAA1 /* SHNetworkManager.m */; };
+		BDF32B1E1EC76FF800CDBAA1 /* SHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B1D1EC76FF800CDBAA1 /* SHUserManager.m */; };
+		BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B201EC7711400CDBAA1 /* SHUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +51,18 @@
 		BDF32B031EC6039C00CDBAA1 /* SHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHHomeViewController.m; sourceTree = "<group>"; };
 		BDF32B061EC607CA00CDBAA1 /* SHMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMacro.h; sourceTree = "<group>"; };
 		BDF32B071EC609B500CDBAA1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		BDF32B081EC74D6500CDBAA1 /* SHNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNavigationBar.h; sourceTree = "<group>"; };
+		BDF32B091EC74D6500CDBAA1 /* SHNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNavigationBar.m; sourceTree = "<group>"; };
+		BDF32B0C1EC757C400CDBAA1 /* SHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLoginViewController.h; sourceTree = "<group>"; };
+		BDF32B0D1EC757C400CDBAA1 /* SHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLoginViewController.m; sourceTree = "<group>"; };
+		BDF32B161EC75B9D00CDBAA1 /* SHBaseURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseURL.h; sourceTree = "<group>"; };
+		BDF32B171EC75B9D00CDBAA1 /* SHBaseURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseURL.m; sourceTree = "<group>"; };
+		BDF32B191EC75C6800CDBAA1 /* SHNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNetworkManager.h; sourceTree = "<group>"; };
+		BDF32B1A1EC75C6800CDBAA1 /* SHNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNetworkManager.m; sourceTree = "<group>"; };
+		BDF32B1C1EC76FF800CDBAA1 /* SHUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHUserManager.h; sourceTree = "<group>"; };
+		BDF32B1D1EC76FF800CDBAA1 /* SHUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHUserManager.m; sourceTree = "<group>"; };
+		BDF32B1F1EC7711400CDBAA1 /* SHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHUtils.h; sourceTree = "<group>"; };
+		BDF32B201EC7711400CDBAA1 /* SHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHUtils.m; sourceTree = "<group>"; };
 		BE365101791D3B7B4619F1FB /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +116,8 @@
 		BDE559A51EC5F154006A8A6E /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				BDF32B151EC75B8D00CDBAA1 /* Network */,
+				BDF32B0B1EC7577000CDBAA1 /* Login */,
 				BDF32B051EC6074E00CDBAA1 /* Common */,
 				BDF32AFE1EC6034300CDBAA1 /* Base */,
 				BDE559BF1EC5F2F7006A8A6E /* Home */,
@@ -134,6 +154,8 @@
 			children = (
 				BDF32AFF1EC6036F00CDBAA1 /* SHBaseViewController.h */,
 				BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */,
+				BDF32B081EC74D6500CDBAA1 /* SHNavigationBar.h */,
+				BDF32B091EC74D6500CDBAA1 /* SHNavigationBar.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -142,8 +164,32 @@
 			isa = PBXGroup;
 			children = (
 				BDF32B061EC607CA00CDBAA1 /* SHMacro.h */,
+				BDF32B1F1EC7711400CDBAA1 /* SHUtils.h */,
+				BDF32B201EC7711400CDBAA1 /* SHUtils.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BDF32B0B1EC7577000CDBAA1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BDF32B0C1EC757C400CDBAA1 /* SHLoginViewController.h */,
+				BDF32B0D1EC757C400CDBAA1 /* SHLoginViewController.m */,
+				BDF32B1C1EC76FF800CDBAA1 /* SHUserManager.h */,
+				BDF32B1D1EC76FF800CDBAA1 /* SHUserManager.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BDF32B151EC75B8D00CDBAA1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BDF32B161EC75B9D00CDBAA1 /* SHBaseURL.h */,
+				BDF32B171EC75B9D00CDBAA1 /* SHBaseURL.m */,
+				BDF32B191EC75C6800CDBAA1 /* SHNetworkManager.h */,
+				BDF32B1A1EC75C6800CDBAA1 /* SHNetworkManager.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,10 +314,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */,
+				BDF32B1E1EC76FF800CDBAA1 /* SHUserManager.m in Sources */,
 				BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */,
+				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
+				BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */,
 				BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */,
 				BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */,
+				BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */,
 				BDE559A81EC5F154006A8A6E /* main.m in Sources */,
+				BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

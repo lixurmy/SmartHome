@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SHHomeViewController.h"
+#import "SHLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    SHHomeViewController *homeViewController = [[SHHomeViewController alloc] init];
-    self.window.rootViewController = homeViewController;
+    if (![SHUserManager sharedInstance].isLogin) {
+        SHLoginViewController *loginViewController = [[SHLoginViewController alloc] init];
+        [self.window setRootViewController:loginViewController];
+    } else {
+        SHHomeViewController *homeViewController = [[SHHomeViewController alloc] init];
+        [self.window setRootViewController:homeViewController];
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }
