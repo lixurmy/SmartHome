@@ -16,5 +16,8 @@
 
 - (BOOL)hideNavigationBar;
 - (BOOL)hasSHNavigationBar;
+- (void)showLoading:(BOOL)animated;
+- (void)hideLoading:(BOOL)animated;
+- (void)showHint:(NSString *)hint duration:(CGFloat)duration;
 
 @end
