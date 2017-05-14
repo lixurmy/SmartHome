@@ -15,6 +15,7 @@
 #import "SHUtils.h"
 #import "SHUserManager.h"
 #import "SHNetworkManager.h"
+#import "UIImage+Color.h"
 
 #import "AFNetworking.h"
 #import <Masonry/Masonry.h>

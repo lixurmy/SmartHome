@@ -7,6 +7,7 @@
 //
 
 #import "SHHomeViewController.h"
+#import "SHLoginViewController.h"
 
 @interface SHHomeViewController ()
 
@@ -27,8 +28,15 @@
         make.center.equalTo(self.view);
         make.size.mas_equalTo(CGSizeMake(100, 50));
     }];
+    @weakify(self);
     [[self.logoutButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
         [SHUserManager sharedInstance].isLogin = NO;
+        [self showHint:@"退出登录" duration:1.0];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            SHLoginViewController *loginViewController = [[SHLoginViewController alloc] init];
+            [self.view.window setRootViewController:loginViewController];
+        });
     }];
 }
 
@@ -46,11 +54,17 @@
 
 #pragma mark - VC Relative
 - (BOOL)hasSHNavigationBar {
-    return NO;
+    return YES;
 }
 
 - (BOOL)hideNavigationBar {
     return NO;
+}
+
+- (SHNavigationBar *)createSHNavigationBar {
+    SHNavigationBar *navigationBar = [[SHNavigationBar alloc] init];
+    [navigationBar setBackgroundImage:[UIImage imageWithColor:RGBCOLOR(222, 104, 3)] forBarMetrics:UIBarMetricsDefault];
+    return navigationBar;
 }
 
 @end

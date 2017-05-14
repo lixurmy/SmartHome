@@ -7,6 +7,7 @@
 //
 
 #import "SHBaseViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface SHBaseViewController ()
 
@@ -25,7 +26,7 @@
         [self.navigationController setNavigationBarHidden:YES];
     }
     if ([self hasSHNavigationBar]) {
-        self.shNavigationBar = [[SHNavigationBar alloc] init];
+        self.shNavigationBar = [self createSHNavigationBar];
         [self.view addSubview:self.shNavigationBar];
         [self.shNavigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.equalTo(self.view);
@@ -35,12 +36,36 @@
 }
 
 #pragma mark - Public Method
+- (void)showLoading:(BOOL)animated {
+    [MBProgressHUD showHUDAddedTo:self.view animated:animated];
+}
+
+- (void)showLoading:(BOOL)animated hint:(NSString *)hint {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:animated];
+    [hud.label setText:hint];
+}
+
+- (void)hideLoading:(BOOL)animated {
+    [MBProgressHUD hideHUDForView:self.view animated:animated];
+}
+
+- (void)showHint:(NSString *)hint duration:(CGFloat)duration {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    [hud.label setText:hint];
+    [hud hideAnimated:YES afterDelay:duration];
+}
+
 - (BOOL)hasSHNavigationBar {
     return NO;
 }
 
 - (BOOL)hideNavigationBar {
     return NO;
+}
+
+- (SHNavigationBar *)createSHNavigationBar {
+    return [[SHNavigationBar alloc] init];
 }
 
 #pragma mark - Get

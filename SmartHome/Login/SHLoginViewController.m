@@ -33,19 +33,18 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Private Method
 - (void)login {
+    [self showLoading:YES hint:@"Login..."];
+    @weakify(self);
     NSString *curpass = [SHUtils lowerCaseMd5:@"150916"];
     NSDictionary *parameters = @{@"phone" : @"15810111373", @"curpass" : curpass};
     NSURLSessionDataTask *dataTask = [[SHNetworkManager baseManager] POST:@"intelligw-server/app/userlogin" parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         SHLog(@"%@", downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         SHLog(@"%@", responseObject);
+        @strongify(self);
+        [self hideLoading:YES];
         [SHUserManager sharedInstance].isLogin = YES;
         SHHomeViewController *homeViewController = [[SHHomeViewController alloc] init];
         [self.view.window setRootViewController:homeViewController];

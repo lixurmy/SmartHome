@@ -18,6 +18,8 @@
 - (BOOL)hasSHNavigationBar;
 - (void)showLoading:(BOOL)animated;
 - (void)hideLoading:(BOOL)animated;
+- (void)showLoading:(BOOL)animated hint:(NSString *)hint;
 - (void)showHint:(NSString *)hint duration:(CGFloat)duration;
+- (SHNavigationBar *)createSHNavigationBar;
 
 @end
