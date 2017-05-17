@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8EAE134948C3C34098439CCD /* Pods_SmartHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B5DC480A66F1A9F2BD5501 /* Pods_SmartHome.framework */; };
+		BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D4981ECCABC8003F0337 /* SHRootViewController.m */; };
+		BD97D49D1ECCACCB003F0337 /* SHLeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D49C1ECCACCB003F0337 /* SHLeftDrawerViewController.m */; };
 		BDE559A81EC5F154006A8A6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559A71EC5F154006A8A6E /* main.m */; };
 		BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559AA1EC5F154006A8A6E /* AppDelegate.m */; };
 		BDE559B31EC5F154006A8A6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDE559B21EC5F154006A8A6E /* Assets.xcassets */; };
@@ -39,6 +41,10 @@
 /* Begin PBXFileReference section */
 		86B5DC480A66F1A9F2BD5501 /* Pods_SmartHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3A3FF952F96FF6B984F8AA /* Pods-SmartHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartHome/Pods-SmartHome.release.xcconfig"; sourceTree = "<group>"; };
+		BD97D4971ECCABC8003F0337 /* SHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRootViewController.h; sourceTree = "<group>"; };
+		BD97D4981ECCABC8003F0337 /* SHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRootViewController.m; sourceTree = "<group>"; };
+		BD97D49B1ECCACCB003F0337 /* SHLeftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLeftDrawerViewController.h; sourceTree = "<group>"; };
+		BD97D49C1ECCACCB003F0337 /* SHLeftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLeftDrawerViewController.m; sourceTree = "<group>"; };
 		BDE559A31EC5F154006A8A6E /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE559A71EC5F154006A8A6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDE559A91EC5F154006A8A6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +104,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD97D4961ECCABAD003F0337 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				BD97D4971ECCABC8003F0337 /* SHRootViewController.h */,
+				BD97D4981ECCABC8003F0337 /* SHRootViewController.m */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		BD97D49A1ECCACBA003F0337 /* LeftDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				BD97D49B1ECCACCB003F0337 /* SHLeftDrawerViewController.h */,
+				BD97D49C1ECCACCB003F0337 /* SHLeftDrawerViewController.m */,
+			);
+			path = LeftDrawer;
+			sourceTree = "<group>";
+		};
 		BDE5599A1EC5F154006A8A6E = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +143,8 @@
 		BDE559A51EC5F154006A8A6E /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				BD97D49A1ECCACBA003F0337 /* LeftDrawer */,
+				BD97D4961ECCABAD003F0337 /* Root */,
 				BDF32B221EC8720700CDBAA1 /* Category */,
 				BDF32B151EC75B8D00CDBAA1 /* Network */,
 				BDF32B0B1EC7577000CDBAA1 /* Login */,
@@ -330,10 +356,12 @@
 				BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */,
 				BDF32B1E1EC76FF800CDBAA1 /* SHUserManager.m in Sources */,
 				BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */,
+				BD97D49D1ECCACCB003F0337 /* SHLeftDrawerViewController.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
 				BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */,
 				BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */,
 				BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */,
+				BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */,
 				BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */,
 				BDF32B281EC8726600CDBAA1 /* UIImage+Color.m in Sources */,
 				BDE559A81EC5F154006A8A6E /* main.m in Sources */,

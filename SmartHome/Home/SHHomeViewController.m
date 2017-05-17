@@ -53,18 +53,5 @@
 }
 
 #pragma mark - VC Relative
-- (BOOL)hasSHNavigationBar {
-    return YES;
-}
-
-- (BOOL)hideNavigationBar {
-    return NO;
-}
-
-- (SHNavigationBar *)createSHNavigationBar {
-    SHNavigationBar *navigationBar = [[SHNavigationBar alloc] init];
-    [navigationBar setBackgroundImage:[UIImage imageWithColor:RGBCOLOR(222, 104, 3)] forBarMetrics:UIBarMetricsDefault];
-    return navigationBar;
-}
 
 @end

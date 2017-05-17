@@ -27,8 +27,8 @@
 
 #pragma - mark SCREEN
 
-#define kScreenHeight [UIScreen mainScreen].bounds.height
-#define kScreenWidth [UIScreen mainScreen].bounds.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kStatusBarHeight 20
 #define kNavigationBarHeight 44
 

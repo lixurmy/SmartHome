@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SHHomeViewController.h"
+#import "SHRootViewController.h"
 #import "SHLoginViewController.h"
 
 @interface AppDelegate ()
@@ -23,8 +23,8 @@
         SHLoginViewController *loginViewController = [[SHLoginViewController alloc] init];
         [self.window setRootViewController:loginViewController];
     } else {
-        SHHomeViewController *homeViewController = [[SHHomeViewController alloc] init];
-        [self.window setRootViewController:homeViewController];
+        SHRootViewController *rootViewController = [[SHRootViewController alloc] init];
+        [self.window setRootViewController:rootViewController];
     }
     [self.window makeKeyAndVisible];
     return YES;
