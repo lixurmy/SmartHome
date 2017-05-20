@@ -14,3 +14,6 @@
 + (NSString *)upperCaseMd5:(NSString *)inString;
 
 @end
+
+UIFont *PingFangSCRegular(CGFloat size);
+UIFont *PingFangSCMedium(CGFloat Size);

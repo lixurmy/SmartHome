@@ -50,6 +50,7 @@
 }
 
 - (void)showHint:(NSString *)hint duration:(CGFloat)duration {
+    [self hideLoading:NO];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
     [hud.label setText:hint];

@@ -34,3 +34,11 @@
 }
 
 @end
+
+UIFont *PingFangSCRegular(CGFloat size) {
+    return [UIFont fontWithName:@"PingFangSC-Regular" size:size] ?: [UIFont systemFontOfSize:size];
+}
+
+UIFont *PingFangSCMedium(CGFloat size) {
+    return [UIFont fontWithName:@"PingFangSC-Medium" size:size] ?: [UIFont systemFontOfSize:size];
+}

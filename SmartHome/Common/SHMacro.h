@@ -31,5 +31,7 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kStatusBarHeight 20
 #define kNavigationBarHeight 44
+#define kScreenScale kScreenWidth/375
+#define px 1/[UIScreen mainScreen].scale
 
 #endif /* SHMacro_h */
