@@ -8,6 +8,7 @@
 
 #import "SHLoginViewController.h"
 #import "SHHomeViewController.h"
+#import "SHRootViewController.h"
 
 static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 
@@ -185,8 +186,8 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
         @strongify(self);
         if (succ) {
             [SHUserManager sharedInstance].isLogin = YES;
-            SHHomeViewController *homeViewController = [[SHHomeViewController alloc] init];
-            [self.view.window setRootViewController:homeViewController];
+            SHRootViewController *rootViewController = [[SHRootViewController alloc] init];
+            [self.view.window setRootViewController:rootViewController];
             [self hideLoading:YES];
         } else {
             if (statusCode == 0) {

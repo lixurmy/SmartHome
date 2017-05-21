@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		8EAE134948C3C34098439CCD /* Pods_SmartHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B5DC480A66F1A9F2BD5501 /* Pods_SmartHome.framework */; };
 		BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D4981ECCABC8003F0337 /* SHRootViewController.m */; };
-		BD97D49D1ECCACCB003F0337 /* SHLeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D49C1ECCACCB003F0337 /* SHLeftDrawerViewController.m */; };
 		BDE559A81EC5F154006A8A6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559A71EC5F154006A8A6E /* main.m */; };
 		BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559AA1EC5F154006A8A6E /* AppDelegate.m */; };
 		BDE559B31EC5F154006A8A6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDE559B21EC5F154006A8A6E /* Assets.xcassets */; };
 		BDE559B61EC5F154006A8A6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDE559B41EC5F154006A8A6E /* LaunchScreen.storyboard */; };
+		BDEBC2481ED1AAD400FA41A7 /* SHLeftDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC2471ED1AAD400FA41A7 /* SHLeftDrawerViewController.m */; };
+		BDEBC24B1ED1AB0200FA41A7 /* SHBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC24A1ED1AB0200FA41A7 /* SHBaseTableViewCell.m */; };
+		BDEBC24E1ED1AB1500FA41A7 /* SHBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC24D1ED1AB1500FA41A7 /* SHBaseTableView.m */; };
+		BDEBC2511ED1AB3800FA41A7 /* SHLeftDrawerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC2501ED1AB3800FA41A7 /* SHLeftDrawerCell.m */; };
 		BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */; };
 		BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B031EC6039C00CDBAA1 /* SHHomeViewController.m */; };
 		BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B091EC74D6500CDBAA1 /* SHNavigationBar.m */; };
@@ -43,8 +46,6 @@
 		9E3A3FF952F96FF6B984F8AA /* Pods-SmartHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartHome/Pods-SmartHome.release.xcconfig"; sourceTree = "<group>"; };
 		BD97D4971ECCABC8003F0337 /* SHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRootViewController.h; sourceTree = "<group>"; };
 		BD97D4981ECCABC8003F0337 /* SHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRootViewController.m; sourceTree = "<group>"; };
-		BD97D49B1ECCACCB003F0337 /* SHLeftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLeftDrawerViewController.h; sourceTree = "<group>"; };
-		BD97D49C1ECCACCB003F0337 /* SHLeftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLeftDrawerViewController.m; sourceTree = "<group>"; };
 		BDE559A31EC5F154006A8A6E /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE559A71EC5F154006A8A6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDE559A91EC5F154006A8A6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +53,14 @@
 		BDE559B21EC5F154006A8A6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDE559B51EC5F154006A8A6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDE559B71EC5F154006A8A6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDEBC2461ED1AAD400FA41A7 /* SHLeftDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLeftDrawerViewController.h; sourceTree = "<group>"; };
+		BDEBC2471ED1AAD400FA41A7 /* SHLeftDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLeftDrawerViewController.m; sourceTree = "<group>"; };
+		BDEBC2491ED1AB0200FA41A7 /* SHBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseTableViewCell.h; sourceTree = "<group>"; };
+		BDEBC24A1ED1AB0200FA41A7 /* SHBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseTableViewCell.m; sourceTree = "<group>"; };
+		BDEBC24C1ED1AB1500FA41A7 /* SHBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseTableView.h; sourceTree = "<group>"; };
+		BDEBC24D1ED1AB1500FA41A7 /* SHBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseTableView.m; sourceTree = "<group>"; };
+		BDEBC24F1ED1AB3800FA41A7 /* SHLeftDrawerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLeftDrawerCell.h; sourceTree = "<group>"; };
+		BDEBC2501ED1AB3800FA41A7 /* SHLeftDrawerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLeftDrawerCell.m; sourceTree = "<group>"; };
 		BDF32AFF1EC6036F00CDBAA1 /* SHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseViewController.h; sourceTree = "<group>"; };
 		BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseViewController.m; sourceTree = "<group>"; };
 		BDF32B021EC6039C00CDBAA1 /* SHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHHomeViewController.h; sourceTree = "<group>"; };
@@ -116,8 +125,8 @@
 		BD97D49A1ECCACBA003F0337 /* LeftDrawer */ = {
 			isa = PBXGroup;
 			children = (
-				BD97D49B1ECCACCB003F0337 /* SHLeftDrawerViewController.h */,
-				BD97D49C1ECCACCB003F0337 /* SHLeftDrawerViewController.m */,
+				BDEBC2441ED1AAD400FA41A7 /* View */,
+				BDEBC2451ED1AAD400FA41A7 /* ViewController */,
 			);
 			path = LeftDrawer;
 			sourceTree = "<group>";
@@ -179,6 +188,24 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		BDEBC2441ED1AAD400FA41A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDEBC24F1ED1AB3800FA41A7 /* SHLeftDrawerCell.h */,
+				BDEBC2501ED1AB3800FA41A7 /* SHLeftDrawerCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BDEBC2451ED1AAD400FA41A7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDEBC2461ED1AAD400FA41A7 /* SHLeftDrawerViewController.h */,
+				BDEBC2471ED1AAD400FA41A7 /* SHLeftDrawerViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		BDF32AFE1EC6034300CDBAA1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +213,10 @@
 				BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */,
 				BDF32B081EC74D6500CDBAA1 /* SHNavigationBar.h */,
 				BDF32B091EC74D6500CDBAA1 /* SHNavigationBar.m */,
+				BDEBC2491ED1AB0200FA41A7 /* SHBaseTableViewCell.h */,
+				BDEBC24A1ED1AB0200FA41A7 /* SHBaseTableViewCell.m */,
+				BDEBC24C1ED1AB1500FA41A7 /* SHBaseTableView.h */,
+				BDEBC24D1ED1AB1500FA41A7 /* SHBaseTableView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -356,14 +387,17 @@
 				BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */,
 				BDF32B1E1EC76FF800CDBAA1 /* SHUserManager.m in Sources */,
 				BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */,
-				BD97D49D1ECCACCB003F0337 /* SHLeftDrawerViewController.m in Sources */,
+				BDEBC24B1ED1AB0200FA41A7 /* SHBaseTableViewCell.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
 				BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */,
 				BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */,
 				BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */,
+				BDEBC2511ED1AB3800FA41A7 /* SHLeftDrawerCell.m in Sources */,
 				BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */,
+				BDEBC2481ED1AAD400FA41A7 /* SHLeftDrawerViewController.m in Sources */,
 				BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */,
 				BDF32B281EC8726600CDBAA1 /* UIImage+Color.m in Sources */,
+				BDEBC24E1ED1AB1500FA41A7 /* SHBaseTableView.m in Sources */,
 				BDE559A81EC5F154006A8A6E /* main.m in Sources */,
 				BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */,
 			);

@@ -10,4 +10,9 @@
 
 @interface SHHomeViewController : SHBaseViewController
 
+@property (nonatomic, strong) UIView *maskView;
+
+- (void)showMaskView:(BOOL)animated;
+- (void)hideMaskView;
+
 @end

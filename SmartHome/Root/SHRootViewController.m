@@ -15,6 +15,7 @@
 @property (nonatomic, strong) SHHomeViewController *homeVC;
 @property (nonatomic, strong) SHLeftDrawerViewController *leftDrawerVC;
 @property (nonatomic, strong) UIBarButtonItem *leftDrawerButtonItem;
+@property (nonatomic, strong) UIView *maskView;
 
 @end
 
@@ -41,16 +42,38 @@
     [self.view addSubview:self.homeVC.view];
     [self.view addSubview:self.leftDrawerVC.view];
     [self.homeVC.view setFrame:CGRectMake(0, self.shNavigationBarHeight, kScreenWidth, kScreenHeight - self.shNavigationBarHeight)];
-    [self.leftDrawerVC.view setFrame:CGRectMake(-kScreenWidth, 0, kScreenWidth, kScreenHeight)];
+    [self.leftDrawerVC.view setFrame:CGRectMake(-kScreenWidth, self.shNavigationBarHeight, kScreenWidth, kScreenHeight)];
+    @weakify(self);
+    [RACObserve(self, homeVC.maskView.hidden) subscribeNext:^(id x) {
+        @strongify(self);
+        if ([x boolValue]) {
+            [self hideLeftDrawer];
+        }
+    }];
 }
 
 #pragma mark - Private Method
 - (void)showLeftDrawer {
+    if ([self.homeVC.maskView isHidden]) {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.leftDrawerVC.view setFrame:CGRectMake(250 * kScreenScale - kScreenWidth, self.shNavigationBarHeight, kScreenWidth, kScreenHeight)];
+            [self.homeVC.view setFrame:CGRectMake(250 * kScreenScale, self.shNavigationBarHeight, kScreenWidth, kScreenHeight - self.shNavigationBarHeight)];
+            [self.homeVC showMaskView:YES];
+        } completion:^(BOOL finished) {
+            [self.leftDrawerVC.view setFrame:CGRectMake(250 * kScreenScale - kScreenWidth, self.shNavigationBarHeight, kScreenWidth, kScreenHeight)];
+        }];
+    } else {
+        [self.homeVC hideMaskView];
+    }
+}
+
+- (void)hideLeftDrawer {
     [UIView animateWithDuration:0.5 animations:^{
-        [self.leftDrawerVC.view setFrame:CGRectMake(200 - kScreenWidth, 0, kScreenWidth, kScreenHeight)];
-        [self.homeVC.view setFrame:CGRectMake(200, self.shNavigationBarHeight, kScreenWidth, kScreenHeight - self.shNavigationBarHeight)];
+        [self.leftDrawerVC.view setFrame:CGRectMake(-kScreenWidth, self.shNavigationBarHeight, kScreenWidth, kScreenHeight)];
+        [self.homeVC.view setFrame:CGRectMake(0, self.shNavigationBarHeight, kScreenWidth, kScreenHeight - self.shNavigationBarHeight)];
     } completion:^(BOOL finished) {
-        [self.leftDrawerVC.view setFrame:CGRectMake(200 - kScreenWidth, 0, kScreenWidth, kScreenHeight)];
+        [self.leftDrawerVC.view setFrame:CGRectMake(-kScreenWidth, self.shNavigationBarHeight, kScreenWidth, kScreenHeight)];
+        [self.homeVC.view setFrame:CGRectMake(0, self.shNavigationBarHeight, kScreenWidth, kScreenHeight - self.shNavigationBarHeight)];
     }];
 }
 
