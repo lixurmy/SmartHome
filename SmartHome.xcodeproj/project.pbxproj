@@ -17,6 +17,8 @@
 		BDEBC24B1ED1AB0200FA41A7 /* SHBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC24A1ED1AB0200FA41A7 /* SHBaseTableViewCell.m */; };
 		BDEBC24E1ED1AB1500FA41A7 /* SHBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC24D1ED1AB1500FA41A7 /* SHBaseTableView.m */; };
 		BDEBC2511ED1AB3800FA41A7 /* SHLeftDrawerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC2501ED1AB3800FA41A7 /* SHLeftDrawerCell.m */; };
+		BDEBC2541ED9977800FA41A7 /* SHChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC2531ED9977800FA41A7 /* SHChangePasswordViewController.m */; };
+		BDEBC2571ED9B7BD00FA41A7 /* SHBindGatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC2561ED9B7BD00FA41A7 /* SHBindGatewayViewController.m */; };
 		BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */; };
 		BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B031EC6039C00CDBAA1 /* SHHomeViewController.m */; };
 		BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B091EC74D6500CDBAA1 /* SHNavigationBar.m */; };
@@ -61,6 +63,10 @@
 		BDEBC24D1ED1AB1500FA41A7 /* SHBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseTableView.m; sourceTree = "<group>"; };
 		BDEBC24F1ED1AB3800FA41A7 /* SHLeftDrawerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLeftDrawerCell.h; sourceTree = "<group>"; };
 		BDEBC2501ED1AB3800FA41A7 /* SHLeftDrawerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLeftDrawerCell.m; sourceTree = "<group>"; };
+		BDEBC2521ED9977800FA41A7 /* SHChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHChangePasswordViewController.h; sourceTree = "<group>"; };
+		BDEBC2531ED9977800FA41A7 /* SHChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHChangePasswordViewController.m; sourceTree = "<group>"; };
+		BDEBC2551ED9B7BD00FA41A7 /* SHBindGatewayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBindGatewayViewController.h; sourceTree = "<group>"; };
+		BDEBC2561ED9B7BD00FA41A7 /* SHBindGatewayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBindGatewayViewController.m; sourceTree = "<group>"; };
 		BDF32AFF1EC6036F00CDBAA1 /* SHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseViewController.h; sourceTree = "<group>"; };
 		BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseViewController.m; sourceTree = "<group>"; };
 		BDF32B021EC6039C00CDBAA1 /* SHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHHomeViewController.h; sourceTree = "<group>"; };
@@ -202,6 +208,10 @@
 			children = (
 				BDEBC2461ED1AAD400FA41A7 /* SHLeftDrawerViewController.h */,
 				BDEBC2471ED1AAD400FA41A7 /* SHLeftDrawerViewController.m */,
+				BDEBC2521ED9977800FA41A7 /* SHChangePasswordViewController.h */,
+				BDEBC2531ED9977800FA41A7 /* SHChangePasswordViewController.m */,
+				BDEBC2551ED9B7BD00FA41A7 /* SHBindGatewayViewController.h */,
+				BDEBC2561ED9B7BD00FA41A7 /* SHBindGatewayViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -384,6 +394,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDEBC2541ED9977800FA41A7 /* SHChangePasswordViewController.m in Sources */,
+				BDEBC2571ED9B7BD00FA41A7 /* SHBindGatewayViewController.m in Sources */,
 				BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */,
 				BDF32B1E1EC76FF800CDBAA1 /* SHUserManager.m in Sources */,
 				BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */,

@@ -43,12 +43,15 @@
     @weakify(self);
     [[self.logoutButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [SHUserManager sharedInstance].isLogin = NO;
-        [self showHint:@"退出登录" duration:1.0];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            SHLoginViewController *loginViewController = [[SHLoginViewController alloc] init];
-            [self.view.window setRootViewController:loginViewController];
-        });
+        [[SHUserManager sharedInstance] logoutWithComplete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
+            if (succ) {
+                [self showHint:@"退出登录" duration:1.0];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    SHLoginViewController *loginViewController = [[SHLoginViewController alloc] init];
+                    [self.view.window setRootViewController:loginViewController];
+                });
+            }
+        }];
     }];
 }
 

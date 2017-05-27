@@ -20,6 +20,7 @@
 - (void)hideLoading:(BOOL)animated;
 - (void)showLoading:(BOOL)animated hint:(NSString *)hint;
 - (void)showHint:(NSString *)hint duration:(CGFloat)duration;
+- (void)dismiss;
 - (SHNavigationBar *)createSHNavigationBar;
 
 @end

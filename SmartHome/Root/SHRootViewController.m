@@ -99,8 +99,7 @@
 }
 
 - (SHNavigationBar *)createSHNavigationBar {
-    SHNavigationBar *navigationBar = [[SHNavigationBar alloc] init];
-    [navigationBar setBackgroundImage:[UIImage imageWithColor:RGBCOLOR(0, 222, 222)] forBarMetrics:UIBarMetricsDefault];
+    SHNavigationBar *navigationBar = [super createSHNavigationBar];
     UINavigationItem *leftItem = [[UINavigationItem alloc] init];
     leftItem.leftBarButtonItem = self.leftDrawerButtonItem;
     [navigationBar setItems:@[leftItem]];

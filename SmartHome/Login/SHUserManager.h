@@ -21,8 +21,10 @@ typedef void(^SHLoginOrRegisterCompleteBlock)(BOOL succ, SHLoginOrRegisterStatus
 
 @interface SHUserManager : NSObject
 
-@property (nonatomic, copy) NSString *phone;
-@property (nonatomic, assign) BOOL isLogin;
+@property (nonatomic, readonly) NSString *phone;
+@property (nonatomic, readonly) NSString *password; //MD5
+@property (nonatomic, readonly) NSString *gatewayId;
+@property (nonatomic, readonly) BOOL isLogin;
 
 + (instancetype)sharedInstance;
 
@@ -30,5 +32,7 @@ typedef void(^SHLoginOrRegisterCompleteBlock)(BOOL succ, SHLoginOrRegisterStatus
 - (void)registerWithUsername:(NSString *)username password:(NSString *)password complete:(SHLoginOrRegisterCompleteBlock)complete;
 - (void)resetPasswordForUsername:(NSString *)username complete:(SHLoginOrRegisterCompleteBlock)complete;
 - (void)changePasswordForUsername:(NSString *)username oldPassword:(NSString *)oldPassword newPassword:(NSString *)newPassword complete:(SHLoginOrRegisterCompleteBlock)complete;
+- (void)bindGatewayWithId:(NSString *)gatewayId complete:(SHLoginOrRegisterCompleteBlock)complete;
+- (void)logoutWithComplete:(SHLoginOrRegisterCompleteBlock)complete;
 
 @end

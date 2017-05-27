@@ -9,9 +9,20 @@
 #import "SHUserManager.h"
 
 static NSString * const kSHUserManagerPhoneKey = @"kSHUserManagerPhoneKey";
+static NSString * const kSHUserManagerPasswordKey = @"kSHUserManagerPasswordKey";
+static NSString * const kSHUSerManagerGatewayIdKey = @"kSHUserManagerGatewayIdKey";
 static NSString * const kSHUserManagerIsLoginKey = @"kSHUserManagerIsLoginKey";
 
 static SHUserManager * _instance;
+
+@interface SHUserManager ()
+
+@property (nonatomic, copy) NSString *phone;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic, copy) NSString *gatewayId;
+@property (nonatomic, assign) BOOL isLogin;
+
+@end
 
 @implementation SHUserManager
 
@@ -19,6 +30,10 @@ static SHUserManager * _instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [[SHUserManager alloc] init];
+        _instance.isLogin = [[NSUserDefaults standardUserDefaults] boolForKey:kSHUserManagerIsLoginKey];
+        _instance.phone = [[NSUserDefaults standardUserDefaults] objectForKey:kSHUserManagerPhoneKey];
+        _instance.password = [[NSUserDefaults standardUserDefaults] objectForKey:kSHUserManagerPasswordKey];
+        _instance.gatewayId = [[NSUserDefaults standardUserDefaults] objectForKey:kSHUSerManagerGatewayIdKey];
     });
     return _instance;
 }
@@ -33,9 +48,11 @@ static SHUserManager * _instance;
     }
     password = [SHUtils lowerCaseMd5:password];
     NSDictionary *parameters = @{@"phone" : username, @"curpass" :  password?: @""};
+    @weakify(self);
     [[SHNetworkManager baseManager] POST:@"intelligw-server/app/userlogin" parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        @strongify(self);
         if (!complete) {
             return;
         }
@@ -44,6 +61,9 @@ static SHUserManager * _instance;
         } else {
             SHLoginOrRegisterStatus statusCode = [responseObject[@"status"] integerValue];
             if (statusCode == SHLoginOrRegisterSuccess) {
+                self.isLogin = YES;
+                self.phone = username;
+                self.password = password;
                 complete(YES, SHLoginOrRegisterSuccess, nil);
             } else {
                 complete(NO, statusCode, nil);
@@ -149,24 +169,71 @@ static SHUserManager * _instance;
     }];
 }
 
-#pragma mark - Prviate Method
+- (void)bindGatewayWithId:(NSString *)gatewayId complete:(SHLoginOrRegisterCompleteBlock)complete {
+    if (!gatewayId) {
+        if (complete) {
+            complete(NO, SHLoginOrRegisterServerError, nil);
+        }
+        return;
+    }
+    NSDictionary *parameters = @{@"phone" : self.phone ?: @"", @"curpass" : self.password ?: @"", @"gwid" : gatewayId};
+    [[SHNetworkManager baseManager] POST:@"intelligw-server/app/gwbind" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+        SHLog(@"%@", uploadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (!complete) {
+            return;
+        }
+        if (!responseObject) {
+            complete(NO, SHLoginOrRegisterServerError, nil);
+        } else {
+            SHLoginOrRegisterStatus statusCode = [responseObject[@"status"] integerValue];
+            if (statusCode == SHLoginOrRegisterSuccess) {
+                self.gatewayId = gatewayId;
+                complete(YES, statusCode, nil);
+            } else {
+                complete(NO, statusCode, nil);
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (complete) {
+            complete(NO, SHLoginOrRegisterServerError, nil);
+        }
+    }];
+}
 
+- (void)logoutWithComplete:(SHLoginOrRegisterCompleteBlock)complete {
+    self.isLogin = NO;
+    self.phone = nil;
+    self.password = nil;
+    self.gatewayId = nil;
+    if (complete) {
+        complete(YES, SHLoginOrRegisterSuccess, nil);
+    }
+}
+
+#pragma mark - Set
 - (void)setIsLogin:(BOOL)isLogin {
+    _isLogin = isLogin;
     [[NSUserDefaults standardUserDefaults] setBool:isLogin forKey:kSHUserManagerIsLoginKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (BOOL)isLogin {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kSHUserManagerIsLoginKey];
-}
-
 - (void)setPhone:(NSString *)phone {
+    _phone = phone;
     [[NSUserDefaults standardUserDefaults] setObject:phone forKey:kSHUserManagerPhoneKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (NSString *)phone {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kSHUserManagerPhoneKey];
+- (void)setPassword:(NSString *)password {
+    _password = [password copy];
+    [[NSUserDefaults standardUserDefaults] setObject:password forKey:kSHUserManagerPasswordKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setGatewayId:(NSString *)gatewayId {
+    _gatewayId = gatewayId;
+    [[NSUserDefaults standardUserDefaults] setObject:gatewayId forKey:kSHUSerManagerGatewayIdKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

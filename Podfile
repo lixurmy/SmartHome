@@ -6,5 +6,6 @@ target 'SmartHome' do
   pod 'Masonry'
   pod 'ReactiveCocoa', '~> 2.0'
   pod 'MBProgressHUD'
+  pod 'Reveal-iOS-SDK'
 end
 

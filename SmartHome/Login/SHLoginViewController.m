@@ -185,7 +185,6 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
     [[SHUserManager sharedInstance] loginWithUsername:self.username password:self.password complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
         @strongify(self);
         if (succ) {
-            [SHUserManager sharedInstance].isLogin = YES;
             SHRootViewController *rootViewController = [[SHRootViewController alloc] init];
             [self.view.window setRootViewController:rootViewController];
             [self hideLoading:YES];

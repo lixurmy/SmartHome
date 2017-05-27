@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupAppearance];
+    [self.view setBackgroundColor:RGBCOLOR(255, 255, 255)];
 }
 
 - (void)setupAppearance {
@@ -65,8 +66,17 @@
     return NO;
 }
 
+- (void)dismiss {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (SHNavigationBar *)createSHNavigationBar {
-    return [[SHNavigationBar alloc] init];
+    SHNavigationBar *navigationBar = [[SHNavigationBar alloc] init];
+    [navigationBar setBackgroundImage:[UIImage imageWithColor:NavigationBarColor]
+                        forBarMetrics:UIBarMetricsDefault];
+    NSDictionary *attributed = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    [navigationBar setTitleTextAttributes:attributed];
+    return navigationBar;
 }
 
 #pragma mark - Get
