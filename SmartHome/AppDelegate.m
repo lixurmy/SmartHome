@@ -24,7 +24,8 @@
         [self.window setRootViewController:loginViewController];
     } else {
         SHRootViewController *rootViewController = [[SHRootViewController alloc] init];
-        [self.window setRootViewController:rootViewController];
+        UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+        [self.window setRootViewController:navigationVC];
     }
     [self.window makeKeyAndVisible];
     return YES;

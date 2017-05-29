@@ -186,7 +186,8 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
         @strongify(self);
         if (succ) {
             SHRootViewController *rootViewController = [[SHRootViewController alloc] init];
-            [self.view.window setRootViewController:rootViewController];
+            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+            [self.view.window setRootViewController:navigationVC];
             [self hideLoading:YES];
         } else {
             if (statusCode == 0) {

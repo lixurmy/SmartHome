@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8EAE134948C3C34098439CCD /* Pods_SmartHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B5DC480A66F1A9F2BD5501 /* Pods_SmartHome.framework */; };
+		BD12012F1EDB094B00694B17 /* SHRemoteLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD12012E1EDB094B00694B17 /* SHRemoteLockViewController.m */; };
+		BD1201321EDB099B00694B17 /* SHNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201311EDB099B00694B17 /* SHNavigationItem.m */; };
+		BD1201351EDB1C0300694B17 /* SHBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201341EDB1C0300694B17 /* SHBaseView.m */; };
+		BD12013B1EDB1CB200694B17 /* SHLockKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD12013A1EDB1CB200694B17 /* SHLockKeyboardViewController.m */; };
+		BD1201411EDB2D2800694B17 /* SHSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201401EDB2D2800694B17 /* SHSettingsViewController.m */; };
+		BD1201471EDB2F9F00694B17 /* SHSettingsBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201461EDB2F9F00694B17 /* SHSettingsBaseCell.m */; };
+		BD12014A1EDB313300694B17 /* SHSettingSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201491EDB313300694B17 /* SHSettingSection.m */; };
 		BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D4981ECCABC8003F0337 /* SHRootViewController.m */; };
 		BDE559A81EC5F154006A8A6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559A71EC5F154006A8A6E /* main.m */; };
 		BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559AA1EC5F154006A8A6E /* AppDelegate.m */; };
@@ -19,8 +26,9 @@
 		BDEBC2511ED1AB3800FA41A7 /* SHLeftDrawerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC2501ED1AB3800FA41A7 /* SHLeftDrawerCell.m */; };
 		BDEBC2541ED9977800FA41A7 /* SHChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC2531ED9977800FA41A7 /* SHChangePasswordViewController.m */; };
 		BDEBC2571ED9B7BD00FA41A7 /* SHBindGatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC2561ED9B7BD00FA41A7 /* SHBindGatewayViewController.m */; };
+		BDEBC25B1EDAC8EB00FA41A7 /* SHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC25A1EDAC8EB00FA41A7 /* SHHomeViewController.m */; };
+		BDEBC25E1EDAC91200FA41A7 /* SHHomeMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEBC25D1EDAC91200FA41A7 /* SHHomeMessageViewController.m */; };
 		BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */; };
-		BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B031EC6039C00CDBAA1 /* SHHomeViewController.m */; };
 		BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B091EC74D6500CDBAA1 /* SHNavigationBar.m */; };
 		BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B0D1EC757C400CDBAA1 /* SHLoginViewController.m */; };
 		BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B171EC75B9D00CDBAA1 /* SHBaseURL.m */; };
@@ -46,6 +54,20 @@
 /* Begin PBXFileReference section */
 		86B5DC480A66F1A9F2BD5501 /* Pods_SmartHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3A3FF952F96FF6B984F8AA /* Pods-SmartHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartHome/Pods-SmartHome.release.xcconfig"; sourceTree = "<group>"; };
+		BD12012D1EDB094B00694B17 /* SHRemoteLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRemoteLockViewController.h; sourceTree = "<group>"; };
+		BD12012E1EDB094B00694B17 /* SHRemoteLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRemoteLockViewController.m; sourceTree = "<group>"; };
+		BD1201301EDB099B00694B17 /* SHNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNavigationItem.h; sourceTree = "<group>"; };
+		BD1201311EDB099B00694B17 /* SHNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNavigationItem.m; sourceTree = "<group>"; };
+		BD1201331EDB1C0300694B17 /* SHBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseView.h; sourceTree = "<group>"; };
+		BD1201341EDB1C0300694B17 /* SHBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseView.m; sourceTree = "<group>"; };
+		BD1201391EDB1CB200694B17 /* SHLockKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockKeyboardViewController.h; sourceTree = "<group>"; };
+		BD12013A1EDB1CB200694B17 /* SHLockKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockKeyboardViewController.m; sourceTree = "<group>"; };
+		BD12013F1EDB2D2800694B17 /* SHSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingsViewController.h; sourceTree = "<group>"; };
+		BD1201401EDB2D2800694B17 /* SHSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingsViewController.m; sourceTree = "<group>"; };
+		BD1201451EDB2F9F00694B17 /* SHSettingsBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingsBaseCell.h; sourceTree = "<group>"; };
+		BD1201461EDB2F9F00694B17 /* SHSettingsBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingsBaseCell.m; sourceTree = "<group>"; };
+		BD1201481EDB313300694B17 /* SHSettingSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingSection.h; sourceTree = "<group>"; };
+		BD1201491EDB313300694B17 /* SHSettingSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingSection.m; sourceTree = "<group>"; };
 		BD97D4971ECCABC8003F0337 /* SHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRootViewController.h; sourceTree = "<group>"; };
 		BD97D4981ECCABC8003F0337 /* SHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRootViewController.m; sourceTree = "<group>"; };
 		BDE559A31EC5F154006A8A6E /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,10 +89,12 @@
 		BDEBC2531ED9977800FA41A7 /* SHChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHChangePasswordViewController.m; sourceTree = "<group>"; };
 		BDEBC2551ED9B7BD00FA41A7 /* SHBindGatewayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBindGatewayViewController.h; sourceTree = "<group>"; };
 		BDEBC2561ED9B7BD00FA41A7 /* SHBindGatewayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBindGatewayViewController.m; sourceTree = "<group>"; };
+		BDEBC2591EDAC8EB00FA41A7 /* SHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHHomeViewController.h; sourceTree = "<group>"; };
+		BDEBC25A1EDAC8EB00FA41A7 /* SHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHHomeViewController.m; sourceTree = "<group>"; };
+		BDEBC25C1EDAC91200FA41A7 /* SHHomeMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHHomeMessageViewController.h; sourceTree = "<group>"; };
+		BDEBC25D1EDAC91200FA41A7 /* SHHomeMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHHomeMessageViewController.m; sourceTree = "<group>"; };
 		BDF32AFF1EC6036F00CDBAA1 /* SHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseViewController.h; sourceTree = "<group>"; };
 		BDF32B001EC6036F00CDBAA1 /* SHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseViewController.m; sourceTree = "<group>"; };
-		BDF32B021EC6039C00CDBAA1 /* SHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHHomeViewController.h; sourceTree = "<group>"; };
-		BDF32B031EC6039C00CDBAA1 /* SHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHHomeViewController.m; sourceTree = "<group>"; };
 		BDF32B061EC607CA00CDBAA1 /* SHMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMacro.h; sourceTree = "<group>"; };
 		BDF32B071EC609B500CDBAA1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BDF32B081EC74D6500CDBAA1 /* SHNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNavigationBar.h; sourceTree = "<group>"; };
@@ -119,6 +143,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD1201291EDB093000694B17 /* RemoteLock */ = {
+			isa = PBXGroup;
+			children = (
+				BD12012A1EDB093000694B17 /* Model */,
+				BD12012B1EDB093000694B17 /* View */,
+				BD12012C1EDB093000694B17 /* ViewController */,
+			);
+			path = RemoteLock;
+			sourceTree = "<group>";
+		};
+		BD12012A1EDB093000694B17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD12012B1EDB093000694B17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD1201451EDB2F9F00694B17 /* SHSettingsBaseCell.h */,
+				BD1201461EDB2F9F00694B17 /* SHSettingsBaseCell.m */,
+				BD1201481EDB313300694B17 /* SHSettingSection.h */,
+				BD1201491EDB313300694B17 /* SHSettingSection.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD12012C1EDB093000694B17 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD12012D1EDB094B00694B17 /* SHRemoteLockViewController.h */,
+				BD12012E1EDB094B00694B17 /* SHRemoteLockViewController.m */,
+				BD1201391EDB1CB200694B17 /* SHLockKeyboardViewController.h */,
+				BD12013A1EDB1CB200694B17 /* SHLockKeyboardViewController.m */,
+				BD12013F1EDB2D2800694B17 /* SHSettingsViewController.h */,
+				BD1201401EDB2D2800694B17 /* SHSettingsViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		BD97D4961ECCABAD003F0337 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +223,7 @@
 		BDE559A51EC5F154006A8A6E /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				BD1201291EDB093000694B17 /* RemoteLock */,
 				BD97D49A1ECCACBA003F0337 /* LeftDrawer */,
 				BD97D4961ECCABAD003F0337 /* Root */,
 				BDF32B221EC8720700CDBAA1 /* Category */,
@@ -188,8 +254,7 @@
 		BDE559BF1EC5F2F7006A8A6E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BDF32B021EC6039C00CDBAA1 /* SHHomeViewController.h */,
-				BDF32B031EC6039C00CDBAA1 /* SHHomeViewController.m */,
+				BDEBC2581EDAC8EB00FA41A7 /* ViewController */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -216,6 +281,17 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		BDEBC2581EDAC8EB00FA41A7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDEBC2591EDAC8EB00FA41A7 /* SHHomeViewController.h */,
+				BDEBC25A1EDAC8EB00FA41A7 /* SHHomeViewController.m */,
+				BDEBC25C1EDAC91200FA41A7 /* SHHomeMessageViewController.h */,
+				BDEBC25D1EDAC91200FA41A7 /* SHHomeMessageViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		BDF32AFE1EC6034300CDBAA1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +303,10 @@
 				BDEBC24A1ED1AB0200FA41A7 /* SHBaseTableViewCell.m */,
 				BDEBC24C1ED1AB1500FA41A7 /* SHBaseTableView.h */,
 				BDEBC24D1ED1AB1500FA41A7 /* SHBaseTableView.m */,
+				BD1201301EDB099B00694B17 /* SHNavigationItem.h */,
+				BD1201311EDB099B00694B17 /* SHNavigationItem.m */,
+				BD1201331EDB1C0300694B17 /* SHBaseView.h */,
+				BD1201341EDB1C0300694B17 /* SHBaseView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -396,20 +476,28 @@
 			files = (
 				BDEBC2541ED9977800FA41A7 /* SHChangePasswordViewController.m in Sources */,
 				BDEBC2571ED9B7BD00FA41A7 /* SHBindGatewayViewController.m in Sources */,
+				BDEBC25B1EDAC8EB00FA41A7 /* SHHomeViewController.m in Sources */,
 				BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */,
+				BDEBC25E1EDAC91200FA41A7 /* SHHomeMessageViewController.m in Sources */,
 				BDF32B1E1EC76FF800CDBAA1 /* SHUserManager.m in Sources */,
-				BDF32B041EC6039C00CDBAA1 /* SHHomeViewController.m in Sources */,
+				BD1201471EDB2F9F00694B17 /* SHSettingsBaseCell.m in Sources */,
 				BDEBC24B1ED1AB0200FA41A7 /* SHBaseTableViewCell.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
+				BD1201351EDB1C0300694B17 /* SHBaseView.m in Sources */,
 				BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */,
 				BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */,
 				BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */,
 				BDEBC2511ED1AB3800FA41A7 /* SHLeftDrawerCell.m in Sources */,
+				BD12013B1EDB1CB200694B17 /* SHLockKeyboardViewController.m in Sources */,
 				BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */,
 				BDEBC2481ED1AAD400FA41A7 /* SHLeftDrawerViewController.m in Sources */,
+				BD1201411EDB2D2800694B17 /* SHSettingsViewController.m in Sources */,
+				BD12012F1EDB094B00694B17 /* SHRemoteLockViewController.m in Sources */,
+				BD12014A1EDB313300694B17 /* SHSettingSection.m in Sources */,
 				BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */,
 				BDF32B281EC8726600CDBAA1 /* UIImage+Color.m in Sources */,
 				BDEBC24E1ED1AB1500FA41A7 /* SHBaseTableView.m in Sources */,
+				BD1201321EDB099B00694B17 /* SHNavigationItem.m in Sources */,
 				BDE559A81EC5F154006A8A6E /* main.m in Sources */,
 				BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */,
 			);

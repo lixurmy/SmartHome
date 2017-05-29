@@ -8,6 +8,8 @@
 
 #import "SHBaseViewController.h"
 
+extern CGFloat const kSHLeftDrawerAnimationDuration;
+
 @interface SHRootViewController : SHBaseViewController
 
 @end

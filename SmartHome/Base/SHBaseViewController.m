@@ -66,6 +66,10 @@
     return NO;
 }
 
+- (BOOL)autoGenerateBackItem {
+    return YES;
+}
+
 - (void)dismiss {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -74,9 +78,32 @@
     SHNavigationBar *navigationBar = [[SHNavigationBar alloc] init];
     [navigationBar setBackgroundImage:[UIImage imageWithColor:NavigationBarColor]
                         forBarMetrics:UIBarMetricsDefault];
-    NSDictionary *attributed = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    NSDictionary *attributed = @{NSForegroundColorAttributeName : [UIColor whiteColor],
+                                 NSFontAttributeName : PingFangSCRegular(20)};
     [navigationBar setTitleTextAttributes:attributed];
+    [navigationBar setItems:@[self.shNavigationItem]];
     return navigationBar;
+}
+
+- (UIBarButtonItem *)createBackBarItem {
+    UIButton *button  = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setBackgroundImage:[UIImage imageNamed:@"base_back_bar_icon"] forState:UIControlStateNormal];
+    [button sizeToFit];
+    [button addTarget:self
+               action:@selector(dismiss)
+     forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    return backItem;
+}
+
+- (SHNavigationItem *)shNavigationItem {
+    if (!_shNavigationItem) {
+        _shNavigationItem = [[SHNavigationItem alloc] initWithTitle:self.title];
+        if ([self autoGenerateBackItem]) {
+            _shNavigationItem.leftBarButtonItem = [self createBackBarItem];
+        }
+    }
+    return _shNavigationItem;
 }
 
 #pragma mark - Get
