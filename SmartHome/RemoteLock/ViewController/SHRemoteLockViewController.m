@@ -7,6 +7,7 @@
 //
 
 #import "SHRemoteLockViewController.h"
+#import "SHShowVideoViewController.h"
 #import "SHLockKeyboardViewController.h"
 #import "SHSettingsViewController.h"
 #import "SHRemoteLockManager.h"
@@ -14,8 +15,10 @@
 @interface SHRemoteLockViewController () <SHLockKeyboardDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) SHLockKeyboardViewController *lockKeyboardVC;
+@property (nonatomic, strong) SHShowVideoViewController *showVideoVC;
 @property (nonatomic, strong) UITextField *inputPasswordLabel;
 @property (nonatomic, strong) UIButton *settingButton;
+@property (nonatomic, strong) UIButton *videoButton;
 @property (nonatomic, strong) NSString *inputString;
 @property (nonatomic, strong) UILabel *hintLabel;
 
@@ -27,6 +30,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view addSubview:self.videoButton];
+    [self.videoButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.view).offset(200);
+        make.size.mas_equalTo(CGSizeMake(100, 50));
+    }];
     [self addChildViewController:self.lockKeyboardVC];
     [self.view addSubview:self.lockKeyboardVC.view];
     [self.lockKeyboardVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -55,6 +64,17 @@
 - (void)openSetting {
     SHSettingsViewController *settingsVC = [[SHSettingsViewController alloc] init];
     [self.navigationController pushViewController:settingsVC animated:YES];
+}
+
+- (void)showVideo {
+    [self addChildViewController:self.showVideoVC];
+    [self.view addSubview:self.showVideoVC.view];
+    [self.showVideoVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(60 + self.shNavigationBarHeight);
+        make.left.equalTo(self.view).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@((kScreenWidth - 40)/16 * 9));
+    }];
 }
 
 - (void)unlock {
@@ -108,6 +128,12 @@
 
 
 #pragma mark - Get
+- (SHShowVideoViewController *)showVideoVC {
+    if (!_showVideoVC) {
+        _showVideoVC = [[SHShowVideoViewController alloc] init];
+    }
+    return _showVideoVC;
+}
 - (SHLockKeyboardViewController *)lockKeyboardVC {
     if (!_lockKeyboardVC) {
         _lockKeyboardVC = [[SHLockKeyboardViewController alloc] init];
@@ -127,6 +153,22 @@
                  forControlEvents:UIControlEventTouchUpInside];
     }
     return _settingButton;
+}
+
+- (UIButton *)videoButton {
+    if (!_videoButton) {
+        _videoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_videoButton setTitle:@"查看猫眼" forState:UIControlStateNormal];
+        [_videoButton setTitleColor:RGBCOLOR(11, 11, 11) forState:UIControlStateNormal];
+        [_videoButton.titleLabel setFont:PingFangSCRegular(20)];
+        [_videoButton.layer setCornerRadius:10.0];
+        [_videoButton.layer setBorderWidth:1.0];
+        [_videoButton.layer setBorderColor:RGBCOLOR(11, 11, 11).CGColor];
+        [_videoButton addTarget:self
+                         action:@selector(showVideo)
+               forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _videoButton;
 }
 
 - (UITextField *)inputPasswordLabel {

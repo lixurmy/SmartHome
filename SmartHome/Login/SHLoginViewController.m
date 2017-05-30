@@ -40,7 +40,7 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
     [super viewDidLoad];
     [self setupFields];
     [self setupButtons];
-    [self.view setBackgroundColor:RGBCOLOR(0, 0, 255)];
+    [self.view setBackgroundColor:NavigationBarColor];
 }
 
 - (void)setupFields {

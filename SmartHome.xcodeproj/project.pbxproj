@@ -21,6 +21,7 @@
 		BD12015B1EDD548900694B17 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201581EDD548900694B17 /* FDAlertView.m */; };
 		BD12015E1EDD646200694B17 /* SHSetLockPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */; };
 		BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */; };
+		BD1201641EDD9E7800694B17 /* SHShowVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */; };
 		BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D4981ECCABC8003F0337 /* SHRootViewController.m */; };
 		BDE559A81EC5F154006A8A6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559A71EC5F154006A8A6E /* main.m */; };
 		BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559AA1EC5F154006A8A6E /* AppDelegate.m */; };
@@ -86,6 +87,8 @@
 		BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSetLockPasswordViewController.m; sourceTree = "<group>"; };
 		BD12015F1EDD647600694B17 /* SHSetOfflinePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSetOfflinePasswordViewController.h; sourceTree = "<group>"; };
 		BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSetOfflinePasswordViewController.m; sourceTree = "<group>"; };
+		BD1201621EDD9E7800694B17 /* SHShowVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHShowVideoViewController.h; sourceTree = "<group>"; };
+		BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHShowVideoViewController.m; sourceTree = "<group>"; };
 		BD97D4971ECCABC8003F0337 /* SHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRootViewController.h; sourceTree = "<group>"; };
 		BD97D4981ECCABC8003F0337 /* SHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRootViewController.m; sourceTree = "<group>"; };
 		BDE559A31EC5F154006A8A6E /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +206,8 @@
 				BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */,
 				BD12015F1EDD647600694B17 /* SHSetOfflinePasswordViewController.h */,
 				BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */,
+				BD1201621EDD9E7800694B17 /* SHShowVideoViewController.h */,
+				BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				BD12015E1EDD646200694B17 /* SHSetLockPasswordViewController.m in Sources */,
 				BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
+				BD1201641EDD9E7800694B17 /* SHShowVideoViewController.m in Sources */,
 				BD1201351EDB1C0300694B17 /* SHBaseView.m in Sources */,
 				BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */,
 				BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */,
