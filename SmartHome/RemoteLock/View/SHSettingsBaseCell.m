@@ -46,6 +46,15 @@
             make.right.equalTo(self.contentView).offset(-20);
             make.size.mas_equalTo(CGSizeMake(14, 14));
         }];
+        UIView *bottomLine = [[UIView alloc] init];
+        [bottomLine setBackgroundColor:RGBCOLOR(11, 11, 11)];
+        [self.contentView addSubview:bottomLine];
+        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(20);
+            make.right.equalTo(self.contentView);
+            make.height.equalTo(@(px));
+            make.bottom.equalTo(self.contentView);
+        }];
     }
     return self;
 }
@@ -58,6 +67,19 @@
 - (void)setDesc:(NSString *)desc {
     _desc = [desc copy];
     [self.descLabel setText:_desc];
+    if (!_desc || !_desc.length) {
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(20);
+            make.centerY.equalTo(self.contentView);
+            make.height.equalTo(@20);
+        }];
+    } else {
+        [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(20);
+            make.top.equalTo(self.contentView).offset(10);
+            make.height.equalTo(@20);
+        }];
+    }
 }
 
 - (void)setChecked:(BOOL)checked {

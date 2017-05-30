@@ -24,4 +24,8 @@ static SHBaseURL * _instance;
     return @"http://13.112.216.206:8088";
 }
 
+- (NSString *)lockUrl {
+    return @"http://13.112.216.206:8083";
+}
+
 @end

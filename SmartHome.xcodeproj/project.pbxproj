@@ -15,6 +15,12 @@
 		BD1201411EDB2D2800694B17 /* SHSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201401EDB2D2800694B17 /* SHSettingsViewController.m */; };
 		BD1201471EDB2F9F00694B17 /* SHSettingsBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201461EDB2F9F00694B17 /* SHSettingsBaseCell.m */; };
 		BD12014A1EDB313300694B17 /* SHSettingSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201491EDB313300694B17 /* SHSettingSection.m */; };
+		BD12014E1EDD29B300694B17 /* SHRemoteLockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD12014D1EDD29B300694B17 /* SHRemoteLockManager.m */; };
+		BD1201591EDD548900694B17 /* MXSCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201531EDD548900694B17 /* MXSCycleScrollView.m */; };
+		BD12015A1EDD548900694B17 /* RBCustomDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201551EDD548900694B17 /* RBCustomDatePickerView.m */; };
+		BD12015B1EDD548900694B17 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201581EDD548900694B17 /* FDAlertView.m */; };
+		BD12015E1EDD646200694B17 /* SHSetLockPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */; };
+		BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */; };
 		BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D4981ECCABC8003F0337 /* SHRootViewController.m */; };
 		BDE559A81EC5F154006A8A6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559A71EC5F154006A8A6E /* main.m */; };
 		BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559AA1EC5F154006A8A6E /* AppDelegate.m */; };
@@ -68,6 +74,18 @@
 		BD1201461EDB2F9F00694B17 /* SHSettingsBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingsBaseCell.m; sourceTree = "<group>"; };
 		BD1201481EDB313300694B17 /* SHSettingSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingSection.h; sourceTree = "<group>"; };
 		BD1201491EDB313300694B17 /* SHSettingSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingSection.m; sourceTree = "<group>"; };
+		BD12014C1EDD29B300694B17 /* SHRemoteLockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRemoteLockManager.h; sourceTree = "<group>"; };
+		BD12014D1EDD29B300694B17 /* SHRemoteLockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRemoteLockManager.m; sourceTree = "<group>"; };
+		BD1201521EDD548900694B17 /* MXSCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXSCycleScrollView.h; sourceTree = "<group>"; };
+		BD1201531EDD548900694B17 /* MXSCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXSCycleScrollView.m; sourceTree = "<group>"; };
+		BD1201541EDD548900694B17 /* RBCustomDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCustomDatePickerView.h; sourceTree = "<group>"; };
+		BD1201551EDD548900694B17 /* RBCustomDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCustomDatePickerView.m; sourceTree = "<group>"; };
+		BD1201571EDD548900694B17 /* FDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAlertView.h; sourceTree = "<group>"; };
+		BD1201581EDD548900694B17 /* FDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAlertView.m; sourceTree = "<group>"; };
+		BD12015C1EDD646200694B17 /* SHSetLockPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSetLockPasswordViewController.h; sourceTree = "<group>"; };
+		BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSetLockPasswordViewController.m; sourceTree = "<group>"; };
+		BD12015F1EDD647600694B17 /* SHSetOfflinePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSetOfflinePasswordViewController.h; sourceTree = "<group>"; };
+		BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSetOfflinePasswordViewController.m; sourceTree = "<group>"; };
 		BD97D4971ECCABC8003F0337 /* SHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRootViewController.h; sourceTree = "<group>"; };
 		BD97D4981ECCABC8003F0337 /* SHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRootViewController.m; sourceTree = "<group>"; };
 		BDE559A31EC5F154006A8A6E /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +164,7 @@
 		BD1201291EDB093000694B17 /* RemoteLock */ = {
 			isa = PBXGroup;
 			children = (
+				BD12014B1EDD299600694B17 /* Manager */,
 				BD12012A1EDB093000694B17 /* Model */,
 				BD12012B1EDB093000694B17 /* View */,
 				BD12012C1EDB093000694B17 /* ViewController */,
@@ -180,8 +199,58 @@
 				BD12013A1EDB1CB200694B17 /* SHLockKeyboardViewController.m */,
 				BD12013F1EDB2D2800694B17 /* SHSettingsViewController.h */,
 				BD1201401EDB2D2800694B17 /* SHSettingsViewController.m */,
+				BD12015C1EDD646200694B17 /* SHSetLockPasswordViewController.h */,
+				BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */,
+				BD12015F1EDD647600694B17 /* SHSetOfflinePasswordViewController.h */,
+				BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BD12014B1EDD299600694B17 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BD12014C1EDD29B300694B17 /* SHRemoteLockManager.h */,
+				BD12014D1EDD29B300694B17 /* SHRemoteLockManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		BD12014F1EDD548900694B17 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				BD1201501EDD548900694B17 /* JGDateTime */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		BD1201501EDD548900694B17 /* JGDateTime */ = {
+			isa = PBXGroup;
+			children = (
+				BD1201511EDD548900694B17 /* CycleScollview */,
+				BD1201561EDD548900694B17 /* FDAlertView */,
+			);
+			path = JGDateTime;
+			sourceTree = "<group>";
+		};
+		BD1201511EDD548900694B17 /* CycleScollview */ = {
+			isa = PBXGroup;
+			children = (
+				BD1201521EDD548900694B17 /* MXSCycleScrollView.h */,
+				BD1201531EDD548900694B17 /* MXSCycleScrollView.m */,
+				BD1201541EDD548900694B17 /* RBCustomDatePickerView.h */,
+				BD1201551EDD548900694B17 /* RBCustomDatePickerView.m */,
+			);
+			path = CycleScollview;
+			sourceTree = "<group>";
+		};
+		BD1201561EDD548900694B17 /* FDAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				BD1201571EDD548900694B17 /* FDAlertView.h */,
+				BD1201581EDD548900694B17 /* FDAlertView.m */,
+			);
+			path = FDAlertView;
 			sourceTree = "<group>";
 		};
 		BD97D4961ECCABAD003F0337 /* Root */ = {
@@ -223,6 +292,7 @@
 		BDE559A51EC5F154006A8A6E /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				BD12014F1EDD548900694B17 /* ThirdParty */,
 				BD1201291EDB093000694B17 /* RemoteLock */,
 				BD97D49A1ECCACBA003F0337 /* LeftDrawer */,
 				BD97D4961ECCABAD003F0337 /* Root */,
@@ -482,6 +552,10 @@
 				BDF32B1E1EC76FF800CDBAA1 /* SHUserManager.m in Sources */,
 				BD1201471EDB2F9F00694B17 /* SHSettingsBaseCell.m in Sources */,
 				BDEBC24B1ED1AB0200FA41A7 /* SHBaseTableViewCell.m in Sources */,
+				BD12015A1EDD548900694B17 /* RBCustomDatePickerView.m in Sources */,
+				BD12014E1EDD29B300694B17 /* SHRemoteLockManager.m in Sources */,
+				BD12015E1EDD646200694B17 /* SHSetLockPasswordViewController.m in Sources */,
+				BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
 				BD1201351EDB1C0300694B17 /* SHBaseView.m in Sources */,
 				BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */,
@@ -490,8 +564,10 @@
 				BDEBC2511ED1AB3800FA41A7 /* SHLeftDrawerCell.m in Sources */,
 				BD12013B1EDB1CB200694B17 /* SHLockKeyboardViewController.m in Sources */,
 				BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */,
+				BD1201591EDD548900694B17 /* MXSCycleScrollView.m in Sources */,
 				BDEBC2481ED1AAD400FA41A7 /* SHLeftDrawerViewController.m in Sources */,
 				BD1201411EDB2D2800694B17 /* SHSettingsViewController.m in Sources */,
+				BD12015B1EDD548900694B17 /* FDAlertView.m in Sources */,
 				BD12012F1EDB094B00694B17 /* SHRemoteLockViewController.m in Sources */,
 				BD12014A1EDB313300694B17 /* SHSettingSection.m in Sources */,
 				BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */,

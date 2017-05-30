@@ -132,11 +132,11 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
     }];
     [self.registerAccountButton setTitle:@"注册账号" forState:UIControlStateNormal];
     [self.registerAccountButton setTitleColor:RGBCOLOR(255, 255, 255) forState:UIControlStateNormal];
-    [self.registerButton.titleLabel setFont:PingFangSCRegular(20)];
+    [self.registerAccountButton.titleLabel setFont:PingFangSCRegular(20)];
     [self.view addSubview:self.registerAccountButton];
     [self.registerAccountButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view).offset(-100);
-        make.top.equalTo(self.forgetPasswordButton);
+        make.centerY.equalTo(self.forgetPasswordButton);
     }];
     [self.registerAccountButton addTarget:self
                             action:@selector(registerAccountButtonAction)

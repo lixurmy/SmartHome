@@ -11,7 +11,7 @@
 @interface SHBaseURL : NSObject
 
 + (instancetype)sharedInstance;
-
 - (NSString *)baseUrl;
+- (NSString *)lockUrl;
 
 @end

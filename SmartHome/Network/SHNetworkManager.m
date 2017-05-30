@@ -9,17 +9,27 @@
 #import "SHNetworkManager.h"
 #import "SHBaseURL.h"
 
-static SHNetworkManager * _baseManager;
 
 @implementation SHNetworkManager
 
 + (instancetype)baseManager {
+    static SHNetworkManager * _baseManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSURL *baseUrl = [NSURL URLWithString:[SHBaseURL sharedInstance].baseUrl];
         _baseManager = [[super alloc] initWithBaseURL:baseUrl];
     });
     return _baseManager;
+}
+
++ (instancetype)lockManager {
+    static SHNetworkManager * _lockManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSURL *lockUrl = [NSURL URLWithString:[SHBaseURL sharedInstance].lockUrl];
+        _lockManager = [[super alloc] initWithBaseURL:lockUrl];
+    });
+    return _lockManager;
 }
 
 - (nullable NSURLSessionDataTask *)GET:(NSString *)URLString parameters:(id)parameters progress:(void (^)(NSProgress * _Nonnull))downloadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure {
