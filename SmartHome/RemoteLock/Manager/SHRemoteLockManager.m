@@ -57,10 +57,13 @@ static SHRemoteLockManager * _instance;
         }
         return;
     }
+    SHLog(@"%@", startTime);
+    NSString *formatStartTime = [self formatTimeString:startTime];
+    NSString *formatEndTime =[self formatTimeString:endTime];
     NSDictionary *parameters = @{@"phone"       : phone ?: @"",
                                  @"gwid"   : gatewayId ?: @"",
-                                 @"startTime"   : startTime ?: @"",
-                                 @"endTime"     : endTime ?: @""};
+                                 @"startTime"   : formatStartTime ?: @"",
+                                 @"endTime"     : formatEndTime ?: @""};
     @weakify(self);
     [[SHNetworkManager lockManager] POST:@"cgi-bin/lock/ygs/binding.cgi" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         SHLog(@"%@", uploadProgress);
@@ -183,11 +186,13 @@ static SHRemoteLockManager * _instance;
         }
         return;
     }
+    NSString *formatStartTime = [self formatTimeString:startTime];
+    NSString *formatEndTime = [self formatTimeString:endTime];
     NSDictionary *parameters = @{@"phone"       : phone ?: @"",
                                  @"gwid"   : gatewayId ?: @"",
                                  @"password"    : password ?: @"",
-                                 @"startTime"   : startTime ?: @"",
-                                 @"endTime"     : endTime ?: @"",
+                                 @"startTime"   : formatStartTime ?: @"",
+                                 @"endTime"     : formatEndTime ?: @"",
                                  @"times"       : @(usableTime)};
     [[SHNetworkManager lockManager] POST:@"cgi-bin/lock/ygs/setpasswd.cgi" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         SHLog(@"%@", uploadProgress);
@@ -214,6 +219,28 @@ static SHRemoteLockManager * _instance;
 
 - (void)updateLockPassword:(NSString *)password {
     self.lockPassword = password;
+}
+
+- (NSString *)formatTimeString:(NSString *)timeString {
+    if (!timeString || !timeString.length) {
+        return timeString;
+    }
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@":- "];
+    NSArray *array = [timeString componentsSeparatedByCharactersInSet:set];
+    NSString *string = array[0];
+    for (int i = 1; i < array.count; ++i) {
+        if (i == 1) {
+            NSString *month = array[i];
+            if (month.length < 2) {
+                month = [NSString stringWithFormat:@"0%@", month];
+            }
+            string = [string stringByAppendingString:month];
+        } else {
+            string = [string stringByAppendingString:array[i]];
+        }
+    }
+    string = [string stringByAppendingString:@"00"];
+    return string;
 }
 
 #pragma mark - Set
