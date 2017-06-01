@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
+  - OpenSSL (1.0.210)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Masonry
   - MBProgressHUD
+  - OpenSSL
   - ReactiveCocoa (~> 2.0)
   - Reveal-iOS-SDK
 
@@ -36,9 +38,10 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  OpenSSL: 246ffb948e9d56466727fd318134af35f5aa764e
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
 
-PODFILE CHECKSUM: da7b0eddda6266430843def36011de0d97f39885
+PODFILE CHECKSUM: 6fcdd26ab52cf07be1dd98bd7cdd6994604d7725
 
 COCOAPODS: 1.0.1

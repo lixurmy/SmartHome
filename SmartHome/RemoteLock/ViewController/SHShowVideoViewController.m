@@ -7,8 +7,12 @@
 //
 
 #import "SHShowVideoViewController.h"
+#import <IJKMediaFramework/IJKMediaFramework.h>
 
 @interface SHShowVideoViewController ()
+
+@property (nonatomic, copy) NSString *urlString;
+@property (nonatomic, strong) IJKFFMoviePlayerController *player;
 
 @end
 
@@ -18,21 +22,36 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:RGBCOLOR(11, 11, 11)];
+    [self setupPlayer];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupPlayer {
+    NSURL * url =[NSURL URLWithString:@"http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8"];
+    self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:nil];
+    [self.view addSubview:self.player.view];
+    [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if(self.player && ![self.player isPlaying]) {
+        [self.player prepareToPlay];
+    }
 }
-*/
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.player && ![self.player isPlaying]) {
+        [self.player play];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.player pause];
+}
+
 
 @end

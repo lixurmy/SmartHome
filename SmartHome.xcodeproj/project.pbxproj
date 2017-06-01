@@ -23,6 +23,7 @@
 		BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */; };
 		BD1201641EDD9E7800694B17 /* SHShowVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */; };
 		BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D4981ECCABC8003F0337 /* SHRootViewController.m */; };
+		BDB10BFA1EE0768F0097877B /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB10BF91EE0768F0097877B /* IJKMediaFramework.framework */; };
 		BDE559A81EC5F154006A8A6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559A71EC5F154006A8A6E /* main.m */; };
 		BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559AA1EC5F154006A8A6E /* AppDelegate.m */; };
 		BDE559B31EC5F154006A8A6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDE559B21EC5F154006A8A6E /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHShowVideoViewController.m; sourceTree = "<group>"; };
 		BD97D4971ECCABC8003F0337 /* SHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRootViewController.h; sourceTree = "<group>"; };
 		BD97D4981ECCABC8003F0337 /* SHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRootViewController.m; sourceTree = "<group>"; };
+		BDB10BF91EE0768F0097877B /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		BDE559A31EC5F154006A8A6E /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE559A71EC5F154006A8A6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDE559A91EC5F154006A8A6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB10BFA1EE0768F0097877B /* IJKMediaFramework.framework in Frameworks */,
 				8EAE134948C3C34098439CCD /* Pods_SmartHome.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +227,7 @@
 		BD12014F1EDD548900694B17 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BDB10BF81EE0768F0097877B /* IJKMediaPlayer */,
 				BD1201501EDD548900694B17 /* JGDateTime */,
 			);
 			path = ThirdParty;
@@ -274,6 +278,14 @@
 				BDEBC2451ED1AAD400FA41A7 /* ViewController */,
 			);
 			path = LeftDrawer;
+			sourceTree = "<group>";
+		};
+		BDB10BF81EE0768F0097877B /* IJKMediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				BDB10BF91EE0768F0097877B /* IJKMediaFramework.framework */,
+			);
+			path = IJKMediaPlayer;
 			sourceTree = "<group>";
 		};
 		BDE5599A1EC5F154006A8A6E = {
@@ -694,8 +706,18 @@
 			baseConfigurationReference = BE365101791D3B7B4619F1FB /* Pods-SmartHome.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SmartHome/ThirdParty/IJKMediaPlayer",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SmartHome/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL\"",
+					"\"${PODS_ROOT}/Headers/Public/Reveal-iOS-SDK\"",
+					"$(PROJECT_DIR)/SmartHome/ThirdParty/IJKMediaPlayer",
+				);
 				INFOPLIST_FILE = SmartHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SmartHome.SmartHome;
@@ -708,8 +730,18 @@
 			baseConfigurationReference = 9E3A3FF952F96FF6B984F8AA /* Pods-SmartHome.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SmartHome/ThirdParty/IJKMediaPlayer",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SmartHome/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL\"",
+					"\"${PODS_ROOT}/Headers/Public/Reveal-iOS-SDK\"",
+					"$(PROJECT_DIR)/SmartHome/ThirdParty/IJKMediaPlayer",
+				);
 				INFOPLIST_FILE = SmartHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SmartHome.SmartHome;

@@ -7,5 +7,6 @@ target 'SmartHome' do
   pod 'ReactiveCocoa', '~> 2.0'
   pod 'MBProgressHUD'
   pod 'Reveal-iOS-SDK'
+  pod 'OpenSSL'
 end
 

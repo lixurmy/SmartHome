@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UITextField *inputPasswordLabel;
 @property (nonatomic, strong) UIButton *settingButton;
 @property (nonatomic, strong) UIButton *videoButton;
+@property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) NSString *inputString;
 @property (nonatomic, strong) UILabel *hintLabel;
 
@@ -74,6 +75,11 @@
         make.left.equalTo(self.view).offset(20);
         make.right.equalTo(self.view).offset(-20);
         make.height.equalTo(@((kScreenWidth - 40)/16 * 9));
+    }];
+    [self.view addSubview:self.closeButton];
+    [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(self.showVideoVC.view);
+        make.size.mas_equalTo(CGSizeMake(50, 50));
     }];
 }
 
@@ -169,6 +175,22 @@
                forControlEvents:UIControlEventTouchUpInside];
     }
     return _videoButton;
+}
+
+- (UIButton *)closeButton {
+    if (!_closeButton) {
+        _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_closeButton setTitle:@"关闭" forState:UIControlStateNormal];
+        @weakify(self);
+        [[_closeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            @strongify(self);
+            [self.showVideoVC removeFromParentViewController];
+            [self.showVideoVC.view removeFromSuperview];
+            self.showVideoVC = nil;
+            [self.closeButton removeFromSuperview];
+        }];
+    }
+    return _closeButton;
 }
 
 - (UITextField *)inputPasswordLabel {
