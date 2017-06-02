@@ -11,7 +11,11 @@
 @interface SHBaseURL : NSObject
 
 + (instancetype)sharedInstance;
+
 - (NSString *)baseUrl;
+
 - (NSString *)lockUrl;
+
+- (NSString *)waterUrl;
 
 @end

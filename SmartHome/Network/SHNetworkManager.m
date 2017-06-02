@@ -32,6 +32,17 @@
     return _lockManager;
 }
 
++ (instancetype)waterManager {
+    static SHNetworkManager * _waterManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSURL *waterUrl = [NSURL URLWithString:[SHBaseURL sharedInstance].waterUrl];
+        _waterManager = [[super alloc] initWithBaseURL:waterUrl];
+        [_waterManager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"image/jpeg", nil]];
+    });
+    return _waterManager;
+}
+
 - (nullable NSURLSessionDataTask *)GET:(NSString *)URLString parameters:(id)parameters progress:(void (^)(NSProgress * _Nonnull))downloadProgress success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure {
     NSString *urlString = [NSString stringWithFormat:@"%@/%@", self.baseURL.absoluteString, URLString];
     return [super GET:urlString parameters:parameters progress:downloadProgress success:success failure:failure];

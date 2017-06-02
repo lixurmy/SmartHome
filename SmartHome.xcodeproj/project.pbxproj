@@ -22,6 +22,9 @@
 		BD12015E1EDD646200694B17 /* SHSetLockPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */; };
 		BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */; };
 		BD1201641EDD9E7800694B17 /* SHShowVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */; };
+		BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */; };
+		BD876CEA1EE1C5A6009CE37B /* SHWaterReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE91EE1C5A6009CE37B /* SHWaterReaderManager.m */; };
+		BD876CEE1EE1CDF2009CE37B /* SHWaterReaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CED1EE1CDF2009CE37B /* SHWaterReaderModel.m */; };
 		BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D4981ECCABC8003F0337 /* SHRootViewController.m */; };
 		BDB10BFA1EE0768F0097877B /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB10BF91EE0768F0097877B /* IJKMediaFramework.framework */; };
 		BDE559A81EC5F154006A8A6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559A71EC5F154006A8A6E /* main.m */; };
@@ -90,6 +93,12 @@
 		BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSetOfflinePasswordViewController.m; sourceTree = "<group>"; };
 		BD1201621EDD9E7800694B17 /* SHShowVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHShowVideoViewController.h; sourceTree = "<group>"; };
 		BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHShowVideoViewController.m; sourceTree = "<group>"; };
+		BD876CE41EE1C2B9009CE37B /* SHWaterReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderViewController.h; sourceTree = "<group>"; };
+		BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWaterReaderViewController.m; sourceTree = "<group>"; };
+		BD876CE81EE1C5A6009CE37B /* SHWaterReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderManager.h; sourceTree = "<group>"; };
+		BD876CE91EE1C5A6009CE37B /* SHWaterReaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWaterReaderManager.m; sourceTree = "<group>"; };
+		BD876CEC1EE1CDF2009CE37B /* SHWaterReaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderModel.h; sourceTree = "<group>"; };
+		BD876CED1EE1CDF2009CE37B /* SHWaterReaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWaterReaderModel.m; sourceTree = "<group>"; };
 		BD97D4971ECCABC8003F0337 /* SHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRootViewController.h; sourceTree = "<group>"; };
 		BD97D4981ECCABC8003F0337 /* SHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRootViewController.m; sourceTree = "<group>"; };
 		BDB10BF91EE0768F0097877B /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
@@ -262,6 +271,43 @@
 			path = FDAlertView;
 			sourceTree = "<group>";
 		};
+		BD876CE21EE1C2A9009CE37B /* WaterReader */ = {
+			isa = PBXGroup;
+			children = (
+				BD876CEB1EE1CCBE009CE37B /* Model */,
+				BD876CE71EE1C593009CE37B /* Manager */,
+				BD876CE31EE1C2A9009CE37B /* ViewController */,
+			);
+			path = WaterReader;
+			sourceTree = "<group>";
+		};
+		BD876CE31EE1C2A9009CE37B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD876CE41EE1C2B9009CE37B /* SHWaterReaderViewController.h */,
+				BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BD876CE71EE1C593009CE37B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BD876CE81EE1C5A6009CE37B /* SHWaterReaderManager.h */,
+				BD876CE91EE1C5A6009CE37B /* SHWaterReaderManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		BD876CEB1EE1CCBE009CE37B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD876CEC1EE1CDF2009CE37B /* SHWaterReaderModel.h */,
+				BD876CED1EE1CDF2009CE37B /* SHWaterReaderModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BD97D4961ECCABAD003F0337 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +355,7 @@
 		BDE559A51EC5F154006A8A6E /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				BD876CE21EE1C2A9009CE37B /* WaterReader */,
 				BD12014F1EDD548900694B17 /* ThirdParty */,
 				BD1201291EDB093000694B17 /* RemoteLock */,
 				BD97D49A1ECCACBA003F0337 /* LeftDrawer */,
@@ -573,13 +620,16 @@
 				BD12014E1EDD29B300694B17 /* SHRemoteLockManager.m in Sources */,
 				BD12015E1EDD646200694B17 /* SHSetLockPasswordViewController.m in Sources */,
 				BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */,
+				BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
 				BD1201641EDD9E7800694B17 /* SHShowVideoViewController.m in Sources */,
 				BD1201351EDB1C0300694B17 /* SHBaseView.m in Sources */,
 				BDF32B0E1EC757C400CDBAA1 /* SHLoginViewController.m in Sources */,
 				BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */,
+				BD876CEA1EE1C5A6009CE37B /* SHWaterReaderManager.m in Sources */,
 				BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */,
 				BDEBC2511ED1AB3800FA41A7 /* SHLeftDrawerCell.m in Sources */,
+				BD876CEE1EE1CDF2009CE37B /* SHWaterReaderModel.m in Sources */,
 				BD12013B1EDB1CB200694B17 /* SHLockKeyboardViewController.m in Sources */,
 				BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */,
 				BD1201591EDD548900694B17 /* MXSCycleScrollView.m in Sources */,

@@ -11,11 +11,13 @@
 #import "SHRootViewController.h"
 #import "SHHomeMessageViewController.h"
 #import "SHRemoteLockViewController.h"
+#import "SHWaterReaderViewController.h"
 
 @interface SHHomeViewController ()
 
 @property (nonatomic, strong) SHHomeMessageViewController *messageVC;
 @property (nonatomic, strong) UIButton *remoteLockButton;
+@property (nonatomic, strong) UIButton *waterReadButton;
 
 @end
 
@@ -52,12 +54,19 @@
     [self.maskView setHidden:YES];
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideMaskView)];
     [self.maskView addGestureRecognizer:tapGestureRecognizer];
-    
+    CGFloat wSpace = (kScreenWidth - 200 * kScreenScale) / 3;
+    CGSize size = CGSizeMake(100 * kScreenScale, 50 * kScreenScale);
     [self.view addSubview:self.remoteLockButton];
     [self.remoteLockButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.top.equalTo(self.messageVC.view.mas_bottom).offset(60);
-        make.size.mas_equalTo(CGSizeMake(100, 50));
+        make.left.equalTo(self.view).offset(wSpace);
+        make.top.equalTo(self.messageVC.view.mas_bottom).offset(60 * kScreenScale);
+        make.size.mas_equalTo(size);
+    }];
+    [self.view addSubview:self.waterReadButton];
+    [self.waterReadButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.remoteLockButton.mas_right).offset(wSpace);
+        make.top.equalTo(self.remoteLockButton);
+        make.size.mas_equalTo(size);
     }];
 }
 
@@ -86,6 +95,11 @@
 - (void)openRemoteLock {
     SHRemoteLockViewController *remoteLockVC = [[SHRemoteLockViewController alloc] init];
     [self.navigationController pushViewController:remoteLockVC animated:YES];
+}
+
+- (void)openWaterReader {
+    SHWaterReaderViewController *waterReaderVC = [[SHWaterReaderViewController alloc] init];
+    [self.navigationController pushViewController:waterReaderVC animated:YES];
 }
 
 #pragma mark - GET
@@ -118,6 +132,22 @@
                     forControlEvents:UIControlEventTouchUpInside];
     }
     return _remoteLockButton;
+}
+
+- (UIButton *)waterReadButton {
+    if (!_waterReadButton) {
+        _waterReadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_waterReadButton setTitle:@"远程抄表" forState:UIControlStateNormal];
+        [_waterReadButton setTitleColor:RGBCOLOR(11, 11, 11) forState:UIControlStateNormal];
+        [_waterReadButton.titleLabel setFont:PingFangSCRegular(20)];
+        [_waterReadButton.layer setCornerRadius:5.0];
+        [_waterReadButton.layer setBorderWidth:px];
+        [_waterReadButton.layer setBorderColor:RGBCOLOR(11, 11, 11).CGColor];
+        [_waterReadButton addTarget:self
+                             action:@selector(openWaterReader)
+                   forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _waterReadButton;
 }
 
 #pragma mark - VC Relative

@@ -28,4 +28,8 @@ static SHBaseURL * _instance;
     return @"http://13.112.216.206:8083";
 }
 
+- (NSString *)waterUrl {
+    return @"http://13.112.216.206:8083";
+}
+
 @end

@@ -11,6 +11,9 @@
 @interface SHNetworkManager : AFHTTPSessionManager
 
 + (instancetype)baseManager;
+
 + (instancetype)lockManager;
+
++ (instancetype)waterManager;
 
 @end
