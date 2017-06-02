@@ -228,18 +228,24 @@ static SHRemoteLockManager * _instance;
     NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@":- "];
     NSArray *array = [timeString componentsSeparatedByCharactersInSet:set];
     NSString *string = array[0];
-    for (int i = 1; i < array.count; ++i) {
+    for (int i = 1; i < array.count - 2; ++i) {
         if (i == 1) {
             NSString *month = array[i];
             if (month.length < 2) {
                 month = [NSString stringWithFormat:@"0%@", month];
             }
             string = [string stringByAppendingString:month];
+        } else if (i == 2) {
+            NSString *day = array[i];
+            if (day.length < 2) {
+                day = [NSString stringWithFormat:@"0%@", day];
+            }
+            string = [string stringByAppendingString:day];
         } else {
             string = [string stringByAppendingString:array[i]];
         }
     }
-    string = [string stringByAppendingString:@"00"];
+//    string = [string stringByAppendingString:@"00"];
     return string;
 }
 

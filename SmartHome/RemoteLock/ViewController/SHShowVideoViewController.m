@@ -26,7 +26,7 @@
 }
 
 - (void)setupPlayer {
-    NSURL * url =[NSURL URLWithString:@"http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8"];
+    NSURL * url =[NSURL URLWithString:@"rtsp://13.112.216.206:10554/55201.dsp"];
     self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:url withOptions:nil];
     [self.view addSubview:self.player.view];
     [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {

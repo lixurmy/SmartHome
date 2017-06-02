@@ -46,30 +46,30 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 - (void)setupFields {
     self.usernameLabel.text = @"账号";
     self.usernameLabel.textColor = RGBCOLOR(255, 255, 255);
-    [self.usernameLabel setFont:PingFangSCRegular(24)];
+    [self.usernameLabel setFont:PingFangSCRegular(24 * kScreenScale)];
     [self.view addSubview:self.usernameLabel];
     [self.usernameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.view);
-        make.left.equalTo(self.view).offset(60);
-        make.width.equalTo(@50);
+        make.left.equalTo(self.view).offset(60 * kScreenScale);
+        make.width.equalTo(@(50 * kScreenScale));
     }];
-    [self.usernameField setFont:PingFangSCRegular(24)];
+    [self.usernameField setFont:PingFangSCRegular(24 * kScreenScale)];
     [self.usernameField setBackgroundColor:RGBCOLOR(222, 222, 222)];
     [self.view addSubview:self.usernameField];
     [self.usernameField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.usernameLabel);
-        make.left.lessThanOrEqualTo(self.usernameLabel.mas_right).offset(30);
-        make.right.greaterThanOrEqualTo(self.view).offset(-60);
+        make.left.lessThanOrEqualTo(self.usernameLabel.mas_right).offset(30 * kScreenScale);
+        make.right.greaterThanOrEqualTo(self.view).offset(-60 * kScreenScale);
     }];
     self.passwordLabel.text = @"密码";
     self.passwordLabel.textColor = RGBCOLOR(255, 255, 255);
-    [self.passwordLabel setFont:PingFangSCRegular(24)];
+    [self.passwordLabel setFont:PingFangSCRegular(24 * kScreenScale)];
     [self.view addSubview:self.passwordLabel];
     [self.passwordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.usernameLabel);
-        make.top.equalTo(self.usernameLabel.mas_bottom).offset(20);
+        make.top.equalTo(self.usernameLabel.mas_bottom).offset(20 * kScreenScale);
     }];
-    [self.passwordField setFont:PingFangSCRegular(24)];
+    [self.passwordField setFont:PingFangSCRegular(24 * kScreenScale)];
     [self.passwordField setBackgroundColor:RGBCOLOR(222, 222, 222)];
     [self.view addSubview:self.passwordField];
     [self.passwordField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -79,30 +79,30 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
     }];
     self.confirmPasswordLabel.text = @"密码";
     self.confirmPasswordLabel.textColor = RGBCOLOR(255, 255, 255);
-    [self.confirmPasswordLabel setFont:PingFangSCRegular(24)];
+    [self.confirmPasswordLabel setFont:PingFangSCRegular(24 * kScreenScale)];
     [self.confirmPasswordLabel setHidden:YES];
     [self.view addSubview:self.confirmPasswordLabel];
     [self.confirmPasswordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.passwordLabel);
-        make.top.equalTo(self.passwordLabel.mas_bottom).offset(20);
+        make.top.equalTo(self.passwordLabel.mas_bottom).offset(20 * kScreenScale);
     }];
-    [self.confirmPasswordField setFont:PingFangSCRegular(24)];
+    [self.confirmPasswordField setFont:PingFangSCRegular(24 * kScreenScale)];
     [self.confirmPasswordField setBackgroundColor:RGBCOLOR(222, 222, 222)];
     [self.confirmPasswordField setHidden:YES];
     [self.view addSubview:self.confirmPasswordField];
     [self.confirmPasswordField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.passwordField);
-        make.top.equalTo(self.passwordField.mas_bottom).offset(20);
+        make.top.equalTo(self.passwordField.mas_bottom).offset(20 * kScreenScale);
     }];
 }
 
 - (void)setupButtons {
     [self.loginButton setTitle:@"立即登录" forState:UIControlStateNormal];
     [self.loginButton setTitleColor:RGBCOLOR(255, 255, 255) forState:UIControlStateNormal];
-    [self.loginButton.titleLabel setFont:PingFangSCMedium(36)];
+    [self.loginButton.titleLabel setFont:PingFangSCMedium(36 * kScreenScale)];
     [self.view addSubview:self.loginButton];
     [self.loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.passwordLabel.mas_bottom).offset(30);
+        make.top.equalTo(self.passwordLabel.mas_bottom).offset(30 * kScreenScale);
         make.centerX.equalTo(self.view);
     }];
     [self.loginButton addTarget:self
@@ -111,11 +111,11 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
     
     [self.forgetPasswordButton setTitle:@"忘记密码？" forState:UIControlStateNormal];
     [self.forgetPasswordButton setTitleColor:RGBCOLOR(255, 255, 255) forState:UIControlStateNormal];
-    [self.forgetPasswordButton.titleLabel setFont:PingFangSCRegular(20)];
+    [self.forgetPasswordButton.titleLabel setFont:PingFangSCRegular(20 * kScreenScale)];
     [self.view addSubview:self.forgetPasswordButton];
     [self.forgetPasswordButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(100);
-        make.top.equalTo(self.loginButton.mas_bottom).offset(30);
+        make.left.equalTo(self.view).offset(80 * kScreenScale);
+        make.top.equalTo(self.loginButton.mas_bottom).offset(30 * kScreenScale);
     }];
     [self.forgetPasswordButton addTarget:self
                                   action:@selector(forgetPassword)
@@ -132,10 +132,10 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
     }];
     [self.registerAccountButton setTitle:@"注册账号" forState:UIControlStateNormal];
     [self.registerAccountButton setTitleColor:RGBCOLOR(255, 255, 255) forState:UIControlStateNormal];
-    [self.registerAccountButton.titleLabel setFont:PingFangSCRegular(20)];
+    [self.registerAccountButton.titleLabel setFont:PingFangSCRegular(20 * kScreenScale)];
     [self.view addSubview:self.registerAccountButton];
     [self.registerAccountButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view).offset(-100);
+        make.right.equalTo(self.view).offset(-90 * kScreenScale);
         make.centerY.equalTo(self.forgetPasswordButton);
     }];
     [self.registerAccountButton addTarget:self
@@ -143,24 +143,24 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
                   forControlEvents:UIControlEventTouchUpInside];
     [self.registerButton setTitle:@"注册" forState:UIControlStateNormal];
     [self.registerButton setTitleColor:RGBCOLOR(255, 255, 255) forState:UIControlStateNormal];
-    [self.registerButton.titleLabel setFont:PingFangSCMedium(24)];
+    [self.registerButton.titleLabel setFont:PingFangSCMedium(24 * kScreenScale)];
     [self.registerButton setHidden:YES];
     [self.view addSubview:self.registerButton];
     [self.registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(120);
-        make.top.equalTo(self.confirmPasswordField.mas_bottom).offset(40);
+        make.left.equalTo(self.view).offset(120 * kScreenScale);
+        make.top.equalTo(self.confirmPasswordField.mas_bottom).offset(40 * kScreenScale);
     }];
     [self.registerButton addTarget:self
                             action:@selector(registerButtonAction)
                   forControlEvents:UIControlEventTouchUpInside];
     [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [self.cancelButton setTitleColor:RGBCOLOR(255, 255, 255) forState:UIControlStateNormal];
-    [self.cancelButton.titleLabel setFont:PingFangSCMedium(24)];
+    [self.cancelButton.titleLabel setFont:PingFangSCMedium(24 * kScreenScale)];
     [self.cancelButton setHidden:YES];
     [self.view addSubview:self.cancelButton];
     [self.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.registerButton);
-        make.right.equalTo(self.view).offset(-120);
+        make.right.equalTo(self.view).offset(-120 * kScreenScale);
     }];
     [self.cancelButton addTarget:self
                           action:@selector(cancelButtonAction)
@@ -215,7 +215,9 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"
                                                            style:UIAlertActionStyleCancel
                                                          handler:nil];
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
         [self showLoading:YES hint:@"重置密码..."];
         [[SHUserManager sharedInstance] resetPasswordForUsername:self.username complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {

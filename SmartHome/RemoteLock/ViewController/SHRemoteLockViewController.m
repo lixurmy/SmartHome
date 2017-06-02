@@ -30,12 +30,11 @@
 #pragma mark - VC Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self.view addSubview:self.videoButton];
     [self.videoButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.top.equalTo(self.view).offset(200);
-        make.size.mas_equalTo(CGSizeMake(100, 50));
+        make.top.equalTo(self.view).offset(200 * kScreenScale);
+        make.size.mas_equalTo(CGSizeMake(100 * kScreenScale, 50 * kScreenScale));
     }];
     [self addChildViewController:self.lockKeyboardVC];
     [self.view addSubview:self.lockKeyboardVC.view];
@@ -45,18 +44,18 @@
     }];
     [self.view addSubview:self.hintLabel];
     [self.hintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.lockKeyboardVC.view.mas_top).offset(-10);
+        make.bottom.equalTo(self.lockKeyboardVC.view.mas_top).offset(-10 * kScreenScale);
         make.centerX.equalTo(self.lockKeyboardVC.view);
-        make.left.equalTo(self.view).offset(150);
-        make.right.equalTo(self.view).offset(-150);
+        make.left.equalTo(self.view).offset(120 * kScreenScale);
+        make.right.equalTo(self.view).offset(-120 * kScreenScale);
         make.height.equalTo(@20);
     }];
     [self.view addSubview:self.inputPasswordLabel];
     [self.inputPasswordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.hintLabel.mas_top).offset(-10);
+        make.bottom.equalTo(self.hintLabel.mas_top).offset(-10 * kScreenScale);
         make.centerX.equalTo(self.view);
-        make.left.equalTo(self.view).offset(150);
-        make.right.equalTo(self.view).offset(-150);
+        make.left.equalTo(self.view).offset(120 * kScreenScale);
+        make.right.equalTo(self.view).offset(-120 * kScreenScale);
         make.height.equalTo(@20);
     }];
 }
@@ -72,14 +71,14 @@
     [self.view addSubview:self.showVideoVC.view];
     [self.showVideoVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(60 + self.shNavigationBarHeight);
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view).offset(-20);
+        make.left.equalTo(self.view).offset(20 * kScreenScale);
+        make.right.equalTo(self.view).offset(-20 * kScreenScale);
         make.height.equalTo(@((kScreenWidth - 40)/16 * 9));
     }];
     [self.view addSubview:self.closeButton];
     [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.showVideoVC.view);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.size.mas_equalTo(CGSizeMake(50 * kScreenScale, 50 * kScreenScale));
     }];
 }
 
@@ -153,7 +152,7 @@
         _settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_settingButton setTitle:@"设置" forState:UIControlStateNormal];
         [_settingButton setTitleColor:RGBCOLOR(255, 255, 255) forState:UIControlStateNormal];
-        [_settingButton.titleLabel setFont:PingFangSCRegular(20)];
+        [_settingButton.titleLabel setFont:PingFangSCRegular(20 * kScreenScale)];
         [_settingButton addTarget:self
                            action:@selector(openSetting)
                  forControlEvents:UIControlEventTouchUpInside];
@@ -166,7 +165,7 @@
         _videoButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_videoButton setTitle:@"查看猫眼" forState:UIControlStateNormal];
         [_videoButton setTitleColor:RGBCOLOR(11, 11, 11) forState:UIControlStateNormal];
-        [_videoButton.titleLabel setFont:PingFangSCRegular(20)];
+        [_videoButton.titleLabel setFont:PingFangSCRegular(20 * kScreenScale)];
         [_videoButton.layer setCornerRadius:10.0];
         [_videoButton.layer setBorderWidth:1.0];
         [_videoButton.layer setBorderColor:RGBCOLOR(11, 11, 11).CGColor];
@@ -196,7 +195,7 @@
 - (UITextField *)inputPasswordLabel {
     if (!_inputPasswordLabel) {
         _inputPasswordLabel = [[UITextField alloc] init];
-        _inputPasswordLabel.font = PingFangSCRegular(15);
+        _inputPasswordLabel.font = PingFangSCRegular(15 * kScreenScale);
         _inputPasswordLabel.secureTextEntry = YES;
         _inputPasswordLabel.textAlignment = NSTextAlignmentCenter;
         _inputPasswordLabel.clearButtonMode = UITextFieldViewModeAlways;
@@ -209,7 +208,7 @@
     if (!_hintLabel) {
         _hintLabel = [[UILabel alloc] init];
         _hintLabel.textColor = RGBCOLOR(11, 11, 11);
-        _hintLabel.font = PingFangSCRegular(18);
+        _hintLabel.font = PingFangSCRegular(18 * kScreenScale);
         _hintLabel.textAlignment = NSTextAlignmentCenter;
         _hintLabel.text = @"输入密码";
     }
