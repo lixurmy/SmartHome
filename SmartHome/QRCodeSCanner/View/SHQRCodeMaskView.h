@@ -10,4 +10,8 @@
 
 @interface SHQRCodeMaskView : SHBaseView
 
+@property (nonatomic, assign) CGRect scanRect;
+
+- (instancetype)initWithScanRect:(CGRect)scanRect;
+
 @end

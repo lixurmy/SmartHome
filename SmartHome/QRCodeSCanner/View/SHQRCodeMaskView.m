@@ -10,22 +10,31 @@
 
 @implementation SHQRCodeMaskView
 
+- (instancetype)initWithScanRect:(CGRect)scanRect {
+    self = [super initWithFrame:CGRectZero];
+    if (self) {
+        _scanRect = scanRect;
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
+}
+
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
-//    CGContextRef ctx = UIGraphicsGetCurrentContext();
-//    [[[UIColor blackColor] colorWithAlphaComponent:0.5] setFill];
-//    CGMutablePathRef screenPath = CGPathCreateMutable();
-//    CGPathAddRect(screenPath, NULL, self.bounds);
-//    CGMutablePathRef scanPath = CGPathCreateMutable();
-//    CGPathAddRect(scanPath, NULL, CGRectMake(80, 80, 160, 160));
-//    CGMutablePathRef path = CGPathCreateMutable();
-//    CGPathAddPath(path, NULL, screenPath);
-//    CGPathAddPath(path, NULL, scanPath);
-//    CGContextAddPath(ctx, path);
-//    CGContextDrawPath(ctx, kCGPathEOFill); // kCGPathEOFill 方式
-//    CGPathRelease(screenPath);
-//    CGPathRelease(scanPath);
-//    CGPathRelease(path);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [[[UIColor blackColor] colorWithAlphaComponent:0.5] setFill];
+    CGMutablePathRef screenPath = CGPathCreateMutable();
+    CGPathAddRect(screenPath, NULL, self.bounds);
+    CGMutablePathRef scanPath = CGPathCreateMutable();
+    CGPathAddRect(scanPath, NULL, self.scanRect);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddPath(path, NULL, screenPath);
+    CGPathAddPath(path, NULL, scanPath);
+    CGContextAddPath(ctx, path);
+    CGContextDrawPath(ctx, kCGPathEOFill); // kCGPathEOFill 方式
+    CGPathRelease(screenPath);
+    CGPathRelease(scanPath);
+    CGPathRelease(path);
 }
 
 /*

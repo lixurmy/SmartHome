@@ -18,6 +18,7 @@
 @property (nonatomic, strong) AVCaptureMetadataOutput *metaDataOutput;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property (nonatomic, strong) SHQRCodeMaskView *maskView;
+@property (nonatomic, assign) CGRect scanRect;
 
 @end
 
@@ -29,6 +30,7 @@
         return;
     }
     // Do any additional setup after loading the view.
+    self.scanRect = CGRectMake(60, 100, 200, 200);
     [self.metaDataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
     [self.session setSessionPreset:AVCaptureSessionPresetHigh];
     [self.session addInput:self.deviceInput];
@@ -38,7 +40,6 @@
     [self.previewLayer setFrame:self.view.bounds];
     [self.view.layer insertSublayer:self.previewLayer atIndex:0];
     [self.view addSubview:self.maskView];
-    [self.maskView setBackgroundColor:[UIColor clearColor]];
     [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(self.shNavigationBarHeight);
         make.left.right.bottom.equalTo(self.view);
@@ -49,7 +50,7 @@
                                                        queue:[NSOperationQueue currentQueue]
                                                   usingBlock:^(NSNotification * _Nonnull note) {
                                                       [self showHint:@"resetInset" duration:1.0];
-        self.metaDataOutput.rectOfInterest = [self.previewLayer metadataOutputRectOfInterestForRect:CGRectMake(80, 80, 160, 160)];
+        self.metaDataOutput.rectOfInterest = [self.previewLayer metadataOutputRectOfInterestForRect:self.scanRect];
     }];
 }
 
@@ -130,7 +131,7 @@
 
 - (SHQRCodeMaskView *)maskView {
     if (!_maskView) {
-        _maskView = [[SHQRCodeMaskView alloc] init];
+        _maskView = [[SHQRCodeMaskView alloc] initWithScanRect:self.scanRect];
     }
     return _maskView;
 }
