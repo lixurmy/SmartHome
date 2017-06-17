@@ -19,6 +19,7 @@
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property (nonatomic, strong) SHQRCodeMaskView *maskView;
 @property (nonatomic, assign) CGRect scanRect;
+@property (nonatomic, assign) BOOL hasDetectedQRCode;
 
 @end
 
@@ -26,11 +27,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.hasDetectedQRCode = NO;
     if (![self checkAuthStatus]) {
         return;
     }
+    CGFloat wSpace = (kScreenWidth - 200)/2;
     // Do any additional setup after loading the view.
-    self.scanRect = CGRectMake(60, 100, 200, 200);
+    self.scanRect = CGRectMake(wSpace, 100, 200, 200);
     [self.metaDataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
     [self.session setSessionPreset:AVCaptureSessionPresetHigh];
     [self.session addInput:self.deviceInput];
@@ -66,13 +69,17 @@
 }
 
 - (void)showAuthorizationAlert {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"开启摄像头权限" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *goSettingsAction = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@""
+                                                                   message:@"开启摄像头权限"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *goSettingsAction = [UIAlertAction actionWithTitle:@"去设置"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
         [self openSystemSettings];
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
     [alert addAction:goSettingsAction];
     [alert addAction:cancelAction];
     
@@ -140,9 +147,12 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     AVMetadataMachineReadableCodeObject *metaDataObject = metadataObjects.firstObject;
     if ([metaDataObject.type isEqualToString:AVMetadataObjectTypeQRCode]) {
-        [self showHint:metaDataObject.stringValue duration:2.0];
-    } else {
-        [self showHint:@"Continue" duration:1.0];
+        self.hasDetectedQRCode = YES;
+        @weakify(self);
+        if (self.scanHandler) {
+            self.scanHandler(self_weak_, metaDataObject.stringValue);
+        }
+        [self showHint:metaDataObject.stringValue duration:1.0];
     }
 }
 

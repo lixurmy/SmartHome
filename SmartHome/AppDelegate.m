@@ -21,7 +21,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     if (![SHUserManager sharedInstance].isLogin) {
         SHLoginViewController *loginViewController = [[SHLoginViewController alloc] init];
-        [self.window setRootViewController:loginViewController];
+        UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+        [self.window setRootViewController:navigationVC];
     } else {
         SHRootViewController *rootViewController = [[SHRootViewController alloc] init];
         UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:rootViewController];

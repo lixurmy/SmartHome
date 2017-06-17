@@ -7,6 +7,7 @@
 //
 
 #import "SHLoginViewController.h"
+#import "SHRegisterViewController.h"
 #import "SHHomeViewController.h"
 #import "SHRootViewController.h"
 
@@ -283,10 +284,12 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 }
 
 - (void)registerAccountButtonAction {
-    if ([self.registerAccountButton isHidden]) {
-        return;
-    }
-    [self showRegisterUI:YES];
+//    if ([self.registerAccountButton isHidden]) {
+//        return;
+//    }
+//    [self showRegisterUI:YES];
+    SHRegisterViewController *registerVC = [[SHRegisterViewController alloc] init];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 - (void)registerButtonAction {
@@ -447,6 +450,11 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
         RAC(self, confirmPassword) = RACObserve(_confirmPasswordField, text);
     }
     return _confirmPasswordField;
+}
+
+#pragma mark - VC Relative
+- (BOOL)hideNavigationBar {
+    return YES;
 }
 
 @end

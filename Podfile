@@ -10,5 +10,6 @@ target 'SmartHome' do
   pod 'Reveal-iOS-SDK'
   pod 'OpenSSL'
   pod 'SDWebImage'
+  pod 'IQKeyboardManager'
 end
 
