@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SHRootViewController.h"
+#import "SHTabBarManager.h"
 #import "SHLoginViewController.h"
 
 @interface AppDelegate ()
@@ -16,7 +16,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     if (![SHUserManager sharedInstance].isLogin) {
@@ -24,9 +23,8 @@
         UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:loginViewController];
         [self.window setRootViewController:navigationVC];
     } else {
-        SHRootViewController *rootViewController = [[SHRootViewController alloc] init];
-        UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-        [self.window setRootViewController:navigationVC];
+        SHTabBarManager *tabBarMananger = [[SHTabBarManager alloc] init];
+        [self.window setRootViewController:(UIViewController *)tabBarMananger.tabBarViewController];
     }
     [self.window makeKeyAndVisible];
     return YES;

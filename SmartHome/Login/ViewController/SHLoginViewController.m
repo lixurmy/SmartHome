@@ -10,6 +10,7 @@
 #import "SHRegisterViewController.h"
 #import "SHHomeViewController.h"
 #import "SHRootViewController.h"
+#import "SHTabBarManager.h"
 
 static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 
@@ -186,9 +187,8 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
     [[SHUserManager sharedInstance] loginWithUsername:self.username password:self.password complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
         @strongify(self);
         if (succ) {
-            SHRootViewController *rootViewController = [[SHRootViewController alloc] init];
-            UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-            [self.view.window setRootViewController:navigationVC];
+            SHTabBarManager *tabBarManager = [[SHTabBarManager alloc] init];
+            [self.view.window setRootViewController:(UIViewController *)tabBarManager.tabBarViewController];
             [self hideLoading:YES];
         } else {
             if (statusCode == 0) {
@@ -284,10 +284,6 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 }
 
 - (void)registerAccountButtonAction {
-//    if ([self.registerAccountButton isHidden]) {
-//        return;
-//    }
-//    [self showRegisterUI:YES];
     SHRegisterViewController *registerVC = [[SHRegisterViewController alloc] init];
     [self.navigationController pushViewController:registerVC animated:YES];
 }

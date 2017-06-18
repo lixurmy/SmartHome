@@ -4,6 +4,7 @@ use_frameworks!
 target 'SmartHome' do
   pod 'AFNetworking', '~> 3.0'
   pod 'MJExtension'
+  pod 'MJRefresh'
   pod 'Masonry'
   pod 'ReactiveCocoa', '~> 2.0'
   pod 'MBProgressHUD'
@@ -11,5 +12,6 @@ target 'SmartHome' do
   pod 'OpenSSL'
   pod 'SDWebImage'
   pod 'IQKeyboardManager'
+  pod 'CYLTabBarController', '~> 1.13.1'
 end
 

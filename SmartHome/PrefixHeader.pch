@@ -22,6 +22,7 @@
 #import "UIImage+Color.h"
 
 #import "AFNetworking.h"
+#import "MJRefresh.h"
 #import <MJExtension/MJExtension.h>
 #import <SDWebImage/SDImageCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>

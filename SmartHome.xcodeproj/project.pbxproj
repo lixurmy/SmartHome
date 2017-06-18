@@ -26,6 +26,14 @@
 		BD1BA1F11EF514A000369479 /* SHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA1EF1EF514A000369479 /* SHLoginViewController.m */; };
 		BD1BA1F41EF514B600369479 /* SHRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA1F31EF514B600369479 /* SHRegisterViewController.m */; };
 		BD1BA1F71EF5203600369479 /* SHSecurityQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA1F61EF5203600369479 /* SHSecurityQuestionViewController.m */; };
+		BD1BA1FD1EF66C4500369479 /* SHTabBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA1FC1EF66C4500369479 /* SHTabBarManager.m */; };
+		BD1BA2051EF6726C00369479 /* SHLockManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA2041EF6726C00369479 /* SHLockManageViewController.m */; };
+		BD1BA2081EF6738400369479 /* SHLockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA2071EF6738400369479 /* SHLockTableView.m */; };
+		BD1BA20B1EF673A000369479 /* SHLockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA20A1EF673A000369479 /* SHLockModel.m */; };
+		BD1BA20E1EF675D900369479 /* SHLockInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA20D1EF675D900369479 /* SHLockInfoCell.m */; };
+		BD80BD781EF67DB200A7BDD1 /* SHRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD771EF67DB200A7BDD1 /* SHRefreshHeader.m */; };
+		BD80BD7B1EF68AD200A7BDD1 /* SHLockDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD7A1EF68AD200A7BDD1 /* SHLockDetailViewController.m */; };
+		BD80BD7E1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD7D1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m */; };
 		BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */; };
 		BD876CEA1EE1C5A6009CE37B /* SHWaterReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE91EE1C5A6009CE37B /* SHWaterReaderManager.m */; };
 		BD876CEE1EE1CDF2009CE37B /* SHWaterReaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CED1EE1CDF2009CE37B /* SHWaterReaderModel.m */; };
@@ -105,6 +113,22 @@
 		BD1BA1F31EF514B600369479 /* SHRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRegisterViewController.m; sourceTree = "<group>"; };
 		BD1BA1F51EF5203600369479 /* SHSecurityQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecurityQuestionViewController.h; sourceTree = "<group>"; };
 		BD1BA1F61EF5203600369479 /* SHSecurityQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityQuestionViewController.m; sourceTree = "<group>"; };
+		BD1BA1FB1EF66C4500369479 /* SHTabBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTabBarManager.h; sourceTree = "<group>"; };
+		BD1BA1FC1EF66C4500369479 /* SHTabBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTabBarManager.m; sourceTree = "<group>"; };
+		BD1BA2031EF6726C00369479 /* SHLockManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockManageViewController.h; sourceTree = "<group>"; };
+		BD1BA2041EF6726C00369479 /* SHLockManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockManageViewController.m; sourceTree = "<group>"; };
+		BD1BA2061EF6738400369479 /* SHLockTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockTableView.h; sourceTree = "<group>"; };
+		BD1BA2071EF6738400369479 /* SHLockTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockTableView.m; sourceTree = "<group>"; };
+		BD1BA2091EF673A000369479 /* SHLockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockModel.h; sourceTree = "<group>"; };
+		BD1BA20A1EF673A000369479 /* SHLockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockModel.m; sourceTree = "<group>"; };
+		BD1BA20C1EF675D900369479 /* SHLockInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockInfoCell.h; sourceTree = "<group>"; };
+		BD1BA20D1EF675D900369479 /* SHLockInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockInfoCell.m; sourceTree = "<group>"; };
+		BD80BD761EF67DB200A7BDD1 /* SHRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRefreshHeader.h; sourceTree = "<group>"; };
+		BD80BD771EF67DB200A7BDD1 /* SHRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRefreshHeader.m; sourceTree = "<group>"; };
+		BD80BD791EF68AD200A7BDD1 /* SHLockDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockDetailViewController.h; sourceTree = "<group>"; };
+		BD80BD7A1EF68AD200A7BDD1 /* SHLockDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockDetailViewController.m; sourceTree = "<group>"; };
+		BD80BD7C1EF68D1500A7BDD1 /* SHBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseNavigationViewController.h; sourceTree = "<group>"; };
+		BD80BD7D1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseNavigationViewController.m; sourceTree = "<group>"; };
 		BD876CE41EE1C2B9009CE37B /* SHWaterReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderViewController.h; sourceTree = "<group>"; };
 		BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWaterReaderViewController.m; sourceTree = "<group>"; };
 		BD876CE81EE1C5A6009CE37B /* SHWaterReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderManager.h; sourceTree = "<group>"; };
@@ -319,6 +343,55 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		BD1BA1FE1EF6725200369479 /* LockManage */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BA1FF1EF6725200369479 /* Manager */,
+				BD1BA2001EF6725200369479 /* Model */,
+				BD1BA2011EF6725200369479 /* View */,
+				BD1BA2021EF6725200369479 /* ViewController */,
+			);
+			path = LockManage;
+			sourceTree = "<group>";
+		};
+		BD1BA1FF1EF6725200369479 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		BD1BA2001EF6725200369479 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BA2091EF673A000369479 /* SHLockModel.h */,
+				BD1BA20A1EF673A000369479 /* SHLockModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD1BA2011EF6725200369479 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BA2061EF6738400369479 /* SHLockTableView.h */,
+				BD1BA2071EF6738400369479 /* SHLockTableView.m */,
+				BD1BA20C1EF675D900369479 /* SHLockInfoCell.h */,
+				BD1BA20D1EF675D900369479 /* SHLockInfoCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD1BA2021EF6725200369479 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD1BA2031EF6726C00369479 /* SHLockManageViewController.h */,
+				BD1BA2041EF6726C00369479 /* SHLockManageViewController.m */,
+				BD80BD791EF68AD200A7BDD1 /* SHLockDetailViewController.h */,
+				BD80BD7A1EF68AD200A7BDD1 /* SHLockDetailViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		BD876CE21EE1C2A9009CE37B /* WaterReader */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +434,8 @@
 			children = (
 				BD97D4971ECCABC8003F0337 /* SHRootViewController.h */,
 				BD97D4981ECCABC8003F0337 /* SHRootViewController.m */,
+				BD1BA1FB1EF66C4500369479 /* SHTabBarManager.h */,
+				BD1BA1FC1EF66C4500369479 /* SHTabBarManager.m */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -438,6 +513,7 @@
 		BDE559A51EC5F154006A8A6E /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				BD1BA1FE1EF6725200369479 /* LockManage */,
 				BDADA2931EEE72AB008DBB0B /* QRCodeSCanner */,
 				BD876CE21EE1C2A9009CE37B /* WaterReader */,
 				BD12014F1EDD548900694B17 /* ThirdParty */,
@@ -525,6 +601,8 @@
 				BD1201311EDB099B00694B17 /* SHNavigationItem.m */,
 				BD1201331EDB1C0300694B17 /* SHBaseView.h */,
 				BD1201341EDB1C0300694B17 /* SHBaseView.m */,
+				BD80BD7C1EF68D1500A7BDD1 /* SHBaseNavigationViewController.h */,
+				BD80BD7D1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -535,6 +613,8 @@
 				BDF32B061EC607CA00CDBAA1 /* SHMacro.h */,
 				BDF32B1F1EC7711400CDBAA1 /* SHUtils.h */,
 				BDF32B201EC7711400CDBAA1 /* SHUtils.m */,
+				BD80BD761EF67DB200A7BDD1 /* SHRefreshHeader.h */,
+				BD80BD771EF67DB200A7BDD1 /* SHRefreshHeader.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -709,9 +789,12 @@
 				BD12015E1EDD646200694B17 /* SHSetLockPasswordViewController.m in Sources */,
 				BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */,
 				BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */,
+				BD80BD7E1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
+				BD1BA2051EF6726C00369479 /* SHLockManageViewController.m in Sources */,
 				BD1201641EDD9E7800694B17 /* SHShowVideoViewController.m in Sources */,
 				BD1201351EDB1C0300694B17 /* SHBaseView.m in Sources */,
+				BD1BA2081EF6738400369479 /* SHLockTableView.m in Sources */,
 				BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */,
 				BD876CEA1EE1C5A6009CE37B /* SHWaterReaderManager.m in Sources */,
 				BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */,
@@ -722,15 +805,20 @@
 				BD1201591EDD548900694B17 /* MXSCycleScrollView.m in Sources */,
 				BDEBC2481ED1AAD400FA41A7 /* SHLeftDrawerViewController.m in Sources */,
 				BD1201411EDB2D2800694B17 /* SHSettingsViewController.m in Sources */,
+				BD80BD781EF67DB200A7BDD1 /* SHRefreshHeader.m in Sources */,
 				BD12015B1EDD548900694B17 /* FDAlertView.m in Sources */,
+				BD80BD7B1EF68AD200A7BDD1 /* SHLockDetailViewController.m in Sources */,
 				BD12012F1EDB094B00694B17 /* SHRemoteLockViewController.m in Sources */,
 				BD1BA1F11EF514A000369479 /* SHLoginViewController.m in Sources */,
 				BD12014A1EDB313300694B17 /* SHSettingSection.m in Sources */,
 				BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */,
 				BDF32B281EC8726600CDBAA1 /* UIImage+Color.m in Sources */,
+				BD1BA20B1EF673A000369479 /* SHLockModel.m in Sources */,
 				BDEBC24E1ED1AB1500FA41A7 /* SHBaseTableView.m in Sources */,
 				BD1201321EDB099B00694B17 /* SHNavigationItem.m in Sources */,
 				BDE559A81EC5F154006A8A6E /* main.m in Sources */,
+				BD1BA1FD1EF66C4500369479 /* SHTabBarManager.m in Sources */,
+				BD1BA20E1EF675D900369479 /* SHLockInfoCell.m in Sources */,
 				BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */,
 				BD1BA1F01EF514A000369479 /* SHUserManager.m in Sources */,
 			);

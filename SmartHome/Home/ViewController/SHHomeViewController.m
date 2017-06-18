@@ -12,7 +12,6 @@
 #import "SHHomeMessageViewController.h"
 #import "SHRemoteLockViewController.h"
 #import "SHWaterReaderViewController.h"
-#import "SHQRCodeScannerViewController.h"
 
 @interface SHHomeViewController ()
 
@@ -94,10 +93,8 @@
 }
 
 - (void)openRemoteLock {
-//    SHRemoteLockViewController *remoteLockVC = [[SHRemoteLockViewController alloc] init];
-//    [self.navigationController pushViewController:remoteLockVC animated:YES];
-    SHQRCodeScannerViewController *qrCodeVC = [[SHQRCodeScannerViewController alloc] init];
-    [self.navigationController pushViewController:qrCodeVC animated:YES];
+    SHRemoteLockViewController *remoteLockVC = [[SHRemoteLockViewController alloc] init];
+    [self.navigationController pushViewController:remoteLockVC animated:YES];
 }
 
 - (void)openWaterReader {

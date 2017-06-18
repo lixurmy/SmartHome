@@ -14,10 +14,12 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (4.0.9)
+  - CYLTabBarController (1.13.1)
+  - IQKeyboardManager (4.0.10)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
   - OpenSSL (1.0.210)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -33,10 +35,12 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - CYLTabBarController (~> 1.13.1)
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD
   - MJExtension
+  - MJRefresh
   - OpenSSL
   - ReactiveCocoa (~> 2.0)
   - Reveal-iOS-SDK
@@ -44,15 +48,17 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  CYLTabBarController: 97f6b486f9e6c613d69e9c111cc9c2c5db7000ce
+  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   OpenSSL: 246ffb948e9d56466727fd318134af35f5aa764e
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: c1aac483828934d0dab6aa24f5e0c30a8f05178d
+PODFILE CHECKSUM: 9638a2545ebe1966323c8822dfb2ee3c0a6ce577
 
 COCOAPODS: 1.0.1
