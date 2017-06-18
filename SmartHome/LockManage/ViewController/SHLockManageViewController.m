@@ -8,14 +8,17 @@
 
 #import "SHLockManageViewController.h"
 #import "SHLockDetailViewController.h"
+#import "SHAddLockViewController.h"
 #import "SHLockTableView.h"
 #import "SHLockInfoCell.h"
 #import "SHRefreshHeader.h"
+#import "SHLockManager.h"
 
 static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManageViewControllerInfoCellKey";
 
 @interface SHLockManageViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) UIButton *addLockButton;
 @property (nonatomic, strong) SHLockTableView *tableView;
 @property (nonatomic, strong) NSMutableArray *allLockModels;
 
@@ -67,6 +70,11 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     
 }
 
+- (void)openAddLockVC {
+    SHAddLockViewController *addLockVC = [[SHAddLockViewController alloc] init];
+    [self.navigationController pushViewController:addLockVC animated:YES];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -100,6 +108,17 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
 }
 
 #pragma mark - Lazy Load
+- (UIButton *)addLockButton {
+    if (!_addLockButton) {
+        _addLockButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_addLockButton setTitle:@"添加锁" forState:UIControlStateNormal];
+        [_addLockButton addTarget:self
+                           action:@selector(openAddLockVC)
+                 forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _addLockButton;
+}
+
 - (SHLockTableView *)tableView {
     if (!_tableView) {
         _tableView = [[SHLockTableView alloc] init];
@@ -135,6 +154,14 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
 
 - (NSString *)title {
     return @"锁管理";
+}
+
+- (SHNavigationBar *)createSHNavigationBar {
+    SHNavigationBar *navigationBar = [super createSHNavigationBar];
+    UIBarButtonItem *addLockItem = [[UIBarButtonItem alloc] initWithCustomView:self.addLockButton];
+    [self.shNavigationItem setRightBarButtonItem:addLockItem];
+    [self.addLockButton sizeToFit];
+    return navigationBar;
 }
 
 @end

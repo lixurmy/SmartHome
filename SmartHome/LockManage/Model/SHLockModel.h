@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SHLockModel : NSObject
+@interface SHLockModel : SHBaseModel
 
 @property (nonatomic, copy) NSString *lockId;
 @property (nonatomic, copy) NSString *alias;
+@property (nonatomic, copy) NSString *lockMacAddress;
+@property (nonatomic, copy) NSString *hwVer;
+@property (nonatomic, copy) NSString *swVer;
+
++ (instancetype)modelWithDictionary:(NSDictionary *)dictionary;
 
 @end

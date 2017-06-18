@@ -17,6 +17,7 @@
 
 #import "SHMacro.h"
 #import "SHUtils.h"
+#import "SHBaseModel.h"
 #import "SHUserManager.h"
 #import "SHNetworkManager.h"
 #import "UIImage+Color.h"

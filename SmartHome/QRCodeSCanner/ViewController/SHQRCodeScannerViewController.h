@@ -9,7 +9,7 @@
 #import "SHBaseViewController.h"
 @class SHQRCodeScannerViewController;
 
-typedef void(^SHQRCodeScannerComplete)(SHQRCodeScannerViewController*, NSString *);
+typedef void(^SHQRCodeScannerComplete)(SHQRCodeScannerViewController* qrCodeScanner, NSString *result);
 
 @interface SHQRCodeScannerViewController : SHBaseViewController
 

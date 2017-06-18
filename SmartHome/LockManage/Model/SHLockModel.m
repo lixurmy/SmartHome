@@ -10,4 +10,13 @@
 
 @implementation SHLockModel
 
++ (instancetype)modelWithDictionary:(NSDictionary *)dictionary {
+    [SHLockModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"lockId"          : @"lid",
+                 @"lockMacAddress"  : @"lmac"};
+    }];
+    SHLockModel *lockModel = [SHLockModel mj_objectWithKeyValues:dictionary];
+    return lockModel;
+}
+
 @end

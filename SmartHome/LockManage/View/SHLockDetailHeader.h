@@ -7,7 +7,10 @@
 //
 
 #import "SHBaseView.h"
+@class SHLockModel;
 
 @interface SHLockDetailHeader : SHBaseView
+
+@property (nonatomic, strong) SHLockModel *lockModel;
 
 @end

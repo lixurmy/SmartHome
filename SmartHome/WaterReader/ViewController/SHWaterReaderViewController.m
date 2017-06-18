@@ -28,7 +28,7 @@
     }];
     [[SHWaterReaderManager sharedInstance] fetchColdWaterImageComplete:^(BOOL succ, SHWaterReaderStatus statusCode, id info) {
         SHLog(@"%@", info);
-        if (!info) {
+        if (!info || ![info isKindOfClass:[NSArray class]]) {
             return;
         }
         SHWaterReaderModel *model = info[0];
