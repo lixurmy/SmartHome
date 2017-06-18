@@ -34,6 +34,8 @@
 		BD80BD781EF67DB200A7BDD1 /* SHRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD771EF67DB200A7BDD1 /* SHRefreshHeader.m */; };
 		BD80BD7B1EF68AD200A7BDD1 /* SHLockDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD7A1EF68AD200A7BDD1 /* SHLockDetailViewController.m */; };
 		BD80BD7E1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD7D1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m */; };
+		BD80BD811EF6914500A7BDD1 /* SHLockDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD801EF6914500A7BDD1 /* SHLockDetailHeader.m */; };
+		BD80BD841EF691D700A7BDD1 /* SHLockDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD831EF691D700A7BDD1 /* SHLockDetailCell.m */; };
 		BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */; };
 		BD876CEA1EE1C5A6009CE37B /* SHWaterReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE91EE1C5A6009CE37B /* SHWaterReaderManager.m */; };
 		BD876CEE1EE1CDF2009CE37B /* SHWaterReaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CED1EE1CDF2009CE37B /* SHWaterReaderModel.m */; };
@@ -129,6 +131,10 @@
 		BD80BD7A1EF68AD200A7BDD1 /* SHLockDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockDetailViewController.m; sourceTree = "<group>"; };
 		BD80BD7C1EF68D1500A7BDD1 /* SHBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseNavigationViewController.h; sourceTree = "<group>"; };
 		BD80BD7D1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseNavigationViewController.m; sourceTree = "<group>"; };
+		BD80BD7F1EF6914500A7BDD1 /* SHLockDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockDetailHeader.h; sourceTree = "<group>"; };
+		BD80BD801EF6914500A7BDD1 /* SHLockDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockDetailHeader.m; sourceTree = "<group>"; };
+		BD80BD821EF691D700A7BDD1 /* SHLockDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockDetailCell.h; sourceTree = "<group>"; };
+		BD80BD831EF691D700A7BDD1 /* SHLockDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockDetailCell.m; sourceTree = "<group>"; };
 		BD876CE41EE1C2B9009CE37B /* SHWaterReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderViewController.h; sourceTree = "<group>"; };
 		BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWaterReaderViewController.m; sourceTree = "<group>"; };
 		BD876CE81EE1C5A6009CE37B /* SHWaterReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderManager.h; sourceTree = "<group>"; };
@@ -377,6 +383,10 @@
 				BD1BA2071EF6738400369479 /* SHLockTableView.m */,
 				BD1BA20C1EF675D900369479 /* SHLockInfoCell.h */,
 				BD1BA20D1EF675D900369479 /* SHLockInfoCell.m */,
+				BD80BD7F1EF6914500A7BDD1 /* SHLockDetailHeader.h */,
+				BD80BD801EF6914500A7BDD1 /* SHLockDetailHeader.m */,
+				BD80BD821EF691D700A7BDD1 /* SHLockDetailCell.h */,
+				BD80BD831EF691D700A7BDD1 /* SHLockDetailCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -780,6 +790,7 @@
 				BDEBC25E1EDAC91200FA41A7 /* SHHomeMessageViewController.m in Sources */,
 				BD1BA1F41EF514B600369479 /* SHRegisterViewController.m in Sources */,
 				BD1201471EDB2F9F00694B17 /* SHSettingsBaseCell.m in Sources */,
+				BD80BD811EF6914500A7BDD1 /* SHLockDetailHeader.m in Sources */,
 				BDEBC24B1ED1AB0200FA41A7 /* SHBaseTableViewCell.m in Sources */,
 				BDADA2971EEE7332008DBB0B /* SHQRCodeScannerViewController.m in Sources */,
 				BD12015A1EDD548900694B17 /* RBCustomDatePickerView.m in Sources */,
@@ -800,6 +811,7 @@
 				BDF32B011EC6036F00CDBAA1 /* SHBaseViewController.m in Sources */,
 				BDEBC2511ED1AB3800FA41A7 /* SHLeftDrawerCell.m in Sources */,
 				BD876CEE1EE1CDF2009CE37B /* SHWaterReaderModel.m in Sources */,
+				BD80BD841EF691D700A7BDD1 /* SHLockDetailCell.m in Sources */,
 				BD12013B1EDB1CB200694B17 /* SHLockKeyboardViewController.m in Sources */,
 				BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */,
 				BD1201591EDD548900694B17 /* MXSCycleScrollView.m in Sources */,

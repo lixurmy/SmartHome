@@ -49,7 +49,7 @@
 - (NSArray *)tabBarItemAttributes {
     if (!_tabBarItemAttributes) {
         NSDictionary *rootItemAttributes = @{CYLTabBarItemImage : @"sh_tabbar_icon_root",
-                                             CYLTabBarItemTitle : @"首页"};
+                                             CYLTabBarItemTitle : @"开锁"};
         NSDictionary *lockManagerItemAttributes = @{CYLTabBarItemImage : @"sh_tabbar_icon_lockmanager",
                                                     CYLTabBarItemTitle : @"锁管理"};
         _tabBarItemAttributes = @[rootItemAttributes, lockManagerItemAttributes];
