@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *lockMacAddress;
 @property (nonatomic, copy) NSString *hwVer;
 @property (nonatomic, copy) NSString *swVer;
+@property (nonatomic, assign) NSInteger inited;
 
 + (instancetype)modelWithDictionary:(NSDictionary *)dictionary;
 

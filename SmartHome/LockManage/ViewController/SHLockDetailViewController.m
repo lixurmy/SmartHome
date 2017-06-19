@@ -64,42 +64,24 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
 #pragma mark - Private Method
 - (void)fetchLockDetailInfo {
     @weakify(self);
-    NSDictionary *parameters = @{@"gwid" : [SHUserManager sharedInstance].gatewayId ?: @"",
-                                 @"lid"  : self.lockId ?: @""};
-    [[SHNetworkManager lockManager] GET:@"lock/ygs/v2/getygslock.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[SHLockManager sharedInstance] fetchLockWithId:self.lockId complete:^(BOOL succ, SHLockHttpStatusCode statusCode, id info) {
         @strongify(self);
-        [self handleRemoteResponse:responseObject];
-        [self hideLoading:YES];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        @strongify(self);
-        //FIXME:handle failue
-        [self showHint:@"请求失败" duration:1.0];
-        self.lockModel = [SHLockModel modelWithDictionary:@{@"alias" : @"test"}];
-    }];
-}
-
-- (void)handleRemoteResponse:(id)responseObject {
-    if (!responseObject) {
-        [self showHint:@"服务器错误" duration:1.0];
-        return;
-    }
-    SHLockHttpStatusCode status = [responseObject[@"status"] integerValue];
-    switch (status) {
-        case SHLockHttpStatusSuccess: {
-            [self hideLoading:YES];
-            NSArray *info = responseObject[@"data"][@"info"];
-            if (info) {
-                self.lockModel = [SHLockModel modelWithDictionary:info[0]];
+        switch (statusCode) {
+            case SHLockHttpStatusSuccess: {
+                [self hideLoading:YES];
+                NSArray *locks = info[@"data"][@"info"];
+                if (locks) {
+                    self.lockModel = [SHLockModel modelWithDictionary:locks[0]];
+                }
+                break;
             }
-            break;
+            case SHLockHttpStatusLockExist:
+            case SHLockHttpStatusLockNotFound:
+                [self showHint:info[@"msg"] duration:1.0];
+            default:
+                break;
         }
-        case SHLockHttpStatusLockExist:
-        case SHLockHttpStatusLockNotFound:
-            [self showHint:responseObject[@"msg"] duration:1.0];
-        default:
-            break;
-    }
-    
+    }];
 }
 
 - (void)openUnlockRecord {

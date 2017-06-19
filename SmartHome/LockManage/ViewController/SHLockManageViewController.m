@@ -16,11 +16,12 @@
 
 static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManageViewControllerInfoCellKey";
 
-@interface SHLockManageViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SHLockManageViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate,SHBaseTableViewCellDelegate>
 
 @property (nonatomic, strong) UIButton *addLockButton;
 @property (nonatomic, strong) SHLockTableView *tableView;
 @property (nonatomic, strong) NSMutableArray *allLockModels;
+@property (nonatomic, copy) NSString *aliasString;
 
 @end
 
@@ -31,7 +32,6 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupView];
-    [self fetchAllLockInfos];
 }
 
 - (void)setupView {
@@ -45,34 +45,78 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     [self.tableView setMj_header:[MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self fetchAllLockInfos];
-        [self.tableView.mj_header endRefreshing];
     }]];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - Private Method
 - (void)fetchAllLockInfos {
     @weakify(self);
-    NSDictionary *parameters = @{@"gwid" : [SHUserManager sharedInstance].gatewayId ?: @""};
-    [[SHNetworkManager baseManager] GET:@"lock/ygs/v2/getygslock.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[SHLockManager sharedInstance] fetchAllLocksWithComplete:^(BOOL succ, SHLockHttpStatusCode statusCode, id info) {
         @strongify(self);
-        if (responseObject) {
-            [self handleRemoteResponse:responseObject];
-        } else {
+        switch (statusCode) {
+            case SHLockHttpStatusSuccess: {
+                [self.allLockModels removeAllObjects];
+                NSArray *locks = info[@"data"][@"info"];
+                for (NSDictionary *lock in locks) {
+                    SHLockModel *model = [SHLockModel modelWithDictionary:lock];
+                    [self.allLockModels addObject:model];
+                }
+                [self.tableView reloadData];
+                break;
+            }
+            case SHLockHttpStatusLockExist:
+                [self showHint:@"LockExist" duration:1.0];
+                break;
+            case SHLockHttpStatusLockNotFound:
+                [self showHint:@"LockNotFound" duration:1.0];
+                break;
+            default:
+                break;
         }
-        [self hideLoading:YES];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self showHint:@"请求失败" duration:1.0];
-        [self handleRemoteResponse:nil];
+        [self.tableView.mj_header endRefreshing];
+        if (succ) {
+            [self showHint:@"更新成功" duration:1.0];
+        } else {
+            [self showHint:@"更新失败" duration:1.0];
+        }
     }];
-}
-
-- (void)handleRemoteResponse:(id)responseObject {
-    
 }
 
 - (void)openAddLockVC {
     SHAddLockViewController *addLockVC = [[SHAddLockViewController alloc] init];
     [self.navigationController pushViewController:addLockVC animated:YES];
+}
+
+- (void)showUpdateAliasAlert:(NSString *)lockId {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"更新别名"
+                                                                   message:@"设置锁别名"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入锁别名";
+        textField.delegate = self;
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self updateAlias:lockId];
+    }];
+    [alert addAction:cancelAction];
+    [alert addAction:confirmAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)updateAlias:(NSString *)lockId {
+    @weakify(self);
+    [self showLoading:YES];
+    [[SHLockManager sharedInstance] updateAlias:self.aliasString lockId:lockId complete:^(BOOL succ, SHLockHttpStatusCode statusCode, id info) {
+        @strongify(self);
+        if (succ) {
+            [self showHint:@"更新成功" duration:1.0];
+        } else {
+            [self showHint:@"更新失败" duration:1.0];
+        }
+        [self hideLoading:YES];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -89,6 +133,7 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     if (!cell) {
         cell = [[SHLockInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kSHLockManageViewControllerInfoCellKey];
     }
+    cell.delegate = self;
     NSInteger row = indexPath.row;
     SHLockModel *model = self.allLockModels[row];
     cell.model = model;
@@ -105,6 +150,20 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     SHLockModel *model = self.allLockModels[row];
     SHLockDetailViewController *lockDetailVC = [[SHLockDetailViewController alloc] initWithLockId:model.lockId];
     [self.navigationController pushViewController:lockDetailVC animated:YES];
+}
+
+#pragma mark - SHBaseTableViewCellDelegate
+- (void)handleActionForCell:(SHBaseTableViewCell *)cell info:(id)info {
+    if ([cell isKindOfClass:[SHLockInfoCell class]]) {
+        SHLockInfoCell *infoCell = (SHLockInfoCell *)cell;
+        SHLockModel *lockModel = infoCell.model;
+        [self showUpdateAliasAlert:lockModel.lockId];
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.aliasString = textField.text;
 }
 
 #pragma mark - Lazy Load
@@ -131,10 +190,6 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
 - (NSMutableArray *)allLockModels {
     if (!_allLockModels) {
         _allLockModels = [NSMutableArray array];
-        SHLockModel *model = [[SHLockModel alloc] init];
-        model.alias = @"测试锁1";
-        model.lockId = @"11";
-        [_allLockModels addObject:model];
     }
     return _allLockModels;
 }

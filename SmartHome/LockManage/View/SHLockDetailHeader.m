@@ -32,7 +32,7 @@
         [_aliasLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self);
         }];
-        RAC(_aliasLabel, text) = RACObserve(self, lockModel.alias);
+        RAC(_aliasLabel, text) = RACObserve(self, lockModel.lockMacAddress);
     }
     return self;
 }
