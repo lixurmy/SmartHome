@@ -41,6 +41,7 @@
 		BD80BD8D1EF6B8B800A7BDD1 /* SHLockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD8C1EF6B8B800A7BDD1 /* SHLockManager.m */; };
 		BD80BD901EF6BD0900A7BDD1 /* SHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD8F1EF6BD0900A7BDD1 /* SHBaseModel.m */; };
 		BD80BD931EF6C1FE00A7BDD1 /* SHAddLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD921EF6C1FE00A7BDD1 /* SHAddLockViewController.m */; };
+		BD80BD961EF97B1900A7BDD1 /* SHLockEmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD951EF97B1900A7BDD1 /* SHLockEmptyCell.m */; };
 		BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */; };
 		BD876CEA1EE1C5A6009CE37B /* SHWaterReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE91EE1C5A6009CE37B /* SHWaterReaderManager.m */; };
 		BD876CEE1EE1CDF2009CE37B /* SHWaterReaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CED1EE1CDF2009CE37B /* SHWaterReaderModel.m */; };
@@ -150,6 +151,8 @@
 		BD80BD8F1EF6BD0900A7BDD1 /* SHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseModel.m; sourceTree = "<group>"; };
 		BD80BD911EF6C1FE00A7BDD1 /* SHAddLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAddLockViewController.h; sourceTree = "<group>"; };
 		BD80BD921EF6C1FE00A7BDD1 /* SHAddLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAddLockViewController.m; sourceTree = "<group>"; };
+		BD80BD941EF97B1900A7BDD1 /* SHLockEmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockEmptyCell.h; sourceTree = "<group>"; };
+		BD80BD951EF97B1900A7BDD1 /* SHLockEmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockEmptyCell.m; sourceTree = "<group>"; };
 		BD876CE41EE1C2B9009CE37B /* SHWaterReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderViewController.h; sourceTree = "<group>"; };
 		BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWaterReaderViewController.m; sourceTree = "<group>"; };
 		BD876CE81EE1C5A6009CE37B /* SHWaterReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderManager.h; sourceTree = "<group>"; };
@@ -406,6 +409,8 @@
 				BD80BD831EF691D700A7BDD1 /* SHLockDetailCell.m */,
 				BD80BD881EF6ADB300A7BDD1 /* SHUnlockRecordCell.h */,
 				BD80BD891EF6ADB300A7BDD1 /* SHUnlockRecordCell.m */,
+				BD80BD941EF97B1900A7BDD1 /* SHLockEmptyCell.h */,
+				BD80BD951EF97B1900A7BDD1 /* SHLockEmptyCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -863,6 +868,7 @@
 				BD1BA20E1EF675D900369479 /* SHLockInfoCell.m in Sources */,
 				BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */,
 				BD1BA1F01EF514A000369479 /* SHUserManager.m in Sources */,
+				BD80BD961EF97B1900A7BDD1 /* SHLockEmptyCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

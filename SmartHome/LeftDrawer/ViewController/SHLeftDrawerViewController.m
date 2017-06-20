@@ -62,13 +62,16 @@ static CGFloat const kSHLeftDrawerViewCellHeight = 50;
 }
 
 - (void)logout {
+    @weakify(self);
     [self showLoading:YES hint:@"退出登录..."];
     [[SHUserManager sharedInstance] logoutWithComplete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
+        @strongify(self);
         if (succ) {
             [self hideLoading:YES];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 SHLoginViewController *loginViewController = [[SHLoginViewController alloc] init];
-                [self.view.window setRootViewController:loginViewController];
+                UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+                [self.view.window setRootViewController:navigationVC];
             });
         }
     }];

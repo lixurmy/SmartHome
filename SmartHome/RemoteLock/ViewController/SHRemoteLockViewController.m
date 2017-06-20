@@ -9,8 +9,11 @@
 #import "SHRemoteLockViewController.h"
 #import "SHShowVideoViewController.h"
 #import "SHLockKeyboardViewController.h"
+#import "SHLockDetailViewController.h"
 #import "SHSettingsViewController.h"
 #import "SHRemoteLockManager.h"
+#import "SHLockManager.h"
+#import "SHLockModel.h"
 
 @interface SHRemoteLockViewController () <SHLockKeyboardDelegate, UITextFieldDelegate>
 
@@ -22,14 +25,38 @@
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) NSString *inputString;
 @property (nonatomic, strong) UILabel *hintLabel;
+@property (nonatomic, strong) UILabel *aliasLabel;
 
 @end
 
 @implementation SHRemoteLockViewController
 
+#pragma mark - Init
+- (instancetype)initWithLockModel:(SHLockModel *)lockModel {
+    self = [super init];
+    if (self) {
+        _lockModel = lockModel;
+    }
+    return self;
+}
+
 #pragma mark - VC Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.lockModel) {
+        [self setupView];
+    } else {
+        [self showHint:@"请添加锁" duration:1.0];
+    }
+}
+
+- (void)setupView {
+    [self.view addSubview:self.aliasLabel];
+    [self.aliasLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(self.shNavigationBarHeight + 20);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(200, 30));
+    }];
     [self.view addSubview:self.videoButton];
     [self.videoButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -62,23 +89,20 @@
 
 #pragma mark - Private Method
 - (void)openSetting {
-    SHSettingsViewController *settingsVC = [[SHSettingsViewController alloc] init];
-    [self.navigationController pushViewController:settingsVC animated:YES];
+    SHLockDetailViewController *lockDetailVC = [[SHLockDetailViewController alloc] initWithLockId:self.lockModel.lockId];
+    [self.navigationController pushViewController:lockDetailVC animated:YES];
 }
 
-- (void)showVideo {
-    [self addChildViewController:self.showVideoVC];
-    [self.view addSubview:self.showVideoVC.view];
-    [self.showVideoVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(60 + self.shNavigationBarHeight);
-        make.left.equalTo(self.view).offset(20 * kScreenScale);
-        make.right.equalTo(self.view).offset(-20 * kScreenScale);
-        make.height.equalTo(@((kScreenWidth - 40)/16 * 9));
-    }];
-    [self.view addSubview:self.closeButton];
-    [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.showVideoVC.view);
-        make.size.mas_equalTo(CGSizeMake(50 * kScreenScale, 50 * kScreenScale));
+- (void)openLock {
+    @weakify(self);
+    [self showLoading:YES hint:@"开锁中"];
+    [[SHLockManager sharedInstance] openLockWithId:@"2" password:@"123444" complete:^(BOOL succ, SHLockHttpStatusCode statusCode, id info) {
+        @strongify(self);
+        if (succ) {
+            [self showHint:@"开锁成功" duration:1.0];
+        } else {
+            [self showHint:@"开锁失败" duration:1.0];
+        }
     }];
 }
 
@@ -156,6 +180,9 @@
         [_settingButton addTarget:self
                            action:@selector(openSetting)
                  forControlEvents:UIControlEventTouchUpInside];
+        if (!self.lockModel) {
+            [_settingButton setHidden:YES];
+        }
     }
     return _settingButton;
 }
@@ -163,14 +190,14 @@
 - (UIButton *)videoButton {
     if (!_videoButton) {
         _videoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_videoButton setTitle:@"查看猫眼" forState:UIControlStateNormal];
+        [_videoButton setTitle:@"测试开锁" forState:UIControlStateNormal];
         [_videoButton setTitleColor:RGBCOLOR(11, 11, 11) forState:UIControlStateNormal];
         [_videoButton.titleLabel setFont:PingFangSCRegular(20 * kScreenScale)];
         [_videoButton.layer setCornerRadius:10.0];
         [_videoButton.layer setBorderWidth:1.0];
         [_videoButton.layer setBorderColor:RGBCOLOR(11, 11, 11).CGColor];
         [_videoButton addTarget:self
-                         action:@selector(showVideo)
+                         action:@selector(openLock)
                forControlEvents:UIControlEventTouchUpInside];
     }
     return _videoButton;
@@ -213,6 +240,17 @@
         _hintLabel.text = @"输入密码";
     }
     return _hintLabel;
+}
+
+- (UILabel *)aliasLabel {
+    if (!_aliasLabel) {
+        _aliasLabel = [[UILabel alloc] init];
+        _aliasLabel.textColor = RGBCOLOR(11, 11, 11);
+        _aliasLabel.font = PingFangSCRegular(30 * kScreenScale);
+        _aliasLabel.textAlignment = NSTextAlignmentCenter;
+        _aliasLabel.text = self.lockModel.lockId;
+    }
+    return _aliasLabel;
 }
 
 #pragma mark - VC Relative

@@ -91,6 +91,7 @@
         _cellphoneField = [[UITextField alloc] init];
         _cellphoneField.delegate = self;
         _cellphoneField.placeholder = @"手机号";
+        _cellphoneField.textAlignment = NSTextAlignmentCenter;
         [_cellphoneField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_cellphoneField.layer setBorderWidth:px];
     }
@@ -102,6 +103,7 @@
         _passwordField = [[UITextField alloc] init];
         _passwordField.delegate = self;
         _passwordField.placeholder = @"密码";
+        _passwordField.textAlignment = NSTextAlignmentCenter;
         [_passwordField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_passwordField.layer setBorderWidth:px];
     }
@@ -113,6 +115,7 @@
         _confrimPasswordField = [[UITextField alloc] init];
         _confrimPasswordField.delegate = self;
         _confrimPasswordField.placeholder = @"确认密码";
+        _confrimPasswordField.textAlignment = NSTextAlignmentCenter;
         [_confrimPasswordField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_confrimPasswordField.layer setBorderWidth:px];
     }
@@ -124,6 +127,7 @@
         _mixedIdField = [[UITextField alloc] init];
         _mixedIdField.delegate = self;
         _mixedIdField.placeholder = @"网关Id或者注册码";
+        _mixedIdField.textAlignment = NSTextAlignmentCenter;
         [_mixedIdField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_mixedIdField.layer setBorderWidth:px];
     }

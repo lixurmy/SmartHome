@@ -8,6 +8,8 @@
 
 #import "SHLockManager.h"
 
+static NSString * const kSHLockManagerCurrentLockKey = @"kSHLockManagerCurrentLockKey";
+
 static SHLockManager * _instance;
 
 @implementation SHLockManager
@@ -16,6 +18,9 @@ static SHLockManager * _instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [[SHLockManager alloc] init];
+        NSString *jsonString = [[NSUserDefaults standardUserDefaults] objectForKey:kSHLockManagerCurrentLockKey];
+        SHLockModel *lockModel = [SHLockModel modelWithDictionary:[jsonString mj_JSONObject]];
+        [_instance updateCurrentLock:lockModel];
     });
     return _instance;
 }
@@ -144,6 +149,39 @@ static SHLockManager * _instance;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
             complete(NO, SHLockHttpStatusUnknown, @"网络异常");
+        }
+    }];
+}
+
+- (void)updateCurrentLock:(SHLockModel *)lockModel {
+    _currentLock = lockModel;
+    [[NSUserDefaults standardUserDefaults] setObject:[lockModel mj_JSONString] forKey:kSHLockManagerCurrentLockKey];
+}
+
+#pragma mark - Lock Actions
+- (void)openLockWithId:(NSString *)lockId password:(NSString *)password complete:(SHLockManagerComplete)complete {
+    if (!lockId && !password) {
+        if (complete) {
+            complete(NO, SHLockHttpStatusUnknown, @"lockId and password cannot be nil");
+        }
+        return;
+    }
+    NSDictionary *parameters = @{@"lid"     : lockId,
+                                 @"password": password ?: @"",
+                                 @"gwid"    : [SHUserManager sharedInstance].gatewayId ?: @""};
+    [[SHNetworkManager lockManager] POST:@"cgi-bin/lock/ygs/v2/dounlockygs.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        SHLockHttpStatusCode statusCode = [responseObject[@"status"] integerValue];
+        if (!complete) {
+            return;
+        }
+        if (statusCode == SHLockHttpStatusSuccess) {
+            complete(YES, statusCode, responseObject);
+        } else {
+            complete(NO, statusCode, responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (complete) {
+            complete(NO, SHLockHttpStatusUnknown, nil);
         }
     }];
 }

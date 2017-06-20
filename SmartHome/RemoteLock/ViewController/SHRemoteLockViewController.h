@@ -7,7 +7,12 @@
 //
 
 #import "SHBaseViewController.h"
+@class SHLockModel;
 
 @interface SHRemoteLockViewController : SHBaseViewController
+
+@property (nonatomic, readonly, strong) SHLockModel *lockModel;
+
+- (instancetype)initWithLockModel:(SHLockModel *)lockModel;
 
 @end

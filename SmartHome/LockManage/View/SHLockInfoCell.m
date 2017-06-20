@@ -7,10 +7,12 @@
 //
 
 #import "SHLockInfoCell.h"
+#import "SHLockManager.h"
 
 @interface SHLockInfoCell ()
 
 @property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *currentLockLabel;
 @property (nonatomic, strong) UILabel *signalLabel;
 @property (nonatomic, strong) UILabel *batteryLabel;
 @property (nonatomic, strong) UIButton *updateAliasButton;
@@ -36,6 +38,13 @@
             make.left.equalTo(self.contentView).offset(10);
             make.centerY.equalTo(self.contentView);
         }];
+        _currentLockLabel = [[UILabel alloc] init];
+        _currentLockLabel.text = @"常用锁";
+        [self.contentView addSubview:_currentLockLabel];
+        [_currentLockLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_nameLabel.mas_right).offset(10);
+            make.centerY.equalTo(self.contentView);
+        }];
         _updateAliasButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_updateAliasButton setTitle:@"设置别名" forState:UIControlStateNormal];
         [_updateAliasButton.titleLabel setFont:PingFangSCRegular(10)];
@@ -59,6 +68,14 @@
                 [self.nameLabel setText:x];
             } else {
                 [self.nameLabel setText:@"添加别名"];
+            }
+        }];
+        [RACObserve(self, model.lockId) subscribeNext:^(NSString *lockId) {
+            @strongify(self);
+            if ([lockId isEqualToString:[SHLockManager sharedInstance].currentLock.lockId]) {
+                [self.currentLockLabel setHidden:NO];
+            } else {
+                [self.currentLockLabel setHidden:YES];
             }
         }];
     }

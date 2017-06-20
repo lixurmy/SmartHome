@@ -11,6 +11,7 @@
 #import "SHAddLockViewController.h"
 #import "SHLockTableView.h"
 #import "SHLockInfoCell.h"
+#import "SHLockEmptyCell.h"
 #import "SHRefreshHeader.h"
 #import "SHLockManager.h"
 
@@ -61,6 +62,9 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
                 for (NSDictionary *lock in locks) {
                     SHLockModel *model = [SHLockModel modelWithDictionary:lock];
                     [self.allLockModels addObject:model];
+                }
+                if (![SHLockManager sharedInstance].currentLock) {
+                    [[SHLockManager sharedInstance] updateCurrentLock:self.allLockModels.firstObject];
                 }
                 [self.tableView reloadData];
                 break;
@@ -125,24 +129,30 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.allLockModels.count;
+    return self.allLockModels.count ?: 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SHLockInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSHLockManageViewControllerInfoCellKey];
-    if (!cell) {
-        cell = [[SHLockInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kSHLockManageViewControllerInfoCellKey];
+    if (self.allLockModels.count) {
+        SHLockInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSHLockManageViewControllerInfoCellKey];
+        if (!cell) {
+            cell = [[SHLockInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kSHLockManageViewControllerInfoCellKey];
+        }
+        cell.delegate = self;
+        NSInteger row = indexPath.row;
+        SHLockModel *model = self.allLockModels[row];
+        cell.model = model;
+        return cell;
+    } else {
+        SHLockEmptyCell *cell = [[SHLockEmptyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.delegate = self;
+        return cell;
     }
-    cell.delegate = self;
-    NSInteger row = indexPath.row;
-    SHLockModel *model = self.allLockModels[row];
-    cell.model = model;
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return self.allLockModels.count ? 100 : kScreenHeight - self.shNavigationBarHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -158,6 +168,8 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
         SHLockInfoCell *infoCell = (SHLockInfoCell *)cell;
         SHLockModel *lockModel = infoCell.model;
         [self showUpdateAliasAlert:lockModel.lockId];
+    } else if ([cell isKindOfClass:[SHLockEmptyCell class]]) {
+        [self openAddLockVC];
     }
 }
 

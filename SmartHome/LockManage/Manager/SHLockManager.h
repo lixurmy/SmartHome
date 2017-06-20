@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SHLockModel.h"
 
 typedef NS_ENUM(NSUInteger, SHLockHttpStatusCode) {
     SHLockHttpStatusSuccess         = 200,
@@ -19,6 +20,8 @@ typedef void(^SHLockManagerComplete)(BOOL succ, SHLockHttpStatusCode statusCode,
 
 @interface SHLockManager : NSObject
 
+@property (nonatomic, readonly, strong) SHLockModel *currentLock;
+
 + (instancetype)sharedInstance;
 
 - (void)fetchAllLocksWithComplete:(SHLockManagerComplete)complete;
@@ -30,5 +33,9 @@ typedef void(^SHLockManagerComplete)(BOOL succ, SHLockHttpStatusCode statusCode,
 - (void)deleteLockId:(NSString *)lockId complete:(SHLockManagerComplete)complete;
 
 - (void)updateAlias:(NSString *)alias lockId:(NSString *)lockId complete:(SHLockManagerComplete)complete;
+
+- (void)updateCurrentLock:(SHLockModel *)lockModel;
+
+- (void)openLockWithId:(NSString *)lockId password:(NSString *)password complete:(SHLockManagerComplete)complete;
 
 @end
