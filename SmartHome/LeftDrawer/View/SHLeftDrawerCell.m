@@ -26,7 +26,7 @@
             make.center.equalTo(self.contentView);
         }];
         UIView *bottomLine = [[UIView alloc] init];
-        bottomLine.backgroundColor = RGBCOLOR(11, 11, 11);
+        bottomLine.backgroundColor = RGBCOLOR(0, 0, 0);
         [self.contentView addSubview:bottomLine];
         [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(self.contentView);

@@ -116,11 +116,11 @@
     if (!_remoteLockButton) {
         _remoteLockButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_remoteLockButton setTitle:@"远程开锁" forState:UIControlStateNormal];
-        [_remoteLockButton setTitleColor:RGBCOLOR(11, 11, 11) forState:UIControlStateNormal];
+        [_remoteLockButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_remoteLockButton.titleLabel setFont:PingFangSCRegular(20)];
         [_remoteLockButton.layer setCornerRadius:5.0];
         [_remoteLockButton.layer setBorderWidth:px];
-        [_remoteLockButton.layer setBorderColor:RGBCOLOR(11, 11, 11).CGColor];
+        [_remoteLockButton.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_remoteLockButton addTarget:self
                               action:@selector(openRemoteLock)
                     forControlEvents:UIControlEventTouchUpInside];

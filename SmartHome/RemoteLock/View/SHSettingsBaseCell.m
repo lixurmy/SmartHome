@@ -47,7 +47,7 @@
             make.size.mas_equalTo(CGSizeMake(14, 14));
         }];
         UIView *bottomLine = [[UIView alloc] init];
-        [bottomLine setBackgroundColor:RGBCOLOR(11, 11, 11)];
+        [bottomLine setBackgroundColor:RGBCOLOR(0, 0, 0)];
         [self.contentView addSubview:bottomLine];
         [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView).offset(20);

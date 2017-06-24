@@ -145,11 +145,12 @@
 
 - (UIButton *)createCommonButton:(NSString *)title {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button.layer setBorderColor:RGBCOLOR(11, 11, 11).CGColor];
+    [button.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
     [button.layer setBorderWidth:px];
     [button.layer setCornerRadius:5];
     [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:RGBCOLOR(11, 11, 11) forState:UIControlStateNormal];
+    [button setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
+    [button setTitleColor:RGBCOLOR(255, 255, 255) forState:UIControlStateHighlighted];
     [button.titleLabel setFont:PingFangSCRegular(20 * kScreenScale)];
     [button addTarget:self
                action:@selector(commonButtonAction:)

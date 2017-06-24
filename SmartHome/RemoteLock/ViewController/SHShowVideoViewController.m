@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:RGBCOLOR(11, 11, 11)];
+    [self.view setBackgroundColor:RGBCOLOR(0, 0, 0)];
     [self setupPlayer];
 }
 

@@ -209,7 +209,7 @@
 - (UILabel *)hintLabel {
     if (!_hintLabel) {
         _hintLabel = [[UILabel alloc] init];
-        _hintLabel.textColor = RGBCOLOR(11, 11, 11);
+        _hintLabel.textColor = RGBCOLOR(0, 0, 0);
         _hintLabel.font = PingFangSCRegular(18 * kScreenScale);
         _hintLabel.textAlignment = NSTextAlignmentCenter;
         _hintLabel.text = @"输入密码";
