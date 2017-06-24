@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:RGBCOLOR(162, 162, 162)];
     [self setupButtons];
 }
 
@@ -94,6 +94,34 @@
         make.right.equalTo(self.view).offset(-wSpace);
         make.size.mas_equalTo(size);
     }];
+    
+    UIButton *openLockButton = [self createCommonButton:@"开锁"];
+    [self.view addSubview:openLockButton];
+    [openLockButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(zeroButton);
+        make.left.equalTo(self.view).offset(wSpace);
+        make.size.mas_equalTo(size);
+    }];
+    [openLockButton removeTarget:self
+                          action:@selector(commonButtonAction:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [openLockButton addTarget:self
+                       action:@selector(openLockAction:)
+             forControlEvents:UIControlEventTouchUpInside];
+    UIButton *clearButton = [self createCommonButton:@"清空"];
+    [self.view addSubview:clearButton];
+    [clearButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(zeroButton);
+        make.right.equalTo(self.view).offset(-wSpace);
+        make.size.mas_equalTo(size);
+    }];
+    [clearButton removeTarget:self
+                       action:@selector(commonButtonAction:)
+             forControlEvents:UIControlEventTouchUpInside];
+    [clearButton addTarget:self
+                    action:@selector(clearInputAction:)
+          forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 #pragma mark - Private Method
@@ -103,10 +131,23 @@
     }
 }
 
+- (void)openLockAction:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(keyboardController:didClickOpenLock:)]){
+        [self.delegate keyboardController:self didClickOpenLock:sender];
+    }
+}
+
+- (void)clearInputAction:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(keyboardController:didClickClearInput:)]) {
+        [self.delegate keyboardController:self didClickClearInput:sender];
+    }
+}
+
 - (UIButton *)createCommonButton:(NSString *)title {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button.layer setBorderColor:RGBCOLOR(11, 11, 11).CGColor];
     [button.layer setBorderWidth:px];
+    [button.layer setCornerRadius:5];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:RGBCOLOR(11, 11, 11) forState:UIControlStateNormal];
     [button.titleLabel setFont:PingFangSCRegular(20 * kScreenScale)];

@@ -27,9 +27,25 @@
         [self.window setRootViewController:(UIViewController *)tabBarMananger.tabBarViewController];
     }
     [self.window makeKeyAndVisible];
+    [self setupTabBarApperance];
     return YES;
 }
 
+#pragma mark - Config
+- (void)setupTabBarApperance {
+    // 普通状态下的文字属性
+    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
+    normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    
+    // 选中状态下的文字属性
+    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+    selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    
+    // 设置文字属性
+    UITabBarItem *tabBar = [UITabBarItem appearance];
+    [tabBar setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+    [tabBar setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 }

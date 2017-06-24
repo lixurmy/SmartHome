@@ -15,7 +15,9 @@
 @property (nonatomic, copy) NSString *lockMacAddress;
 @property (nonatomic, copy) NSString *hwVer;
 @property (nonatomic, copy) NSString *swVer;
-@property (nonatomic, assign) NSInteger inited;
+@property (nonatomic, assign) NSUInteger signal;
+@property (nonatomic, assign) BOOL online;
+@property (nonatomic, assign) BOOL inited;
 
 + (instancetype)modelWithDictionary:(NSDictionary *)dictionary;
 

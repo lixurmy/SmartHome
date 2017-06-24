@@ -78,7 +78,7 @@
     SHNavigationBar *navigationBar = [[SHNavigationBar alloc] init];
     [navigationBar setBackgroundImage:[UIImage imageWithColor:NavigationBarColor]
                         forBarMetrics:UIBarMetricsDefault];
-    NSDictionary *attributed = @{NSForegroundColorAttributeName : [UIColor whiteColor],
+    NSDictionary *attributed = @{NSForegroundColorAttributeName : [UIColor blackColor],
                                  NSFontAttributeName : PingFangSCRegular(20)};
     [navigationBar setTitleTextAttributes:attributed];
     [navigationBar setItems:@[self.shNavigationItem]];
@@ -104,6 +104,10 @@
         }
     }
     return _shNavigationItem;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
 }
 
 #pragma mark - Get

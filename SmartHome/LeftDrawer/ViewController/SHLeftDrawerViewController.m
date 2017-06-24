@@ -8,15 +8,17 @@
 
 #import "SHLeftDrawerViewController.h"
 #import "SHLoginViewController.h"
+#import "SHNotificationSettingsViewController.h"
 #import "SHChangePasswordViewController.h"
 #import "SHBindGatewayViewController.h"
 #import "SHBaseTableView.h"
 #import "SHLeftDrawerCell.h"
 
 typedef NS_ENUM(NSInteger, SHLeftDrawerIndexRow) {
-    SHLeftDrawerIndexRowRevisePassword = 0,
-    SHLeftDrawerIndexRowBindGateway = 1,
-    SHLEftDrawerIndexRowLogout = 2
+    SHLeftDrawerIndexRowRevisePassword  = 0,
+    SHLeftDrawerIndexRowBindGateway     = 1,
+    SHLeftDrawerIndexRowNotification    = 2,
+    SHLeftDrawerIndexRowLogout          = 3
 };
 
 static NSString * const kSHLeftDrawerViewControllerCellIdentifier = @"kSHLeftDrawerViewControllerCellIdentifier";
@@ -46,7 +48,7 @@ static CGFloat const kSHLeftDrawerViewCellHeight = 50;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
-        make.height.equalTo(@(3 * kSHLeftDrawerViewCellHeight));
+        make.height.equalTo(@(4 * kSHLeftDrawerViewCellHeight));
     }];
 }
 
@@ -59,6 +61,11 @@ static CGFloat const kSHLeftDrawerViewCellHeight = 50;
 - (void)bindGateway {
     SHBindGatewayViewController *bindGatewayVC = [[SHBindGatewayViewController alloc] init];
     [self.parentViewController presentViewController:bindGatewayVC animated:YES completion:nil];
+}
+
+- (void)openNotificationSettings {
+    SHNotificationSettingsViewController *notificationVC = [[SHNotificationSettingsViewController alloc] init];
+    [self.navigationController pushViewController:notificationVC animated:YES];
 }
 
 - (void)logout {
@@ -79,7 +86,7 @@ static CGFloat const kSHLeftDrawerViewCellHeight = 50;
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -90,14 +97,16 @@ static CGFloat const kSHLeftDrawerViewCellHeight = 50;
     SHLeftDrawerCell *tableViewCell = [tableView dequeueReusableCellWithIdentifier:kSHLeftDrawerViewControllerCellIdentifier];
     if (!tableViewCell) {
         tableViewCell = [[SHLeftDrawerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kSHLeftDrawerViewControllerCellIdentifier];
-        if (indexPath.row == 0) {
+        if (indexPath.row == SHLeftDrawerIndexRowRevisePassword) {
             tableViewCell.title = @"修改密码";
-        } else if (indexPath.row == 1) {
+        } else if (indexPath.row == SHLeftDrawerIndexRowBindGateway) {
             [RACObserve([SHUserManager sharedInstance], gatewayId) subscribeNext:^(id x) {
                 tableViewCell.title = [NSString stringWithFormat:@"绑定网关(%@)", x];
                 
             }];
-        } else if (indexPath.row == 2) {
+        } else if (indexPath.row == SHLeftDrawerIndexRowNotification) {
+            tableViewCell.title = @"通知设置";
+        } else if (indexPath.row == SHLeftDrawerIndexRowLogout) {
             tableViewCell.title = [NSString stringWithFormat:@"退出登录(%@)", [SHUserManager sharedInstance].phone];
         }
     }
@@ -118,7 +127,10 @@ static CGFloat const kSHLeftDrawerViewCellHeight = 50;
         case SHLeftDrawerIndexRowBindGateway:
             [self bindGateway];
             break;
-        case SHLEftDrawerIndexRowLogout:
+        case SHLeftDrawerIndexRowNotification:
+            [self openNotificationSettings];
+            break;
+        case SHLeftDrawerIndexRowLogout:
             [self logout];
             break;
     }

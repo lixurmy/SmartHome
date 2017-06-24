@@ -72,12 +72,17 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
                 NSArray *locks = info[@"data"][@"info"];
                 if (locks) {
                     self.lockModel = [SHLockModel modelWithDictionary:locks[0]];
+                } else {
+                    self.lockModel = nil;
                 }
+                [self.tableView reloadData];
                 break;
             }
             case SHLockHttpStatusLockExist:
             case SHLockHttpStatusLockNotFound:
+            case SHLockHttpStatusLockIdOrMacErr:
                 [self showHint:info[@"msg"] duration:1.0];
+                [[SHLockManager sharedInstance] updateCurrentLock:nil];
             default:
                 break;
         }
@@ -137,7 +142,7 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
 - (SHLockDetailHeader *)lockHeader {
     if (!_lockHeader) {
         _lockHeader = [[SHLockDetailHeader alloc] init];
-        _lockHeader.backgroundColor = [UIColor greenColor];
+        _lockHeader.backgroundColor = NavigationBarColor;
         RAC(_lockHeader, lockModel) = RACObserve(self, lockModel);
     }
     return _lockHeader;
@@ -147,6 +152,7 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
     if (!_unlockRecordButton) {
         _unlockRecordButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_unlockRecordButton setTitle:@"开锁记录" forState:UIControlStateNormal];
+        [_unlockRecordButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_unlockRecordButton addTarget:self
                                 action:@selector(openUnlockRecord)
                       forControlEvents:UIControlEventTouchUpInside];
@@ -158,10 +164,11 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
     if (!_addKeyButton) {
         _addKeyButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_addKeyButton setTitle:@"添加钥匙" forState:UIControlStateNormal];
+        [_addKeyButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_addKeyButton addTarget:self
                           action:@selector(openAddKeyVC)
                 forControlEvents:UIControlEventTouchUpInside];
-        _addKeyButton.backgroundColor = [UIColor greenColor];
+        _addKeyButton.backgroundColor = NavigationBarColor;
     }
     return _addKeyButton;
 }

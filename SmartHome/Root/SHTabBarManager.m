@@ -48,10 +48,12 @@
 
 - (NSArray *)tabBarItemAttributes {
     if (!_tabBarItemAttributes) {
-        NSDictionary *rootItemAttributes = @{CYLTabBarItemImage : @"sh_tabbar_icon_root",
-                                             CYLTabBarItemTitle : @"开锁"};
-        NSDictionary *lockManagerItemAttributes = @{CYLTabBarItemImage : @"sh_tabbar_icon_lockmanager",
-                                                    CYLTabBarItemTitle : @"锁管理"};
+        NSDictionary *rootItemAttributes = @{CYLTabBarItemTitle         : @"开锁",
+                                             CYLTabBarItemImage         : @"sh_tabbar_icon_open_normal",
+                                             CYLTabBarItemSelectedImage : @"sh_tabbar_icon_open_seleted"};
+        NSDictionary *lockManagerItemAttributes = @{CYLTabBarItemTitle          : @"锁管理",
+                                                    CYLTabBarItemImage          : @"sh_tabbar_icon_lock_manage_normal",
+                                                    CYLTabBarItemSelectedImage  : @"sh_tabbar_icon_lock_manage_selected"};
         _tabBarItemAttributes = @[rootItemAttributes, lockManagerItemAttributes];
     }
     return _tabBarItemAttributes;

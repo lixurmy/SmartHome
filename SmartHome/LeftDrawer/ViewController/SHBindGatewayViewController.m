@@ -104,6 +104,7 @@
     SHNavigationBar *navigationBar = [super createSHNavigationBar];
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
     [cancelButton sizeToFit];
     [cancelButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];

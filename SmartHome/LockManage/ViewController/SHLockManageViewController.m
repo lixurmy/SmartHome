@@ -8,6 +8,7 @@
 
 #import "SHLockManageViewController.h"
 #import "SHLockDetailViewController.h"
+#import "SHRemoteLockViewController.h"
 #import "SHAddLockViewController.h"
 #import "SHLockTableView.h"
 #import "SHLockInfoCell.h"
@@ -115,12 +116,40 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     [[SHLockManager sharedInstance] updateAlias:self.aliasString lockId:lockId complete:^(BOOL succ, SHLockHttpStatusCode statusCode, id info) {
         @strongify(self);
         if (succ) {
-            [self showHint:@"更新成功" duration:1.0];
+            [self fetchAllLockInfos];
         } else {
             [self showHint:@"更新失败" duration:1.0];
         }
-        [self hideLoading:YES];
     }];
+}
+
+- (void)showUpdateCurrentLockAlert:(SHLockModel *)lockModel {
+    NSString *message = [NSString stringWithFormat:@"确定设置%@为常用锁?", lockModel.alias];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self updateCurrentLock:lockModel];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:cancelAction];
+    [alert addAction:confirmAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)updateCurrentLock:(SHLockModel *)lockModel {
+    if ([lockModel.lockId isEqualToString:[SHLockManager sharedInstance].currentLock.lockId]) {
+        [self showHint:@"已是常用锁" duration:1.0];
+        return;
+    }
+    [self showLoading:YES];
+    [[SHLockManager sharedInstance] updateCurrentLock:lockModel];
+    [self fetchAllLockInfos];
+}
+
+- (void)openLockWithModel:(SHLockModel *)lockModel {
+    SHRemoteLockViewController *remoteLockVC = [[SHRemoteLockViewController alloc] initWithLockModel:lockModel];
+    [self.navigationController pushViewController:remoteLockVC animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -167,7 +196,13 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     if ([cell isKindOfClass:[SHLockInfoCell class]]) {
         SHLockInfoCell *infoCell = (SHLockInfoCell *)cell;
         SHLockModel *lockModel = infoCell.model;
-        [self showUpdateAliasAlert:lockModel.lockId];
+        if ([info isEqualToString:@"updateAlias"]) {
+            [self showUpdateAliasAlert:lockModel.lockId];
+        } else if ([info isEqualToString:@"updateCurrentLock"]) {
+            [self showUpdateCurrentLockAlert:lockModel];
+        } else if([info isEqualToString:@"openLock"]) {
+            [self openLockWithModel:lockModel];
+        }
     } else if ([cell isKindOfClass:[SHLockEmptyCell class]]) {
         [self openAddLockVC];
     }
@@ -183,6 +218,7 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     if (!_addLockButton) {
         _addLockButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_addLockButton setTitle:@"添加锁" forState:UIControlStateNormal];
+        [_addLockButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_addLockButton addTarget:self
                            action:@selector(openAddLockVC)
                  forControlEvents:UIControlEventTouchUpInside];

@@ -177,7 +177,7 @@ static SHLockManager * _instance;
         if (statusCode == SHLockHttpStatusSuccess) {
             complete(YES, statusCode, responseObject);
         } else {
-            complete(NO, statusCode, responseObject);
+            complete(NO, statusCode, responseObject[@"msg"]);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {

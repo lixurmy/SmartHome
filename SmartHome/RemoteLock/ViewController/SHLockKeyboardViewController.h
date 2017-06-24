@@ -14,6 +14,10 @@
 @required
 - (void)keyboardController:(SHLockKeyboardViewController *)keyboardController didChangeOutput:(NSString *)output;
 
+- (void)keyboardController:(SHLockKeyboardViewController *)keyboardController didClickOpenLock:(id)info;
+
+- (void)keyboardController:(SHLockKeyboardViewController *)keyboardController didClickClearInput:(id)info;
+
 @end
 
 @interface SHLockKeyboardViewController : SHBaseViewController

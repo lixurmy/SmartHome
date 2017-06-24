@@ -277,8 +277,4 @@ static NSString * const kSHSettingsViewControllerCell = @"kSHSettingsViewControl
     return @"设置";
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 @end

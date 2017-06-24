@@ -16,6 +16,7 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 
 @interface SHLoginViewController () <UITextFieldDelegate>
 
+@property (nonatomic, strong) UILabel *logoLabel;
 @property (nonatomic, strong) UILabel *usernameLabel;
 @property (nonatomic, strong) UILabel *passwordLabel;
 @property (nonatomic, strong) UILabel *confirmPasswordLabel;
@@ -40,9 +41,21 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupLogo];
     [self setupFields];
     [self setupButtons];
     [self.view setBackgroundColor:NavigationBarColor];
+}
+
+- (void)setupLogo {
+    self.logoLabel.text = @"云上的家";
+    self.logoLabel.textColor = RGBCOLOR(255, 255, 255);
+    [self.logoLabel setFont:PingFangSCMedium(60 * kScreenScale)];
+    [self.view addSubview:self.logoLabel];
+    [self.logoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.view).offset(120 * kScreenScale);
+    }];
 }
 
 - (void)setupFields {
@@ -56,7 +69,8 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
         make.width.equalTo(@(50 * kScreenScale));
     }];
     [self.usernameField setFont:PingFangSCRegular(24 * kScreenScale)];
-    [self.usernameField setBackgroundColor:RGBCOLOR(222, 222, 222)];
+    [self.usernameField setBackgroundColor:NavigationBarColor];
+    [self.usernameField setTextColor:RGBCOLOR(255, 255, 255)];
     [self.view addSubview:self.usernameField];
     [self.usernameField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.usernameLabel);
@@ -72,7 +86,8 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
         make.top.equalTo(self.usernameLabel.mas_bottom).offset(20 * kScreenScale);
     }];
     [self.passwordField setFont:PingFangSCRegular(24 * kScreenScale)];
-    [self.passwordField setBackgroundColor:RGBCOLOR(222, 222, 222)];
+    [self.passwordField setBackgroundColor:NavigationBarColor];
+    [self.passwordField setTextColor:RGBCOLOR(255, 255, 255)];
     [self.view addSubview:self.passwordField];
     [self.passwordField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.passwordLabel);
@@ -89,7 +104,7 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
         make.top.equalTo(self.passwordLabel.mas_bottom).offset(20 * kScreenScale);
     }];
     [self.confirmPasswordField setFont:PingFangSCRegular(24 * kScreenScale)];
-    [self.confirmPasswordField setBackgroundColor:RGBCOLOR(222, 222, 222)];
+    [self.confirmPasswordField setBackgroundColor:NavigationBarColor];
     [self.confirmPasswordField setHidden:YES];
     [self.view addSubview:self.confirmPasswordField];
     [self.confirmPasswordField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -355,6 +370,13 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 }
 
 #pragma mark - Get
+- (UILabel *)logoLabel {
+    if (!_logoLabel) {
+        _logoLabel = [[UILabel alloc] init];
+    }
+    return _logoLabel;
+}
+
 - (UILabel *)usernameLabel {
     if (!_usernameLabel) {
         _usernameLabel = [[UILabel alloc] init];
@@ -451,6 +473,10 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
 #pragma mark - VC Relative
 - (BOOL)hideNavigationBar {
     return YES;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

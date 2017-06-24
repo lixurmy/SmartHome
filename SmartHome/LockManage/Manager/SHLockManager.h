@@ -13,6 +13,8 @@ typedef NS_ENUM(NSUInteger, SHLockHttpStatusCode) {
     SHLockHttpStatusSuccess         = 200,
     SHLockHttpStatusLockExist       = 4105,
     SHLockHttpStatusLockNotFound    = 4107,
+    SHLockHttpStatusLockIdOrMacErr  = 4102,
+    SHLockHttpStatusLockNotOnline   = 4004,
     SHLockHttpStatusUnknown
 };
 

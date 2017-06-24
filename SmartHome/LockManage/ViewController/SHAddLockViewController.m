@@ -72,7 +72,6 @@
         } else {
             [self showHint:@"更新失败" duration:1.0];
         }
-        [self hideLoading:YES];
     }];
 }
 
