@@ -16,6 +16,9 @@ PODS:
     - AFNetworking/NSURLSession
   - CYLTabBarController (1.13.1)
   - IQKeyboardManager (4.0.10)
+  - JCore (1.1.3)
+  - JPush (3.0.5):
+    - JCore (~> 1.1.1)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
@@ -37,6 +40,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - CYLTabBarController (~> 1.13.1)
   - IQKeyboardManager
+  - JPush
   - Masonry
   - MBProgressHUD
   - MJExtension
@@ -50,6 +54,8 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CYLTabBarController: 97f6b486f9e6c613d69e9c111cc9c2c5db7000ce
   IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  JCore: dff3c50e9a7522a508cd9096ca79165968e1aed3
+  JPush: dd0b776998aa705a6242b947bf72e5a640387cfe
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -59,6 +65,6 @@ SPEC CHECKSUMS:
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 9638a2545ebe1966323c8822dfb2ee3c0a6ce577
+PODFILE CHECKSUM: 5ea64fb5dbe3896a2cbb2668aed6ee6629dd0880
 
 COCOAPODS: 1.0.1

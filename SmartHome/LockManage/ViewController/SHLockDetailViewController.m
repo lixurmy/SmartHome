@@ -7,6 +7,7 @@
 //
 
 #import "SHLockDetailViewController.h"
+#import "SHAddKeyViewController.h"
 #import "SHUnlockRecordViewController.h"
 #import "SHLockManager.h"
 #import "SHLockModel.h"
@@ -70,7 +71,7 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
             case SHLockHttpStatusSuccess: {
                 [self hideLoading:YES];
                 NSArray *locks = info[@"data"][@"info"];
-                if (locks) {
+                if (locks && locks.count) {
                     self.lockModel = [SHLockModel modelWithDictionary:locks[0]];
                 } else {
                     self.lockModel = nil;
@@ -95,7 +96,8 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
 }
 
 - (void)openAddKeyVC {
-
+    SHAddKeyViewController *addKeyVC = [[SHAddKeyViewController alloc] initWithLockId:self.lockId];
+    [self.navigationController pushViewController:addKeyVC animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

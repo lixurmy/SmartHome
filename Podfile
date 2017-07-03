@@ -10,6 +10,7 @@ target 'SmartHome' do
   pod 'MBProgressHUD'
   pod 'Reveal-iOS-SDK'
   pod 'OpenSSL'
+  pod 'JPush'
   pod 'SDWebImage'
   pod 'IQKeyboardManager'
   pod 'CYLTabBarController', '~> 1.13.1'

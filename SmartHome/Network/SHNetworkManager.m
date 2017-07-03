@@ -32,6 +32,16 @@
     return _lockManager;
 }
 
++ (instancetype)keyManager {
+    static SHNetworkManager * _keyManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSURL *keyUrl = [NSURL URLWithString:[SHBaseURL sharedInstance].keyUrl];
+        _keyManager = [[super alloc] initWithBaseURL:keyUrl];
+    });
+    return _keyManager;
+}
+
 + (instancetype)waterManager {
     static SHNetworkManager * _waterManager = nil;
     static dispatch_once_t onceToken;

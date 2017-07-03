@@ -87,44 +87,28 @@
 - (void)openLock {
     @weakify(self);
     [self showLoading:YES hint:@"开锁中"];
-    [[SHLockManager sharedInstance] openLockWithId:[SHLockManager sharedInstance].currentLock.lockId password:@"123444" complete:^(BOOL succ, SHLockHttpStatusCode statusCode, id info) {
+    [[SHLockManager sharedInstance] openLockWithId:[SHLockManager sharedInstance].currentLock.lockId password:self.inputString complete:^(BOOL succ, SHLockHttpStatusCode statusCode, id info) {
         @strongify(self);
         if (succ) {
             [self showHint:@"开锁成功" duration:1.0];
-            [self.houseImageView setImage:[UIImage imageNamed:@"sh_remote_home_unlocked"]];
+            [self openLockSuccess];
         } else {
             [self showHint:info duration:1.0];
+            [self clearInputString];
         }
     }];
 }
 
-- (void)unlock {
-    if (![SHRemoteLockManager sharedInstance].bindPhone) {
-        [self showHint:@"未绑定手机号" duration:1.0];
-        @weakify(self);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            @strongify(self);
-            [self openSetting];
-        });
-        return;
-    }
-    if ([self.inputString isEqualToString:[SHRemoteLockManager sharedInstance].lockPassword]) {
-        @weakify(self);
-        [self showLoading:YES hint:@"开锁中..."];
-        [[SHRemoteLockManager sharedInstance] unlockPhone:[SHRemoteLockManager sharedInstance].bindPhone complete:^(BOOL succ, SHRemoteLockBindStatus statusCode, id info) {
-            @strongify(self);
-            if (succ) {
-                [self showHint:@"开锁成功" duration:1.0];
-            } else {
-                [self showHint:[NSString stringWithFormat:@"开锁失败 code = %ld", statusCode] duration:1.0];
-            }
-            self.inputString = nil;
-            [self.inputPasswordLabel setText:nil];
-        }];
-    } else {
-        [self showHint:@"开锁密码验证失败" duration:1.0];
-        [self.hintLabel setText:@"密码验证失败"];
-    }
+- (void)clearInputString {
+    [self.view endEditing:YES];
+    self.inputString = nil;
+    [self.inputPasswordLabel setText:nil];
+}
+
+- (void)openLockSuccess {
+    [self.inputPasswordLabel setHidden:YES];
+    [self.hintLabel setHidden:YES];
+    [self.houseImageView setImage:[UIImage imageNamed:@"sh_remote_home_unlocked"]];
 }
 
 #pragma mark - SHLockKeyboardDelegate
@@ -133,9 +117,6 @@
         self.inputString = output;
     } else {
         self.inputString = [NSString stringWithFormat:@"%@%@", self.inputString, output];
-    }
-    if (self.inputString.length == [[SHRemoteLockManager sharedInstance].lockPassword length]) {
-        [self unlock];
     }
     [self.inputPasswordLabel setText:self.inputString];
 }
@@ -147,9 +128,7 @@
 }
 
 - (void)keyboardController:(SHLockKeyboardViewController *)keyboardController didClickClearInput:(id)info {
-    [self.view endEditing:YES];
-    [self.inputPasswordLabel setText:nil];
-    self.inputString = nil;
+    [self clearInputString];
 }
 
 #pragma mark - UITextFieldDelegate

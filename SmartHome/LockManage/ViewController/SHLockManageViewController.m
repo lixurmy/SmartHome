@@ -191,6 +191,18 @@ static NSString * const kSHLockManageViewControllerInfoCellKey = @"kSHLockManage
     [self.navigationController pushViewController:lockDetailVC animated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger row = indexPath.row;
+    SHLockModel *lockModel = self.allLockModels[row];
+    @weakify(self);
+    [self showLoading:YES];
+    [[SHLockManager sharedInstance] deleteLockId:lockModel.lockId complete:^(BOOL succ, SHLockHttpStatusCode statusCode, id info) {
+        @strongify(self);
+        [self hideLoading:YES];
+        [self fetchAllLockInfos];
+    }];
+}
+
 #pragma mark - SHBaseTableViewCellDelegate
 - (void)handleActionForCell:(SHBaseTableViewCell *)cell info:(id)info {
     if ([cell isKindOfClass:[SHLockInfoCell class]]) {

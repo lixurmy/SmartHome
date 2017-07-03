@@ -14,6 +14,8 @@
 
 + (instancetype)lockManager;
 
++ (instancetype)keyManager;
+
 + (instancetype)waterManager;
 
 @end

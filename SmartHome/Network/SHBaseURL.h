@@ -16,6 +16,8 @@
 
 - (NSString *)lockUrl;
 
+- (NSString *)keyUrl;
+
 - (NSString *)waterUrl;
 
 @end

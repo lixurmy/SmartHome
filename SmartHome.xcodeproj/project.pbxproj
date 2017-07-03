@@ -43,6 +43,10 @@
 		BD80BD931EF6C1FE00A7BDD1 /* SHAddLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD921EF6C1FE00A7BDD1 /* SHAddLockViewController.m */; };
 		BD80BD961EF97B1900A7BDD1 /* SHLockEmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD951EF97B1900A7BDD1 /* SHLockEmptyCell.m */; };
 		BD80BD991EFEC68000A7BDD1 /* SHNotificationSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD981EFEC68000A7BDD1 /* SHNotificationSettingsViewController.m */; };
+		BD80BDA01F0A6B5C00A7BDD1 /* SHKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD9F1F0A6B5C00A7BDD1 /* SHKeyManager.m */; };
+		BD80BDA31F0A791800A7BDD1 /* SHKeyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BDA21F0A791800A7BDD1 /* SHKeyModel.m */; };
+		BD80BDA61F0A7AC100A7BDD1 /* SHKeyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BDA51F0A7AC100A7BDD1 /* SHKeyDetailViewController.m */; };
+		BD80BDA91F0A7D2A00A7BDD1 /* SHAddKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BDA81F0A7D2A00A7BDD1 /* SHAddKeyViewController.m */; };
 		BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */; };
 		BD876CEA1EE1C5A6009CE37B /* SHWaterReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CE91EE1C5A6009CE37B /* SHWaterReaderManager.m */; };
 		BD876CEE1EE1CDF2009CE37B /* SHWaterReaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD876CED1EE1CDF2009CE37B /* SHWaterReaderModel.m */; };
@@ -156,6 +160,14 @@
 		BD80BD951EF97B1900A7BDD1 /* SHLockEmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockEmptyCell.m; sourceTree = "<group>"; };
 		BD80BD971EFEC68000A7BDD1 /* SHNotificationSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNotificationSettingsViewController.h; sourceTree = "<group>"; };
 		BD80BD981EFEC68000A7BDD1 /* SHNotificationSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNotificationSettingsViewController.m; sourceTree = "<group>"; };
+		BD80BD9E1F0A6B5C00A7BDD1 /* SHKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKeyManager.h; sourceTree = "<group>"; };
+		BD80BD9F1F0A6B5C00A7BDD1 /* SHKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKeyManager.m; sourceTree = "<group>"; };
+		BD80BDA11F0A791800A7BDD1 /* SHKeyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKeyModel.h; sourceTree = "<group>"; };
+		BD80BDA21F0A791800A7BDD1 /* SHKeyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKeyModel.m; sourceTree = "<group>"; };
+		BD80BDA41F0A7AC100A7BDD1 /* SHKeyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKeyDetailViewController.h; sourceTree = "<group>"; };
+		BD80BDA51F0A7AC100A7BDD1 /* SHKeyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKeyDetailViewController.m; sourceTree = "<group>"; };
+		BD80BDA71F0A7D2A00A7BDD1 /* SHAddKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAddKeyViewController.h; sourceTree = "<group>"; };
+		BD80BDA81F0A7D2A00A7BDD1 /* SHAddKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAddKeyViewController.m; sourceTree = "<group>"; };
 		BD876CE41EE1C2B9009CE37B /* SHWaterReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderViewController.h; sourceTree = "<group>"; };
 		BD876CE51EE1C2B9009CE37B /* SHWaterReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWaterReaderViewController.m; sourceTree = "<group>"; };
 		BD876CE81EE1C5A6009CE37B /* SHWaterReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWaterReaderManager.h; sourceTree = "<group>"; };
@@ -433,6 +445,45 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		BD80BD9A1F0A6B4700A7BDD1 /* KeyManage */ = {
+			isa = PBXGroup;
+			children = (
+				BD80BD9B1F0A6B4700A7BDD1 /* Manager */,
+				BD80BD9C1F0A6B4700A7BDD1 /* Model */,
+				BD80BD9D1F0A6B4700A7BDD1 /* ViewController */,
+			);
+			path = KeyManage;
+			sourceTree = "<group>";
+		};
+		BD80BD9B1F0A6B4700A7BDD1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BD80BD9E1F0A6B5C00A7BDD1 /* SHKeyManager.h */,
+				BD80BD9F1F0A6B5C00A7BDD1 /* SHKeyManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		BD80BD9C1F0A6B4700A7BDD1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD80BDA11F0A791800A7BDD1 /* SHKeyModel.h */,
+				BD80BDA21F0A791800A7BDD1 /* SHKeyModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD80BD9D1F0A6B4700A7BDD1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD80BDA41F0A7AC100A7BDD1 /* SHKeyDetailViewController.h */,
+				BD80BDA51F0A7AC100A7BDD1 /* SHKeyDetailViewController.m */,
+				BD80BDA71F0A7D2A00A7BDD1 /* SHAddKeyViewController.h */,
+				BD80BDA81F0A7D2A00A7BDD1 /* SHAddKeyViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		BD876CE21EE1C2A9009CE37B /* WaterReader */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +605,7 @@
 		BDE559A51EC5F154006A8A6E /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				BD80BD9A1F0A6B4700A7BDD1 /* KeyManage */,
 				BD1BA1FE1EF6725200369479 /* LockManage */,
 				BDADA2931EEE72AB008DBB0B /* QRCodeSCanner */,
 				BD876CE21EE1C2A9009CE37B /* WaterReader */,
@@ -824,6 +876,7 @@
 				BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */,
 				BDEBC25E1EDAC91200FA41A7 /* SHHomeMessageViewController.m in Sources */,
 				BD1BA1F41EF514B600369479 /* SHRegisterViewController.m in Sources */,
+				BD80BDA01F0A6B5C00A7BDD1 /* SHKeyManager.m in Sources */,
 				BD1201471EDB2F9F00694B17 /* SHSettingsBaseCell.m in Sources */,
 				BD80BD901EF6BD0900A7BDD1 /* SHBaseModel.m in Sources */,
 				BD80BD811EF6914500A7BDD1 /* SHLockDetailHeader.m in Sources */,
@@ -837,6 +890,7 @@
 				BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */,
 				BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */,
 				BD80BD8D1EF6B8B800A7BDD1 /* SHLockManager.m in Sources */,
+				BD80BDA61F0A7AC100A7BDD1 /* SHKeyDetailViewController.m in Sources */,
 				BD80BD7E1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
 				BD1BA2051EF6726C00369479 /* SHLockManageViewController.m in Sources */,
@@ -866,12 +920,14 @@
 				BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */,
 				BDF32B281EC8726600CDBAA1 /* UIImage+Color.m in Sources */,
 				BD1BA20B1EF673A000369479 /* SHLockModel.m in Sources */,
+				BD80BDA31F0A791800A7BDD1 /* SHKeyModel.m in Sources */,
 				BDEBC24E1ED1AB1500FA41A7 /* SHBaseTableView.m in Sources */,
 				BD80BD991EFEC68000A7BDD1 /* SHNotificationSettingsViewController.m in Sources */,
 				BD1201321EDB099B00694B17 /* SHNavigationItem.m in Sources */,
 				BDE559A81EC5F154006A8A6E /* main.m in Sources */,
 				BD1BA1FD1EF66C4500369479 /* SHTabBarManager.m in Sources */,
 				BD1BA20E1EF675D900369479 /* SHLockInfoCell.m in Sources */,
+				BD80BDA91F0A7D2A00A7BDD1 /* SHAddKeyViewController.m in Sources */,
 				BDF32B0A1EC74D6500CDBAA1 /* SHNavigationBar.m in Sources */,
 				BD1BA1F01EF514A000369479 /* SHUserManager.m in Sources */,
 				BD80BD961EF97B1900A7BDD1 /* SHLockEmptyCell.m in Sources */,
