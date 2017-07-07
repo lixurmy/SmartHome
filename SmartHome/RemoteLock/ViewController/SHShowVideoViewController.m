@@ -7,7 +7,6 @@
 //
 
 #import "SHShowVideoViewController.h"
-#import <IJKMediaFramework/IJKMediaFramework.h>
 
 @interface SHShowVideoViewController ()
 

@@ -21,7 +21,6 @@
 		BD12015B1EDD548900694B17 /* FDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201581EDD548900694B17 /* FDAlertView.m */; };
 		BD12015E1EDD646200694B17 /* SHSetLockPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */; };
 		BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */; };
-		BD1201641EDD9E7800694B17 /* SHShowVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */; };
 		BD1BA1F01EF514A000369479 /* SHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA1EA1EF514A000369479 /* SHUserManager.m */; };
 		BD1BA1F11EF514A000369479 /* SHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA1EF1EF514A000369479 /* SHLoginViewController.m */; };
 		BD1BA1F41EF514B600369479 /* SHRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA1F31EF514B600369479 /* SHRegisterViewController.m */; };
@@ -53,7 +52,6 @@
 		BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD97D4981ECCABC8003F0337 /* SHRootViewController.m */; };
 		BDADA2971EEE7332008DBB0B /* SHQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDADA2961EEE7332008DBB0B /* SHQRCodeScannerViewController.m */; };
 		BDADA29C1EEE906D008DBB0B /* SHQRCodeMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDADA29B1EEE906D008DBB0B /* SHQRCodeMaskView.m */; };
-		BDB10BFA1EE0768F0097877B /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB10BF91EE0768F0097877B /* IJKMediaFramework.framework */; };
 		BDE559A81EC5F154006A8A6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559A71EC5F154006A8A6E /* main.m */; };
 		BDE559AB1EC5F154006A8A6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE559AA1EC5F154006A8A6E /* AppDelegate.m */; };
 		BDE559B31EC5F154006A8A6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDE559B21EC5F154006A8A6E /* Assets.xcassets */; };
@@ -72,6 +70,10 @@
 		BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B1A1EC75C6800CDBAA1 /* SHNetworkManager.m */; };
 		BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B201EC7711400CDBAA1 /* SHUtils.m */; };
 		BDF32B281EC8726600CDBAA1 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B271EC8726600CDBAA1 /* UIImage+Color.m */; };
+		EC0D0F421F0F7C8D00D3A303 /* SHSecurityQuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F411F0F7C8D00D3A303 /* SHSecurityQuestionModel.m */; };
+		EC0D0F451F0F7CD100D3A303 /* SHSecurityQuestionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F441F0F7CD100D3A303 /* SHSecurityQuestionManager.m */; };
+		EC0D0F481F0F873A00D3A303 /* SHSecurityQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F471F0F873A00D3A303 /* SHSecurityQuestionCell.m */; };
+		EC0D0F4B1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F4A1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -116,8 +118,6 @@
 		BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSetLockPasswordViewController.m; sourceTree = "<group>"; };
 		BD12015F1EDD647600694B17 /* SHSetOfflinePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSetOfflinePasswordViewController.h; sourceTree = "<group>"; };
 		BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSetOfflinePasswordViewController.m; sourceTree = "<group>"; };
-		BD1201621EDD9E7800694B17 /* SHShowVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHShowVideoViewController.h; sourceTree = "<group>"; };
-		BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHShowVideoViewController.m; sourceTree = "<group>"; };
 		BD1BA1E91EF514A000369479 /* SHUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHUserManager.h; sourceTree = "<group>"; };
 		BD1BA1EA1EF514A000369479 /* SHUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHUserManager.m; sourceTree = "<group>"; };
 		BD1BA1EE1EF514A000369479 /* SHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLoginViewController.h; sourceTree = "<group>"; };
@@ -180,7 +180,6 @@
 		BDADA2961EEE7332008DBB0B /* SHQRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHQRCodeScannerViewController.m; sourceTree = "<group>"; };
 		BDADA29A1EEE906D008DBB0B /* SHQRCodeMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHQRCodeMaskView.h; sourceTree = "<group>"; };
 		BDADA29B1EEE906D008DBB0B /* SHQRCodeMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHQRCodeMaskView.m; sourceTree = "<group>"; };
-		BDB10BF91EE0768F0097877B /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		BDE559A31EC5F154006A8A6E /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE559A71EC5F154006A8A6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDE559A91EC5F154006A8A6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -219,6 +218,14 @@
 		BDF32B261EC8726600CDBAA1 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		BDF32B271EC8726600CDBAA1 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		BE365101791D3B7B4619F1FB /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
+		EC0D0F401F0F7C8D00D3A303 /* SHSecurityQuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecurityQuestionModel.h; sourceTree = "<group>"; };
+		EC0D0F411F0F7C8D00D3A303 /* SHSecurityQuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityQuestionModel.m; sourceTree = "<group>"; };
+		EC0D0F431F0F7CD100D3A303 /* SHSecurityQuestionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecurityQuestionManager.h; sourceTree = "<group>"; };
+		EC0D0F441F0F7CD100D3A303 /* SHSecurityQuestionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityQuestionManager.m; sourceTree = "<group>"; };
+		EC0D0F461F0F873A00D3A303 /* SHSecurityQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecurityQuestionCell.h; sourceTree = "<group>"; };
+		EC0D0F471F0F873A00D3A303 /* SHSecurityQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityQuestionCell.m; sourceTree = "<group>"; };
+		EC0D0F491F0F8C7200D3A303 /* SHSecurityRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecurityRegisterViewController.h; sourceTree = "<group>"; };
+		EC0D0F4A1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityRegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +233,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDB10BFA1EE0768F0097877B /* IJKMediaFramework.framework in Frameworks */,
 				8EAE134948C3C34098439CCD /* Pods_SmartHome.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,8 +299,6 @@
 				BD12015D1EDD646200694B17 /* SHSetLockPasswordViewController.m */,
 				BD12015F1EDD647600694B17 /* SHSetOfflinePasswordViewController.h */,
 				BD1201601EDD647600694B17 /* SHSetOfflinePasswordViewController.m */,
-				BD1201621EDD9E7800694B17 /* SHShowVideoViewController.h */,
-				BD1201631EDD9E7800694B17 /* SHShowVideoViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -311,7 +315,6 @@
 		BD12014F1EDD548900694B17 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				BDB10BF81EE0768F0097877B /* IJKMediaPlayer */,
 				BD1201501EDD548900694B17 /* JGDateTime */,
 			);
 			path = ThirdParty;
@@ -351,6 +354,8 @@
 			children = (
 				BD1BA1E91EF514A000369479 /* SHUserManager.h */,
 				BD1BA1EA1EF514A000369479 /* SHUserManager.m */,
+				EC0D0F431F0F7CD100D3A303 /* SHSecurityQuestionManager.h */,
+				EC0D0F441F0F7CD100D3A303 /* SHSecurityQuestionManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -358,6 +363,8 @@
 		BD1BA1EB1EF514A000369479 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EC0D0F401F0F7C8D00D3A303 /* SHSecurityQuestionModel.h */,
+				EC0D0F411F0F7C8D00D3A303 /* SHSecurityQuestionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +372,8 @@
 		BD1BA1EC1EF514A000369479 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC0D0F461F0F873A00D3A303 /* SHSecurityQuestionCell.h */,
+				EC0D0F471F0F873A00D3A303 /* SHSecurityQuestionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +387,8 @@
 				BD1BA1F31EF514B600369479 /* SHRegisterViewController.m */,
 				BD1BA1F51EF5203600369479 /* SHSecurityQuestionViewController.h */,
 				BD1BA1F61EF5203600369479 /* SHSecurityQuestionViewController.m */,
+				EC0D0F491F0F8C7200D3A303 /* SHSecurityRegisterViewController.h */,
+				EC0D0F4A1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -574,14 +585,6 @@
 				BDADA29B1EEE906D008DBB0B /* SHQRCodeMaskView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		BDB10BF81EE0768F0097877B /* IJKMediaPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				BDB10BF91EE0768F0097877B /* IJKMediaFramework.framework */,
-			);
-			path = IJKMediaPlayer;
 			sourceTree = "<group>";
 		};
 		BDE5599A1EC5F154006A8A6E = {
@@ -874,8 +877,11 @@
 				BDEBC2571ED9B7BD00FA41A7 /* SHBindGatewayViewController.m in Sources */,
 				BDEBC25B1EDAC8EB00FA41A7 /* SHHomeViewController.m in Sources */,
 				BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */,
+				EC0D0F4B1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m in Sources */,
 				BDEBC25E1EDAC91200FA41A7 /* SHHomeMessageViewController.m in Sources */,
 				BD1BA1F41EF514B600369479 /* SHRegisterViewController.m in Sources */,
+				EC0D0F481F0F873A00D3A303 /* SHSecurityQuestionCell.m in Sources */,
+				EC0D0F451F0F7CD100D3A303 /* SHSecurityQuestionManager.m in Sources */,
 				BD80BDA01F0A6B5C00A7BDD1 /* SHKeyManager.m in Sources */,
 				BD1201471EDB2F9F00694B17 /* SHSettingsBaseCell.m in Sources */,
 				BD80BD901EF6BD0900A7BDD1 /* SHBaseModel.m in Sources */,
@@ -894,7 +900,6 @@
 				BD80BD7E1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
 				BD1BA2051EF6726C00369479 /* SHLockManageViewController.m in Sources */,
-				BD1201641EDD9E7800694B17 /* SHShowVideoViewController.m in Sources */,
 				BD1201351EDB1C0300694B17 /* SHBaseView.m in Sources */,
 				BD1BA2081EF6738400369479 /* SHLockTableView.m in Sources */,
 				BD80BD871EF6ABB900A7BDD1 /* SHUnlockRecordViewController.m in Sources */,
@@ -908,6 +913,7 @@
 				BD12013B1EDB1CB200694B17 /* SHLockKeyboardViewController.m in Sources */,
 				BD97D4991ECCABC8003F0337 /* SHRootViewController.m in Sources */,
 				BD1201591EDD548900694B17 /* MXSCycleScrollView.m in Sources */,
+				EC0D0F421F0F7C8D00D3A303 /* SHSecurityQuestionModel.m in Sources */,
 				BDEBC2481ED1AAD400FA41A7 /* SHLeftDrawerViewController.m in Sources */,
 				BD1201411EDB2D2800694B17 /* SHSettingsViewController.m in Sources */,
 				BD80BD781EF67DB200A7BDD1 /* SHRefreshHeader.m in Sources */,

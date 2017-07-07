@@ -8,7 +8,7 @@
 
 #import "SHRegisterViewController.h"
 #import "SHQRCodeScannerViewController.h"
-#import "SHSecurityQuestionViewController.h"
+#import "SHSecurityRegisterViewController.h"
 
 @interface SHRegisterViewController () <UITextFieldDelegate>
 
@@ -81,8 +81,8 @@
 }
 
 - (void)openSecurityQuestion {
-    SHSecurityQuestionViewController *securityQuestionVC = [[SHSecurityQuestionViewController alloc] init];
-    [self.navigationController pushViewController:securityQuestionVC animated:YES];
+    SHSecurityRegisterViewController *securityVC = [[SHSecurityRegisterViewController alloc] init];
+    [self.navigationController pushViewController:securityVC animated:YES];
 }
 
 #pragma mark - Lazy Load
