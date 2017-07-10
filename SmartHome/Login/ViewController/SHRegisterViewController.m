@@ -9,6 +9,7 @@
 #import "SHRegisterViewController.h"
 #import "SHQRCodeScannerViewController.h"
 #import "SHSecurityRegisterViewController.h"
+#import "SHRegisterInputModel.h"
 
 @interface SHRegisterViewController () <UITextFieldDelegate>
 
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) UITextField *mixedIdField; //网关Id或者注册码
 @property (nonatomic, strong) UIButton *qrCodeButton;
 @property (nonatomic, strong) UIButton *nextButton;
+@property (nonatomic, strong) SHRegisterInputModel *inputModel;
 
 @end
 
@@ -80,9 +82,39 @@
     [self.navigationController pushViewController:qrScannerVC animated:YES];
 }
 
+- (BOOL)canOpenNextStep {
+    if (!self.cellphoneField.text || !self.cellphoneField.text.length) {
+        [self showHint:@"请输入手机号" duration:1.0];
+        return NO;
+    }
+    if (!self.passwordField.text || !self.passwordField.text.length) {
+        [self showHint:@"请输入密码" duration:1.0];
+        return NO;
+    }
+    if (!self.confrimPasswordField.text || !self.confrimPasswordField.text.length) {
+        [self showHint:@"请输入确认密码" duration:1.0];
+        return NO;
+    }
+    if (![self.confrimPasswordField.text isEqualToString:self.passwordField.text]) {
+        [self showHint:@"两次密码输入不一致" duration:1.0];
+        return NO;
+    }
+    if (!self.mixedIdField.text || !self.mixedIdField.text.length) {
+        [self showHint:@"请输入网关Id或者注册码" duration:1.0];
+        return NO;
+    }
+    [self.inputModel setCellphone:self.cellphoneField.text];
+    [self.inputModel setPassword:self.passwordField.text];
+    [self.inputModel setMixedId:self.mixedIdField.text];
+    return YES;
+}
+
 - (void)openSecurityQuestion {
-    SHSecurityRegisterViewController *securityVC = [[SHSecurityRegisterViewController alloc] init];
-    [self.navigationController pushViewController:securityVC animated:YES];
+    if ([self canOpenNextStep]) {
+        SHSecurityRegisterViewController *securityVC = [[SHSecurityRegisterViewController alloc] init];
+        securityVC.userInfo = self.inputModel;
+        [self.navigationController pushViewController:securityVC animated:YES];
+    }
 }
 
 #pragma mark - Lazy Load
@@ -160,6 +192,13 @@
               forControlEvents:UIControlEventTouchUpInside];
     }
     return _nextButton;
+}
+
+- (SHRegisterInputModel *)inputModel {
+    if (!_inputModel) {
+        _inputModel = [[SHRegisterInputModel alloc] init];
+    }
+    return _inputModel;
 }
 
 #pragma mark - VC Relative

@@ -74,6 +74,7 @@
 		EC0D0F451F0F7CD100D3A303 /* SHSecurityQuestionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F441F0F7CD100D3A303 /* SHSecurityQuestionManager.m */; };
 		EC0D0F481F0F873A00D3A303 /* SHSecurityQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F471F0F873A00D3A303 /* SHSecurityQuestionCell.m */; };
 		EC0D0F4B1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F4A1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m */; };
+		EC0D0F4E1F13A22700D3A303 /* SHRegisterInputModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F4D1F13A22700D3A303 /* SHRegisterInputModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -226,6 +227,8 @@
 		EC0D0F471F0F873A00D3A303 /* SHSecurityQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityQuestionCell.m; sourceTree = "<group>"; };
 		EC0D0F491F0F8C7200D3A303 /* SHSecurityRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecurityRegisterViewController.h; sourceTree = "<group>"; };
 		EC0D0F4A1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityRegisterViewController.m; sourceTree = "<group>"; };
+		EC0D0F4C1F13A22700D3A303 /* SHRegisterInputModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRegisterInputModel.h; sourceTree = "<group>"; };
+		EC0D0F4D1F13A22700D3A303 /* SHRegisterInputModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRegisterInputModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +368,8 @@
 			children = (
 				EC0D0F401F0F7C8D00D3A303 /* SHSecurityQuestionModel.h */,
 				EC0D0F411F0F7C8D00D3A303 /* SHSecurityQuestionModel.m */,
+				EC0D0F4C1F13A22700D3A303 /* SHRegisterInputModel.h */,
+				EC0D0F4D1F13A22700D3A303 /* SHRegisterInputModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -926,6 +931,7 @@
 				BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */,
 				BDF32B281EC8726600CDBAA1 /* UIImage+Color.m in Sources */,
 				BD1BA20B1EF673A000369479 /* SHLockModel.m in Sources */,
+				EC0D0F4E1F13A22700D3A303 /* SHRegisterInputModel.m in Sources */,
 				BD80BDA31F0A791800A7BDD1 /* SHKeyModel.m in Sources */,
 				BDEBC24E1ED1AB1500FA41A7 /* SHBaseTableView.m in Sources */,
 				BD80BD991EFEC68000A7BDD1 /* SHNotificationSettingsViewController.m in Sources */,

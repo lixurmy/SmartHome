@@ -9,6 +9,9 @@
 #import "SHSecurityRegisterViewController.h"
 #import "SHSecurityQuestionManager.h"
 #import "SHSecurityQuestionModel.h"
+#import <objc/runtime.h>
+
+static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
 
 @interface SHSecurityRegisterViewController () <UITextFieldDelegate>
 
@@ -26,7 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setupView];
 }
 
@@ -72,8 +74,8 @@
     }];
     [self.view addSubview:self.registerButton];
     [self.registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.thirdField.mas_bottom).offset(2 * hSpace);
         make.left.right.equalTo(self.thirdField);
+        make.bottom.equalTo(self.view).offset(-hSpace);
         make.height.equalTo(@(height));
     }];
 }
@@ -93,7 +95,9 @@
                     SHSecurityQuestionModel *selectedModel = [SHSecurityQuestionManager sharedInstance].questions[button.tag];
                     selectedModel.selected = NO;
                 }
-                [button setTitle:questionModel.question forState:UIControlStateNormal];
+                NSInteger buttonIndex = [objc_getAssociatedObject(button, kSHSecurityButtonIndexKey) integerValue];
+                NSString *title = [NSString stringWithFormat:@"问题%ld:%@", buttonIndex, questionModel.question];
+                [button setTitle:title forState:UIControlStateNormal];
                 button.tag = index;
                 questionModel.selected = YES;
             }];
@@ -109,6 +113,7 @@
 - (UIButton *)commonQuestionButtonWithIndex:(NSUInteger)index {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.tag = -1;
+    objc_setAssociatedObject(button, kSHSecurityButtonIndexKey, @(index), OBJC_ASSOCIATION_ASSIGN);
     NSString *title = [NSString stringWithFormat:@"问题%ld:请选择密保问题", index];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
@@ -124,6 +129,7 @@
 - (UITextField *)commonQuestionField {
     UITextField *textField = [[UITextField alloc] init];
     textField.placeholder = @"请输入密保问题答案";
+    textField.textAlignment = NSTextAlignmentCenter;
     [textField.layer setCornerRadius:15];
     [textField.layer setBorderWidth:px];
     [textField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
@@ -131,9 +137,60 @@
     return textField;
 }
 
+- (BOOL)canRegister {
+    if (self.firstQuestionButton.tag == -1) {
+        [self warningWithButton:self.firstQuestionButton];
+        return NO;
+    }
+    if (self.secondQuestionButton.tag == -1) {
+        [self warningWithButton:self.secondQuestionButton];
+        return NO;
+    }
+    if (self.thirdQuestionButton.tag == -1) {
+        [self warningWithButton:self.thirdQuestionButton];
+        return NO;
+    }
+    if (!self.firstField.text || !self.firstField.text.length) {
+        [self warningWithTextField:self.firstField];
+        return NO;
+    }
+    if (!self.secondField.text || !self.secondField.text.length) {
+        [self warningWithTextField:self.secondField];
+        return NO;
+    }
+    if (!self.thirdField.text || !self.thirdField.text.length) {
+        [self warningWithTextField:self.thirdField];
+        return NO;
+    }
+    return YES;
+}
+
+- (void)warningWithButton:(UIButton *)button {
+    NSInteger buttonIndex = [objc_getAssociatedObject(button, kSHSecurityButtonIndexKey) integerValue];
+    NSString *message = [NSString stringWithFormat:@"请选择密保问题%ld", (long)buttonIndex];
+    [self showHint:message duration:1.0];
+}
+
+- (void)warningWithTextField:(UITextField *)textField {
+    NSString *message;
+    NSInteger index = 0;
+    if (textField == self.firstField) {
+        index = 1;
+    } else if (textField == self.secondField) {
+        index = 2;
+    } else if (textField == self.thirdField) {
+        index = 3;
+    }
+    message = [NSString stringWithFormat:@"请回答密保问题%ld", (long)index];
+    [self showHint:message duration:1.0];
+}
+
 #pragma mark - 
 - (void)registerAction:(UIButton *)sender {
-    
+    if (![self canRegister]) {
+        return;
+    }
+    SHLog(@"%@", self.userInfo);
 }
 
 #pragma mark - UITextFieldDelegate
@@ -196,7 +253,6 @@
         [_registerButton addTarget:self
                             action:@selector(registerAction:)
                   forControlEvents:UIControlEventTouchUpInside];
-        [_registerButton setEnabled:NO];
     }
     return _registerButton;
 }

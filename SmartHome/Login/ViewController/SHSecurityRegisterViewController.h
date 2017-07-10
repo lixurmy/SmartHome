@@ -7,7 +7,10 @@
 //
 
 #import "SHBaseViewController.h"
+@class SHRegisterInputModel;
 
 @interface SHSecurityRegisterViewController : SHBaseViewController
+
+@property (nonatomic, strong) SHRegisterInputModel *userInfo;
 
 @end
