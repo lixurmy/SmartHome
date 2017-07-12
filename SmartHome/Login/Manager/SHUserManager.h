@@ -29,7 +29,7 @@ typedef void(^SHLoginOrRegisterCompleteBlock)(BOOL succ, SHLoginOrRegisterStatus
 + (instancetype)sharedInstance;
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password complete:(SHLoginOrRegisterCompleteBlock)complete;
-- (void)registerWithUsername:(NSString *)username password:(NSString *)password complete:(SHLoginOrRegisterCompleteBlock)complete;
+- (void)registerWithUserName:(NSString *)username password:(NSString *)password mixedId:(NSString *)mixedId questions:(NSArray *)questions complete:(SHLoginOrRegisterCompleteBlock)complete;
 - (void)resetPasswordForUsername:(NSString *)username complete:(SHLoginOrRegisterCompleteBlock)complete;
 - (void)changePasswordForUsername:(NSString *)username oldPassword:(NSString *)oldPassword newPassword:(NSString *)newPassword complete:(SHLoginOrRegisterCompleteBlock)complete;
 - (void)bindGatewayWithId:(NSString *)gatewayId complete:(SHLoginOrRegisterCompleteBlock)complete;

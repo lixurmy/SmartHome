@@ -9,6 +9,7 @@
 #import "SHSecurityRegisterViewController.h"
 #import "SHSecurityQuestionManager.h"
 #import "SHSecurityQuestionModel.h"
+#import "SHRegisterInputModel.h"
 #import <objc/runtime.h>
 
 static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
@@ -190,7 +191,22 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
     if (![self canRegister]) {
         return;
     }
-    SHLog(@"%@", self.userInfo);
+    SHSecurityQuestionModel *firstQuestion = [SHSecurityQuestionManager sharedInstance].questions[self.firstQuestionButton.tag];
+    SHSecurityQuestionModel *secondQuestion = [SHSecurityQuestionManager sharedInstance].questions[self.secondQuestionButton.tag];
+    SHSecurityQuestionModel *thirdQuestion = [SHSecurityQuestionManager sharedInstance].questions[self.thirdQuestionButton.tag];
+    firstQuestion.answer = self.firstField.text;
+    secondQuestion.answer = self.secondField.text;
+    thirdQuestion.answer = self.thirdField.text;
+    NSArray *questions = @[firstQuestion, secondQuestion, thirdQuestion];
+    @weakify(self);
+    [[SHUserManager sharedInstance] registerWithUserName:self.userInfo.cellphone password:self.userInfo.password mixedId:self.userInfo.mixedId questions:questions complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
+        @strongify(self);
+        if (succ) {
+            [self showHint:@"注册成功" duration:1.0];
+        } else {
+            [self showHint:[NSString stringWithFormat:@"%ld", statusCode] duration:1.0];
+        }
+    }];
 }
 
 #pragma mark - UITextFieldDelegate

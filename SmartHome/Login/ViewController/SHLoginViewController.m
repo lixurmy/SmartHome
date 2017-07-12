@@ -321,20 +321,20 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
         return;
     }
     [self showLoading:YES hint:@"注册中..."];
-    @weakify(self);
-    [[SHUserManager sharedInstance] registerWithUsername:self.username password:self.password complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
-        @strongify(self);
-        if (succ) {
-            [self showHint:@"注册成功" duration:1.0];
-            [self showRegisterUI:NO];
-        } else {
-            if (statusCode == SHRegisterStatusAlreadyRegistered) {
-                [self showHint:@"该手机号已注册" duration:1.0];
-            } else {
-                [self showHint:@"服务器请求错误" duration:1.0];
-            }
-        }
-    }];
+//    @weakify(self);
+//    [[SHUserManager sharedInstance] registerWithUsername:self.username password:self.password complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
+//        @strongify(self);
+//        if (succ) {
+//            [self showHint:@"注册成功" duration:1.0];
+//            [self showRegisterUI:NO];
+//        } else {
+//            if (statusCode == SHRegisterStatusAlreadyRegistered) {
+//                [self showHint:@"该手机号已注册" duration:1.0];
+//            } else {
+//                [self showHint:@"服务器请求错误" duration:1.0];
+//            }
+//        }
+//    }];
 }
 
 - (void)cancelButtonAction {
