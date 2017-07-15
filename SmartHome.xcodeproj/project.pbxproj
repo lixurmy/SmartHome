@@ -30,6 +30,8 @@
 		BD1BA2081EF6738400369479 /* SHLockTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA2071EF6738400369479 /* SHLockTableView.m */; };
 		BD1BA20B1EF673A000369479 /* SHLockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA20A1EF673A000369479 /* SHLockModel.m */; };
 		BD1BA20E1EF675D900369479 /* SHLockInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1BA20D1EF675D900369479 /* SHLockInfoCell.m */; };
+		BD6740641F1A53F7007458D7 /* SHKeyDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6740631F1A53F7007458D7 /* SHKeyDetailTableView.m */; };
+		BD67406A1F1A5525007458D7 /* SHKeyDetailBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6740691F1A5525007458D7 /* SHKeyDetailBaseCell.m */; };
 		BD80BD781EF67DB200A7BDD1 /* SHRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD771EF67DB200A7BDD1 /* SHRefreshHeader.m */; };
 		BD80BD7B1EF68AD200A7BDD1 /* SHLockDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD7A1EF68AD200A7BDD1 /* SHLockDetailViewController.m */; };
 		BD80BD7E1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD80BD7D1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m */; };
@@ -137,6 +139,10 @@
 		BD1BA20A1EF673A000369479 /* SHLockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockModel.m; sourceTree = "<group>"; };
 		BD1BA20C1EF675D900369479 /* SHLockInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockInfoCell.h; sourceTree = "<group>"; };
 		BD1BA20D1EF675D900369479 /* SHLockInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLockInfoCell.m; sourceTree = "<group>"; };
+		BD6740621F1A53F7007458D7 /* SHKeyDetailTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKeyDetailTableView.h; sourceTree = "<group>"; };
+		BD6740631F1A53F7007458D7 /* SHKeyDetailTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKeyDetailTableView.m; sourceTree = "<group>"; };
+		BD6740681F1A5525007458D7 /* SHKeyDetailBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKeyDetailBaseCell.h; sourceTree = "<group>"; };
+		BD6740691F1A5525007458D7 /* SHKeyDetailBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKeyDetailBaseCell.m; sourceTree = "<group>"; };
 		BD80BD761EF67DB200A7BDD1 /* SHRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRefreshHeader.h; sourceTree = "<group>"; };
 		BD80BD771EF67DB200A7BDD1 /* SHRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRefreshHeader.m; sourceTree = "<group>"; };
 		BD80BD791EF68AD200A7BDD1 /* SHLockDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLockDetailViewController.h; sourceTree = "<group>"; };
@@ -461,9 +467,21 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		BD6740611F1A53E2007458D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD6740621F1A53F7007458D7 /* SHKeyDetailTableView.h */,
+				BD6740631F1A53F7007458D7 /* SHKeyDetailTableView.m */,
+				BD6740681F1A5525007458D7 /* SHKeyDetailBaseCell.h */,
+				BD6740691F1A5525007458D7 /* SHKeyDetailBaseCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BD80BD9A1F0A6B4700A7BDD1 /* KeyManage */ = {
 			isa = PBXGroup;
 			children = (
+				BD6740611F1A53E2007458D7 /* View */,
 				BD80BD9B1F0A6B4700A7BDD1 /* Manager */,
 				BD80BD9C1F0A6B4700A7BDD1 /* Model */,
 				BD80BD9D1F0A6B4700A7BDD1 /* ViewController */,
@@ -901,6 +919,7 @@
 				BD1201611EDD647600694B17 /* SHSetOfflinePasswordViewController.m in Sources */,
 				BD876CE61EE1C2B9009CE37B /* SHWaterReaderViewController.m in Sources */,
 				BD80BD8D1EF6B8B800A7BDD1 /* SHLockManager.m in Sources */,
+				BD6740641F1A53F7007458D7 /* SHKeyDetailTableView.m in Sources */,
 				BD80BDA61F0A7AC100A7BDD1 /* SHKeyDetailViewController.m in Sources */,
 				BD80BD7E1EF68D1500A7BDD1 /* SHBaseNavigationViewController.m in Sources */,
 				BDF32B181EC75B9D00CDBAA1 /* SHBaseURL.m in Sources */,
@@ -924,6 +943,7 @@
 				BD80BD781EF67DB200A7BDD1 /* SHRefreshHeader.m in Sources */,
 				BD12015B1EDD548900694B17 /* FDAlertView.m in Sources */,
 				BD80BD8A1EF6ADB300A7BDD1 /* SHUnlockRecordCell.m in Sources */,
+				BD67406A1F1A5525007458D7 /* SHKeyDetailBaseCell.m in Sources */,
 				BD80BD7B1EF68AD200A7BDD1 /* SHLockDetailViewController.m in Sources */,
 				BD12012F1EDB094B00694B17 /* SHRemoteLockViewController.m in Sources */,
 				BD1BA1F11EF514A000369479 /* SHLoginViewController.m in Sources */,

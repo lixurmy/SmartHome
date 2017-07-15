@@ -7,12 +7,18 @@
 //
 
 #import "SHBaseViewController.h"
+@class SHKeyModel;
 
 @interface SHKeyDetailViewController : SHBaseViewController
 
-@property (nonatomic, readonly) NSString *lockId;
-@property (nonatomic, readonly) NSString *keyNo;
+@property (nonatomic, readonly) SHKeyModel *keyModel;
 
-- (instancetype)initWithLockId:(NSString *)lockId keyNo:(NSString *)keyNo;
+//@property (nonatomic, readonly) NSString *lockId;
+//@property (nonatomic, readonly) NSString *keyNo;
+//
+//- (instancetype)initWithLockId:(NSString *)lockId keyNo:(NSString *)keyNo;
+
+//目前服务器不支持单独获取钥匙信息，需要从其他页面传入钥匙数据进来
+- (instancetype)initWithKeyModel:(SHKeyModel *)keyModel;
 
 @end

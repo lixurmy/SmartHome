@@ -7,7 +7,10 @@
 //
 
 #import "SHBaseTableViewCell.h"
+@class SHKeyModel;
 
 @interface SHLockDetailCell : SHBaseTableViewCell
+
+@property (nonatomic, strong) SHKeyModel *keyModel;
 
 @end

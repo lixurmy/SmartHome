@@ -27,13 +27,25 @@
 #pragma mark - VC Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     
 }
 
 #pragma mark - VC Relative
 - (NSString *)title {
     return @"添加钥匙";
+}
+
+- (BOOL)hideNavigationBar {
+    return YES;
+}
+
+- (BOOL)hasSHNavigationBar {
+    return YES;
+}
+
+- (BOOL)autoGenerateBackItem {
+    return YES;
 }
 
 @end

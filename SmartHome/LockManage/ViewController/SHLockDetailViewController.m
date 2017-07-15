@@ -9,11 +9,14 @@
 #import "SHLockDetailViewController.h"
 #import "SHAddKeyViewController.h"
 #import "SHUnlockRecordViewController.h"
+#import "SHKeyDetailViewController.h"
 #import "SHLockManager.h"
 #import "SHLockModel.h"
 #import "SHLockDetailHeader.h"
 #import "SHBaseTableView.h"
 #import "SHLockDetailCell.h"
+#import "SHKeyManager.h"
+#import "SHKeyModel.h"
 
 static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailViewControllerCellKey";
 
@@ -25,6 +28,7 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
 @property (nonatomic, strong) SHLockDetailHeader *lockHeader;
 @property (nonatomic, strong) UIButton *unlockRecordButton;
 @property (nonatomic, strong) UIButton *addKeyButton;
+@property (nonatomic, strong) NSArray <SHKeyModel *> *keys;
 
 @end
 
@@ -77,6 +81,7 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
                     self.lockModel = nil;
                 }
                 [self.tableView reloadData];
+                [self fetchKeysInfo];
                 break;
             }
             case SHLockHttpStatusLockExist:
@@ -90,6 +95,42 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
     }];
 }
 
+- (void)fetchKeysInfo {
+    @weakify(self);
+    [self showLoading:YES hint:@"获取钥匙信息..."];
+    [[SHKeyManager sharedInstance] fetchKeysWithLockId:self.lockId complete:^(BOOL succ, SHKeyHttpStatus statusCode, id info) {
+        @strongify(self);
+        if (succ) {
+            [self handleSuccessResponse:info];
+        } else {
+            [self handleFailureResponse:info];
+        }
+    }];
+}
+
+- (void)handleSuccessResponse:(id)responseObject {
+    NSInteger keyNum = [responseObject[@"data"][@"totalCount"] integerValue];
+    if (keyNum == 0) {
+        self.keys = @[];
+        [self showHint:@"暂无钥匙信息" duration:1.0];
+    } else {
+        NSArray *keys = responseObject[@"data"][@"keys"];
+        self.keys = [keys.rac_sequence map:^id(id value) {
+            [SHKeyModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{@"lockId"  : @"lid"};
+            }];
+            SHKeyModel *key = [SHKeyModel modelWithDictionary:value];
+            return key;
+        }].array;
+        [self showHint:@"获取钥匙成功" duration:1.0];
+    }
+    [self.tableView reloadData];
+}
+
+- (void)handleFailureResponse:(id)responseObject {
+    [self showHint:@"获取钥匙信息失败" duration:1.0];
+}
+
 - (void)openUnlockRecord {
     SHUnlockRecordViewController *unlockRecordVC = [[SHUnlockRecordViewController alloc] initWithLockId:self.lockId];
     [self.navigationController pushViewController:unlockRecordVC animated:YES];
@@ -100,13 +141,18 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
     [self.navigationController pushViewController:addKeyVC animated:YES];
 }
 
+- (void)openKeyDetailVCWithModel:(SHKeyModel *)keyModel {
+    SHKeyDetailViewController *keyDetailVC = [[SHKeyDetailViewController alloc] initWithKeyModel:keyModel];
+    [self.navigationController pushViewController:keyDetailVC animated:YES];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.keys ? self.keys.count : 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -118,7 +164,20 @@ static NSString * const kSHLockDetailViewControllerCellKey = @"kSHLockDetailView
     if (!cell) {
         cell = [[SHLockDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kSHLockDetailViewControllerCellKey];
     }
+    NSInteger row = indexPath.row;
+    if (self.keys && self.keys.count && row < self.keys.count) {
+        SHKeyModel *keyModel = self.keys[row];
+        cell.keyModel = keyModel;
+    }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row = indexPath.row;
+    if (self.keys && self.keys.count && row < self.keys.count) {
+        SHKeyModel *keyModel = self.keys[row];
+        [self openKeyDetailVCWithModel:keyModel];
+    }
 }
 
 #pragma mark - UITableViewDelegate

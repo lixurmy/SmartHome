@@ -18,6 +18,9 @@ typedef NS_ENUM(NSUInteger, SHKeyHttpStatus) {
 };
 
 typedef NS_ENUM(NSUInteger, SHKeyType) {
+    SHKeyTypeUnknown0 = 0,
+    SHKeyTypeUnknown1 = 1,
+    SHKeyTypeUnknown2 = 2,
     SHKeyTypeUser   = 3,
     SHKeyTypeTemp   = 4
 };

@@ -63,7 +63,7 @@ static SHKeyManager * _instance;
                                  @"no"      :   keyNo ?: @"",
                                  @"alert"   :   @(alert),
                                  @"gwid"    :   [SHUserManager sharedInstance].gatewayId ?: @""};
-    [[SHNetworkManager keyManager] POST:@"cgi-bin/ygs/v2/setkeyinfo.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[SHNetworkManager keyManager] POST:@"cgi-bin/lock/ygs/v2/setkeyinfo.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (!complete) {
             return;
         } else {
@@ -94,7 +94,7 @@ static SHKeyManager * _instance;
                                  @"alias"   :   alias ?: @"",
                                  @"alert"   :   @(alert),
                                  @"gwid"    :   [SHUserManager sharedInstance].gatewayId ?: @""};
-    [[SHNetworkManager lockManager] POST:@"cgi-bin/ygs/v2/setkeyinfo.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[SHNetworkManager keyManager] POST:@"cgi-bin/lock/ygs/v2/setkeyinfo.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (!complete) {
             return;
         } else {
@@ -123,7 +123,7 @@ static SHKeyManager * _instance;
                                  @"no"      :   keyNo,
                                  @"smode"   :   @(0),
                                  @"gwid"    :   [SHUserManager sharedInstance].gatewayId ?: @""};
-    [[SHNetworkManager lockManager] POST:@"cgi-bin/ygs/v2/setkeyinfo.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[SHNetworkManager keyManager] POST:@"cgi-bin/lock/ygs/v2/setkeyinfo.cgi" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (!complete) {
             return;
         } else {
