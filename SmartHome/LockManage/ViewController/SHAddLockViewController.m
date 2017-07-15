@@ -30,21 +30,24 @@
 - (void)setupView {
     [self.view addSubview:self.inputField];
     [self.inputField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(self.shNavigationBarHeight + 100);
+        make.top.equalTo(self.view).offset(self.shNavigationBarHeight + 60);
         make.centerX.equalTo(self.view);
-        make.left.equalTo(self.view).offset(100);
-        make.right.equalTo(self.view).offset(-100);
+        make.left.equalTo(self.view).offset(30);
+        make.right.equalTo(self.view).offset(-30);
+        make.height.equalTo(@(50));
     }];
     [self.view addSubview:self.qrCodeButton];
     [self.qrCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(100, 40));
+        make.left.right.equalTo(self.inputField);
+        make.height.equalTo(@(50));
     }];
     [self.view addSubview:self.addButton];
     [self.addButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.qrCodeButton.mas_bottom).offset(20);
+        make.top.equalTo(self.qrCodeButton.mas_bottom).offset(30);
         make.centerX.equalTo(self.qrCodeButton);
-        make.size.mas_equalTo(CGSizeMake(100, 60));
+        make.left.right.equalTo(self.qrCodeButton);
+        make.height.equalTo(@(50));
     }];
 }
 
@@ -85,9 +88,11 @@
     if (!_inputField) {
         _inputField = [[UITextField alloc] init];
         _inputField.placeholder = @"输入Mac地址";
+        _inputField.textAlignment = NSTextAlignmentCenter;
         _inputField.delegate = self;
         [_inputField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_inputField.layer setBorderWidth:px];
+        [_inputField.layer setCornerRadius:15];
     }
     return _inputField;
 }
@@ -97,7 +102,7 @@
         _qrCodeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_qrCodeButton.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_qrCodeButton.layer setBorderWidth:px];
-        [_qrCodeButton.layer setCornerRadius:10];
+        [_qrCodeButton.layer setCornerRadius:15];
         [_qrCodeButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_qrCodeButton setTitle:@"扫码添加" forState:UIControlStateNormal];
         [_qrCodeButton addTarget:self
@@ -112,7 +117,7 @@
         _addButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_addButton.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_addButton.layer setBorderWidth:px];
-        [_addButton.layer setCornerRadius:10];
+        [_addButton.layer setCornerRadius:15];
         [_addButton setTitle:@"确认" forState:UIControlStateNormal];
         [_addButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_addButton addTarget:self

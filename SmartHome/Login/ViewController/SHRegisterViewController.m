@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) UITextField *cellphoneField;
 @property (nonatomic, strong) UITextField *passwordField;
-@property (nonatomic, strong) UITextField *confrimPasswordField;
+@property (nonatomic, strong) UITextField *confirmPasswordField;
 @property (nonatomic, strong) UITextField *mixedIdField; //网关Id或者注册码
 @property (nonatomic, strong) UIButton *qrCodeButton;
 @property (nonatomic, strong) UIButton *nextButton;
@@ -27,41 +27,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setupView];
 }
 
 - (void)setupView {
+    CGFloat hSpace = 30;
+    CGFloat height = 50;
     [self.view addSubview:self.cellphoneField];
     [self.cellphoneField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(100);
-        make.left.equalTo(self.view).offset(100 * kScreenScale);
-        make.right.equalTo(self.view).offset(-100 * kScreenScale);
-        make.height.equalTo(@(40));
+        make.top.equalTo(self.view).offset(self.shNavigationBarHeight + hSpace);
+        make.left.equalTo(self.view).offset(hSpace);
+        make.right.equalTo(self.view).offset(-hSpace);
+        make.height.equalTo(@(height));
     }];
     [self.view addSubview:self.passwordField];
     [self.passwordField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.cellphoneField.mas_bottom).offset(30);
+        make.top.equalTo(self.cellphoneField.mas_bottom).offset(hSpace);
         make.left.right.equalTo(self.cellphoneField);
-        make.height.equalTo(@(40));
+        make.height.equalTo(@(height));
     }];
-    [self.view addSubview:self.confrimPasswordField];
-    [self.confrimPasswordField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.passwordField.mas_bottom).offset(30);
+    [self.view addSubview:self.confirmPasswordField];
+    [self.confirmPasswordField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.passwordField.mas_bottom).offset(hSpace);
         make.left.right.equalTo(self.passwordField);
-        make.height.equalTo(@(40));
+        make.height.equalTo(@(height));
     }];
     [self.view addSubview:self.mixedIdField];
     [self.mixedIdField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.confrimPasswordField.mas_bottom).offset(30);
-        make.left.right.equalTo(self.confrimPasswordField);
-        make.height.equalTo(@(40));
+        make.top.equalTo(self.confirmPasswordField.mas_bottom).offset(hSpace);
+        make.left.right.equalTo(self.confirmPasswordField);
+        make.height.equalTo(@(height));
     }];
     [self.view addSubview:self.qrCodeButton];
     [self.qrCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mixedIdField.mas_bottom).offset(10);
+        make.top.equalTo(self.mixedIdField.mas_bottom).offset(hSpace);
         make.left.right.equalTo(self.mixedIdField);
-        make.height.equalTo(@(50));
+        make.height.equalTo(@(height));
     }];
     [self.view addSubview:self.nextButton];
     [self.nextButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,11 +92,11 @@
         [self showHint:@"请输入密码" duration:1.0];
         return NO;
     }
-    if (!self.confrimPasswordField.text || !self.confrimPasswordField.text.length) {
+    if (!self.confirmPasswordField.text || !self.confirmPasswordField.text.length) {
         [self showHint:@"请输入确认密码" duration:1.0];
         return NO;
     }
-    if (![self.confrimPasswordField.text isEqualToString:self.passwordField.text]) {
+    if (![self.confirmPasswordField.text isEqualToString:self.passwordField.text]) {
         [self showHint:@"两次密码输入不一致" duration:1.0];
         return NO;
     }
@@ -121,6 +122,7 @@
 - (UITextField *)cellphoneField {
     if (!_cellphoneField) {
         _cellphoneField = [[UITextField alloc] init];
+        [_cellphoneField.layer setCornerRadius:15];
         _cellphoneField.delegate = self;
         _cellphoneField.placeholder = @"手机号";
         _cellphoneField.textAlignment = NSTextAlignmentCenter;
@@ -133,6 +135,7 @@
 - (UITextField *)passwordField {
     if (!_passwordField) {
         _passwordField = [[UITextField alloc] init];
+        [_passwordField.layer setCornerRadius:15];
         _passwordField.delegate = self;
         _passwordField.placeholder = @"密码";
         _passwordField.textAlignment = NSTextAlignmentCenter;
@@ -142,21 +145,23 @@
     return _passwordField;
 }
 
-- (UITextField *)confrimPasswordField {
-    if (!_confrimPasswordField) {
-        _confrimPasswordField = [[UITextField alloc] init];
-        _confrimPasswordField.delegate = self;
-        _confrimPasswordField.placeholder = @"确认密码";
-        _confrimPasswordField.textAlignment = NSTextAlignmentCenter;
-        [_confrimPasswordField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
-        [_confrimPasswordField.layer setBorderWidth:px];
+- (UITextField *)confirmPasswordField {
+    if (!_confirmPasswordField) {
+        _confirmPasswordField = [[UITextField alloc] init];
+        [_confirmPasswordField.layer setCornerRadius:15];
+        _confirmPasswordField.delegate = self;
+        _confirmPasswordField.placeholder = @"确认密码";
+        _confirmPasswordField.textAlignment = NSTextAlignmentCenter;
+        [_confirmPasswordField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
+        [_confirmPasswordField.layer setBorderWidth:px];
     }
-    return _confrimPasswordField;
+    return _confirmPasswordField;
 }
 
 - (UITextField *)mixedIdField {
     if (!_mixedIdField) {
         _mixedIdField = [[UITextField alloc] init];
+        [_mixedIdField.layer setCornerRadius:15];
         _mixedIdField.delegate = self;
         _mixedIdField.placeholder = @"网关Id或者注册码";
         _mixedIdField.textAlignment = NSTextAlignmentCenter;
@@ -169,6 +174,7 @@
 - (UIButton *)qrCodeButton {
     if (!_qrCodeButton) {
         _qrCodeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_qrCodeButton.layer setCornerRadius:15];
         [_qrCodeButton setTitle:@"扫码" forState:UIControlStateNormal];
         [_qrCodeButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_qrCodeButton.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
@@ -183,6 +189,7 @@
 - (UIButton *)nextButton {
     if (!_nextButton) {
         _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_nextButton.layer setCornerRadius:15];
         [_nextButton setTitle:@"下一步" forState:UIControlStateNormal];
         [_nextButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_nextButton.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
