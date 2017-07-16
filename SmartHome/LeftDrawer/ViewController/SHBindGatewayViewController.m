@@ -29,11 +29,11 @@
         make.top.equalTo(self.view).offset(100);
         make.left.equalTo(self.view).offset(30);
         make.right.equalTo(self.view).offset(-30);
+        make.height.equalTo(@(50));
     }];
     [self.view addSubview:self.confirmButton];
     [self.confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.bindGatewayField).offset(30);
-        make.right.equalTo(self.bindGatewayField).offset(-30);
+        make.left.right.equalTo(self.bindGatewayField);
         make.top.equalTo(self.bindGatewayField.mas_bottom).offset(30);
         make.height.equalTo(@(50));
     }];
@@ -48,6 +48,7 @@
         return;
     }
     @weakify(self);
+    [self showLoading:YES hint:@"绑定中..."];
     [[SHUserManager sharedInstance] bindGatewayWithId:gatewayId complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
         @strongify(self);
         if (succ) {
@@ -65,8 +66,10 @@
 - (UITextField *)bindGatewayField {
     if (!_bindGatewayField) {
         _bindGatewayField = [[UITextField alloc] init];
-        [_bindGatewayField.layer setBorderWidth:1.0];
-        [_bindGatewayField.layer setBorderColor:RGBCOLOR(111, 111, 111).CGColor];
+        _bindGatewayField.textAlignment = NSTextAlignmentCenter;
+        [_bindGatewayField.layer setBorderWidth:px];
+        [_bindGatewayField.layer setCornerRadius:15];
+        [_bindGatewayField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         _bindGatewayField.font = PingFangSCRegular(20);
         _bindGatewayField.placeholder = @"输入网关Id";
     }
@@ -76,8 +79,9 @@
 - (UIButton *)confirmButton {
     if (!_confirmButton) {
         _confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_confirmButton.layer setBorderWidth:1.0];
-        [_confirmButton.layer setBorderColor:RGBCOLOR(111, 111, 111).CGColor];
+        [_confirmButton.layer setBorderWidth:px];
+        [_confirmButton.layer setCornerRadius:15];
+        [_confirmButton.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_confirmButton setTitle:@"确定" forState:UIControlStateNormal];
         [_confirmButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_confirmButton addTarget:self

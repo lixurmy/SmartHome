@@ -11,6 +11,7 @@
 @interface SHKeyDetailBaseCell ()
 
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *editHintLabel;
 
 @end
 
@@ -34,6 +35,15 @@
             make.centerY.equalTo(self.contentView);
         }];
         RAC(self, titleLabel.text) = RACObserve(self, title);
+        _editHintLabel = [[UILabel alloc] init];
+        _editHintLabel.text = @"编辑";
+        [self.contentView addSubview:_editHintLabel];
+        [_editHintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self.contentView).offset(-20);
+            make.centerY.equalTo(self.contentView);
+        }];
+        RAC(self, editHintLabel.hidden) = RACObserve(self, isEditable).not;
+        
     }
     return self;
 }

@@ -11,5 +11,6 @@
 @interface SHKeyDetailBaseCell : SHBaseTableViewCell
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, assign) BOOL isEditable;
 
 @end

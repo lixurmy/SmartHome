@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:RGBCOLOR(162, 162, 162)];
+    [self.view setBackgroundColor:NavigationBarColor];
     [self setupButtons];
 }
 

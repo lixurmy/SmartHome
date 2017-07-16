@@ -30,13 +30,15 @@
             make.height.equalTo(@(px));
         }];
         _aliasLabel = [[UILabel alloc] init];
+        _aliasLabel.font = PingFangSCMedium(20);
         [self.contentView addSubview:_aliasLabel];
         [_aliasLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView).offset(20);
-            make.centerY.equalTo(self.contentView);
+            make.centerY.equalTo(self.contentView).offset(-20);
         }];
         RAC(self, aliasLabel.text) = RACObserve(self, keyModel.alias);
         _typeLabel = [[UILabel alloc] init];
+        _typeLabel.font = PingFangSCRegular(15);
         [self.contentView addSubview:_typeLabel];
         [_typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.contentView).offset(-20);
@@ -65,12 +67,17 @@
             }
         }];
         _lastUnlockLabel = [[UILabel alloc] init];
+        _lastUnlockLabel.font = PingFangSCRegular(15);
         [self.contentView addSubview:_lastUnlockLabel];
         [_lastUnlockLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.typeLabel.mas_left).offset(-20);
-            make.centerY.equalTo(self.contentView);
+            make.left.equalTo(self.aliasLabel);
+            make.centerY.equalTo(self.contentView).offset(20);
         }];
-        RAC(self, lastUnlockLabel.text) = RACObserve(self, keyModel.lastUnlockTime);
+        [RACObserve(self, keyModel.lastUnlockTime) subscribeNext:^(id x) {
+            @strongify(self);
+            NSString *lastUnlockTime = (NSString *)x;
+            [self.lastUnlockLabel setText:[NSString stringWithFormat:@"最近开锁:%@", lastUnlockTime]];
+        }];
     }
     return self;
 }

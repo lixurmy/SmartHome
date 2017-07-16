@@ -1,21 +1,21 @@
 //
-//  SHSecurityRegisterViewController.m
+//  SHSecurityVerifyViewController.m
 //  SmartHome
 //
-//  Created by Xu.Li on 2017/7/7.
+//  Created by Xu Li on 2017/7/16.
 //  Copyright © 2017年 Xu Li. All rights reserved.
 //
 
-#import "SHSecurityRegisterViewController.h"
-#import "SHSecurityQuestionManager.h"
+#import "SHSecurityVerifyViewController.h"
 #import "SHSecurityQuestionModel.h"
-#import "SHRegisterInputModel.h"
-#import "SHTabBarManager.h"
-#import <objc/runtime.h>
+#import "SHSecurityQuestionManager.h"
 
 static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
 
-@interface SHSecurityRegisterViewController () <UITextFieldDelegate>
+@interface SHSecurityVerifyViewController ()
+
+@property (nonatomic, copy) NSString *username;
+@property (nonatomic, copy) dismissCompleteBlock complete;
 
 @property (nonatomic, strong) UIButton *firstQuestionButton;
 @property (nonatomic, strong) UIButton *secondQuestionButton;
@@ -27,8 +27,19 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
 
 @end
 
-@implementation SHSecurityRegisterViewController
+@implementation SHSecurityVerifyViewController
 
+#pragma mark - Init
+- (instancetype)initWithUsername:(NSString *)username dismissComplete:(dismissCompleteBlock)complete {
+    self = [super init];
+    if (self) {
+        _username = username;
+        _complete = complete;
+    }
+    return self;
+}
+
+#pragma mark - VC Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
@@ -135,7 +146,6 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
     [textField.layer setCornerRadius:15];
     [textField.layer setBorderWidth:px];
     [textField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
-    textField.delegate = self;
     return textField;
 }
 
@@ -187,7 +197,7 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
     [self showHint:message duration:1.0];
 }
 
-#pragma mark - 
+#pragma mark -
 - (void)registerAction:(UIButton *)sender {
     if (![self canRegister]) {
         return;
@@ -200,46 +210,18 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
     thirdQuestion.answer = self.thirdField.text;
     NSArray *questions = @[firstQuestion, secondQuestion, thirdQuestion];
     @weakify(self);
-    [self showLoading:YES hint:@"注册中..."];
-    [[SHUserManager sharedInstance] registerWithUserName:self.userInfo.cellphone password:self.userInfo.password mixedId:self.userInfo.mixedId questions:questions complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
+    [self showLoading:YES hint:@"验证中..."];
+    [[SHUserManager sharedInstance] verifyUserWithPhone:self.username questions:questions complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
         @strongify(self);
         if (succ) {
-            [self showHint:@"注册成功" duration:1.0];
+            [self showHint:@"验证成功" duration:1.0];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self startLoginAction];
+                [self dismiss];
             });
         } else {
-            [self showHint:[NSString stringWithFormat:@"%ld", statusCode] duration:1.0];
+            [self showHint:[NSString stringWithFormat:@"验证失败:%ld", (long)statusCode] duration:1.0];
         }
     }];
-}
-
-- (void)startLoginAction {
-    @weakify(self);
-    [self showLoading:YES hint:@"登录中..."];
-    [[SHUserManager sharedInstance] loginWithUsername:self.userInfo.cellphone password:self.userInfo.password complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
-        @strongify(self);
-        if (succ) {
-            SHTabBarManager *tabBarManager = [[SHTabBarManager alloc] init];
-            [self.view.window setRootViewController:(UIViewController *)tabBarManager.tabBarViewController];
-            [self hideLoading:YES];
-        } else {
-            if (statusCode == 0) {
-                [self showHint:@"服务器请求错误" duration:1.0];
-            } else if (statusCode == SHLoginStatusPasswordWrong) {
-                [self showHint:@"密码错误" duration:1.0];
-            } else if (statusCode == SHLoginStatusUnRegistered) {
-                [self showHint:@"手机号未注册" duration:1.0];
-            } else if (statusCode == SHLoginStatusPasswordShouldChange) {
-                [self showHint:@"账号有风险，请先修改密码" duration:1.0];
-            }
-        }
-    }];
-}
-
-#pragma mark - UITextFieldDelegate
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    
 }
 
 #pragma mark - Lazy Load
@@ -291,7 +273,7 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
         [_registerButton.layer setCornerRadius:15];
         [_registerButton.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_registerButton.layer setBorderWidth:px];
-        [_registerButton setTitle:@"注册" forState:UIControlStateNormal];
+        [_registerButton setTitle:@"验证密保问题" forState:UIControlStateNormal];
         [_registerButton setTitleColor:RGBCOLOR(33, 33, 33) forState:UIControlStateDisabled];
         [_registerButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
         [_registerButton addTarget:self
@@ -315,12 +297,19 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
 }
 
 - (NSString *)title {
-    return @"密保问题";
+    return @"验证密保";
 }
 
 - (void)dismiss {
-    [super dismiss];
-    [[SHSecurityQuestionManager sharedInstance] resetAllQuestions];
+    @weakify(self);
+    [self dismissViewControllerAnimated:YES completion:^{
+        @strongify(self);
+        if (self.complete) {
+            self.complete();
+        }
+        [[SHSecurityQuestionManager sharedInstance] resetAllQuestions];
+    }];
 }
+
 
 @end

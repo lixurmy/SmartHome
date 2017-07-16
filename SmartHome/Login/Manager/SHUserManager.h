@@ -33,6 +33,7 @@ typedef void(^SHLoginOrRegisterCompleteBlock)(BOOL succ, SHLoginOrRegisterStatus
 - (void)resetPasswordForUsername:(NSString *)username complete:(SHLoginOrRegisterCompleteBlock)complete;
 - (void)changePasswordForUsername:(NSString *)username oldPassword:(NSString *)oldPassword newPassword:(NSString *)newPassword complete:(SHLoginOrRegisterCompleteBlock)complete;
 - (void)bindGatewayWithId:(NSString *)gatewayId complete:(SHLoginOrRegisterCompleteBlock)complete;
+- (void)verifyUserWithPhone:(NSString *)phone questions:(NSArray *)questions complete:(SHLoginOrRegisterCompleteBlock)complete;
 - (void)logoutWithComplete:(SHLoginOrRegisterCompleteBlock)complete;
 
 @end

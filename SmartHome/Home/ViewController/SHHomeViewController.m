@@ -59,7 +59,8 @@
     [self.remoteLockButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.messageVC.view.mas_bottom).offset(60 * kScreenScale);
-        make.size.mas_equalTo(size);
+        make.height.equalTo(@(size.height));
+        make.left.right.equalTo(self.messageVC.view);
     }];
 }
 

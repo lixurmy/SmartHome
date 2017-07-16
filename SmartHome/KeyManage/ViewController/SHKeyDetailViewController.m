@@ -107,6 +107,7 @@ static NSString * const kSHKeyDetailCellIdentifiter = @"kSHKeyDetailCellIdentifi
     switch (row) {
         case SHKeyDetailRowAlias: {
             cell.title = [NSString stringWithFormat:@"钥匙名称:%@", self.keyModel.alias];
+            cell.isEditable = YES;
             break;
         }
         case SHKeyDetailRowType: {
@@ -120,6 +121,7 @@ static NSString * const kSHKeyDetailCellIdentifiter = @"kSHKeyDetailCellIdentifi
         }
         case SHKeyDetailRowAlert: {
             cell.title = [NSString stringWithFormat:@"报警钥匙:%@", self.keyModel.isAlertKey ? @"是" : @"否"];
+            cell.isEditable = YES;
             break;
         }
         case SHKeyDetailRowAddTime: {
@@ -249,14 +251,14 @@ static NSString * const kSHKeyDetailCellIdentifiter = @"kSHKeyDetailCellIdentifi
 
 - (void)deleteKeyModel {
     @weakify(self);
-//    [[SHKeyManager sharedInstance] deleteKeyWithLockId:self.keyModel.lockId keyNo:self.keyModel.keyNo complete:^(BOOL succ, SHKeyHttpStatus statusCode, id info) {
-//        @strongify(self);
-//        if (succ) {
-//            [self handleDeleteSuccessReponse:info];
-//        } else {
-//            [self handleDeleteFailureResponse:info];
-//        }
-//    }];
+    [[SHKeyManager sharedInstance] deleteKeyWithLockId:self.keyModel.lockId keyNo:self.keyModel.keyNo complete:^(BOOL succ, SHKeyHttpStatus statusCode, id info) {
+        @strongify(self);
+        if (succ) {
+            [self handleDeleteSuccessReponse:info];
+        } else {
+            [self handleDeleteFailureResponse:info];
+        }
+    }];
 }
 
 - (void)handleDeleteSuccessReponse:(id)responseObject {
@@ -308,7 +310,6 @@ static NSString * const kSHKeyDetailCellIdentifiter = @"kSHKeyDetailCellIdentifi
         _updateButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_updateButton setTitle:@"编辑" forState:UIControlStateNormal];
         [_updateButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
-//        [_updateButton addTarget:self action:@selector(updateAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _updateButton;
 }

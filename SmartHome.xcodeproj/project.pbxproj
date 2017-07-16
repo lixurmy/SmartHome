@@ -72,6 +72,7 @@
 		BDF32B1B1EC75C6800CDBAA1 /* SHNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B1A1EC75C6800CDBAA1 /* SHNetworkManager.m */; };
 		BDF32B211EC7711400CDBAA1 /* SHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B201EC7711400CDBAA1 /* SHUtils.m */; };
 		BDF32B281EC8726600CDBAA1 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF32B271EC8726600CDBAA1 /* UIImage+Color.m */; };
+		BDFA0C3C1F1B7D4800AADAD9 /* SHSecurityVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFA0C3B1F1B7D4800AADAD9 /* SHSecurityVerifyViewController.m */; };
 		EC0D0F421F0F7C8D00D3A303 /* SHSecurityQuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F411F0F7C8D00D3A303 /* SHSecurityQuestionModel.m */; };
 		EC0D0F451F0F7CD100D3A303 /* SHSecurityQuestionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F441F0F7CD100D3A303 /* SHSecurityQuestionManager.m */; };
 		EC0D0F481F0F873A00D3A303 /* SHSecurityQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D0F471F0F873A00D3A303 /* SHSecurityQuestionCell.m */; };
@@ -224,6 +225,8 @@
 		BDF32B201EC7711400CDBAA1 /* SHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHUtils.m; sourceTree = "<group>"; };
 		BDF32B261EC8726600CDBAA1 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		BDF32B271EC8726600CDBAA1 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		BDFA0C3A1F1B7D4800AADAD9 /* SHSecurityVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecurityVerifyViewController.h; sourceTree = "<group>"; };
+		BDFA0C3B1F1B7D4800AADAD9 /* SHSecurityVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityVerifyViewController.m; sourceTree = "<group>"; };
 		BE365101791D3B7B4619F1FB /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
 		EC0D0F401F0F7C8D00D3A303 /* SHSecurityQuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSecurityQuestionModel.h; sourceTree = "<group>"; };
 		EC0D0F411F0F7C8D00D3A303 /* SHSecurityQuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSecurityQuestionModel.m; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 				BD1BA1F61EF5203600369479 /* SHSecurityQuestionViewController.m */,
 				EC0D0F491F0F8C7200D3A303 /* SHSecurityRegisterViewController.h */,
 				EC0D0F4A1F0F8C7200D3A303 /* SHSecurityRegisterViewController.m */,
+				BDFA0C3A1F1B7D4800AADAD9 /* SHSecurityVerifyViewController.h */,
+				BDFA0C3B1F1B7D4800AADAD9 /* SHSecurityVerifyViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -908,6 +913,7 @@
 				BD80BDA01F0A6B5C00A7BDD1 /* SHKeyManager.m in Sources */,
 				BD1201471EDB2F9F00694B17 /* SHSettingsBaseCell.m in Sources */,
 				BD80BD901EF6BD0900A7BDD1 /* SHBaseModel.m in Sources */,
+				BDFA0C3C1F1B7D4800AADAD9 /* SHSecurityVerifyViewController.m in Sources */,
 				BD80BD811EF6914500A7BDD1 /* SHLockDetailHeader.m in Sources */,
 				BDEBC24B1ED1AB0200FA41A7 /* SHBaseTableViewCell.m in Sources */,
 				BDADA2971EEE7332008DBB0B /* SHQRCodeScannerViewController.m in Sources */,

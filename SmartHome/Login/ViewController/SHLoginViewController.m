@@ -10,6 +10,7 @@
 #import "SHRegisterViewController.h"
 #import "SHHomeViewController.h"
 #import "SHRootViewController.h"
+#import "SHSecurityVerifyViewController.h"
 #import "SHTabBarManager.h"
 
 static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
@@ -224,35 +225,40 @@ static NSString * kSHLastInputUsernameKey = @"kSHLastInputUsernameKey";
         [self showHint:@"请输入手机号哦" duration:1.0];
         return;
     }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"重置密码"
-                                                                   message:@"将要重置密码，请确认"
-                                                            preferredStyle:UIAlertControllerStyleAlert];
     @weakify(self);
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:nil];
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * _Nonnull action) {
+    SHSecurityVerifyViewController *securityVC = [[SHSecurityVerifyViewController alloc] initWithUsername:self.username dismissComplete:^{
         @strongify(self);
-        [self showLoading:YES hint:@"重置密码..."];
-        [[SHUserManager sharedInstance] resetPasswordForUsername:self.username complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
-            if (succ) {
-                [self hideLoading:YES];
-                NSString *newPassword = (NSString *)info;
-                [self resetPassword:newPassword];
-            } else {
-                if (statusCode == SHLoginStatusUnRegistered) {
-                    [self showHint:@"未注册的号码" duration:1.0];
-                } else {
-                    [self showHint:@"重置密码失败" duration:1.0];
-                }
-            }
-        }];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"重置密码"
+                                                                       message:@"将要重置密码，请确认"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:nil];
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * _Nonnull action) {
+                                                                  @strongify(self);
+                                                                  [self showLoading:YES hint:@"重置密码..."];
+                                                                  [[SHUserManager sharedInstance] resetPasswordForUsername:self.username complete:^(BOOL succ, SHLoginOrRegisterStatus statusCode, id info) {
+                                                                      if (succ) {
+                                                                          [self hideLoading:YES];
+                                                                          NSString *newPassword = (NSString *)info;
+                                                                          [self resetPassword:newPassword];
+                                                                      } else {
+                                                                          if (statusCode == SHLoginStatusUnRegistered) {
+                                                                              [self showHint:@"未注册的号码" duration:1.0];
+                                                                          } else {
+                                                                              [self showHint:@"重置密码失败" duration:1.0];
+                                                                          }
+                                                                      }
+                                                                  }];
+                                                              }];
+        [alert addAction:cancelAction];
+        [alert addAction:confirmAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
     }];
-    [alert addAction:cancelAction];
-    [alert addAction:confirmAction];
-    [self presentViewController:alert animated:YES completion:nil];
+    [self.navigationController presentViewController:securityVC animated:YES completion:nil];
 }
 
 - (void)resetPassword:(NSString *)curPassword {
