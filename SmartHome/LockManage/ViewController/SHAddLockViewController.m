@@ -62,6 +62,7 @@
         [self.inputField setText:result];
         [self addLock];
     };
+    [self.navigationController pushViewController:qrCodeScanner animated:YES];
 }
 
 - (void)addLock {

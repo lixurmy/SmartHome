@@ -16,6 +16,7 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
 
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) dismissCompleteBlock complete;
+@property (nonatomic, assign) BOOL verifySuccess;
 
 @property (nonatomic, strong) UIButton *firstQuestionButton;
 @property (nonatomic, strong) UIButton *secondQuestionButton;
@@ -35,6 +36,7 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
     if (self) {
         _username = username;
         _complete = complete;
+        _verifySuccess = NO;
     }
     return self;
 }
@@ -216,6 +218,7 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
         if (succ) {
             [self showHint:@"验证成功" duration:1.0];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.verifySuccess = YES;
                 [self dismiss];
             });
         } else {
@@ -304,7 +307,7 @@ static char * const kSHSecurityButtonIndexKey = "kSHSecurityButtonIndexKey";
     @weakify(self);
     [self dismissViewControllerAnimated:YES completion:^{
         @strongify(self);
-        if (self.complete) {
+        if (self.verifySuccess && self.complete) {
             self.complete();
         }
         [[SHSecurityQuestionManager sharedInstance] resetAllQuestions];
