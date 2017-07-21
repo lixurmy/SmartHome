@@ -31,26 +31,29 @@
     [self.view setBackgroundColor:RGBCOLOR(255, 255, 255)];
     [self.view addSubview:self.originPasswordField];
     [self.originPasswordField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(100);
+        make.top.equalTo(self.view).offset(self.shNavigationBarHeight + 60);
         make.centerX.equalTo(self.view);
         make.left.equalTo(self.view).offset(30);
         make.right.equalTo(self.view).offset(-30);
+        make.height.equalTo(@(50));
     }];
     [self.view addSubview:self.changedPasswordField];
     [self.changedPasswordField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.originPasswordField.mas_bottom).offset(30);
         make.left.right.equalTo(self.originPasswordField);
+        make.height.equalTo(@(50));
     }];
     [self.view addSubview:self.confirmPasswordField];
     [self.confirmPasswordField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.changedPasswordField.mas_bottom).offset(30);
         make.left.right.equalTo(self.changedPasswordField);
+        make.height.equalTo(@(50));
     }];
     [self.view addSubview:self.confirmButton];
     [self.confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.confirmPasswordField.mas_bottom).offset(30);
-        make.left.equalTo(self.confirmPasswordField).offset(30);
-        make.right.equalTo(self.confirmPasswordField).offset(-30);
+        make.left.equalTo(self.confirmPasswordField);
+        make.right.equalTo(self.confirmPasswordField);
         make.height.equalTo(@(50));
     }];
 }
@@ -94,8 +97,10 @@
 - (UITextField *)originPasswordField {
     if (!_originPasswordField) {
         _originPasswordField = [[UITextField alloc] init];
-        [_originPasswordField.layer setBorderWidth:1.0];
+        [_originPasswordField.layer setBorderWidth:px];
+        [_originPasswordField.layer setCornerRadius:15];
         [_originPasswordField.layer setBorderColor:RGBCOLOR(111,111,111).CGColor];
+        _originPasswordField.textAlignment = NSTextAlignmentCenter;
         _originPasswordField.font = PingFangSCRegular(20);
         _originPasswordField.secureTextEntry = YES;
         _originPasswordField.placeholder = @"输入原密码";
@@ -107,8 +112,10 @@
 - (UITextField *)changedPasswordField {
     if (!_changedPasswordField) {
         _changedPasswordField = [[UITextField alloc] init];
-        [_changedPasswordField.layer setBorderWidth:1.0];
-        [_changedPasswordField.layer setBorderColor:RGBCOLOR(111, 111, 111).CGColor];
+        [_changedPasswordField.layer setCornerRadius:15];
+        [_changedPasswordField.layer setBorderWidth:px];
+        [_changedPasswordField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
+        _changedPasswordField.textAlignment = NSTextAlignmentCenter;
         _changedPasswordField.font = PingFangSCRegular(20);
         _changedPasswordField.secureTextEntry = YES;
         _changedPasswordField.placeholder = @"输入新密码";
@@ -120,8 +127,10 @@
 - (UITextField *)confirmPasswordField {
     if (!_confirmPasswordField) {
         _confirmPasswordField = [[UITextField alloc] init];
-        [_confirmPasswordField.layer setBorderWidth:1.0];
-        [_confirmPasswordField.layer setBorderColor:RGBCOLOR(111, 111, 111).CGColor];
+        [_confirmPasswordField.layer setCornerRadius:15];
+        [_confirmPasswordField.layer setBorderWidth:px];
+        [_confirmPasswordField.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
+        _confirmPasswordField.textAlignment = NSTextAlignmentCenter;
         _confirmPasswordField.font = PingFangSCRegular(20);
         _confirmPasswordField.secureTextEntry = YES;
         _confirmPasswordField.placeholder = @"确认新密码";
@@ -134,9 +143,10 @@
     if (!_confirmButton) {
         _confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_confirmButton setTitle:@"修改密码" forState:UIControlStateNormal];
-        [_confirmButton.layer setBorderWidth:1.0];
+        [_confirmButton.layer setCornerRadius:15];
+        [_confirmButton.layer setBorderWidth:px];
         [_confirmButton setTitleColor:RGBCOLOR(0, 0, 0) forState:UIControlStateNormal];
-        [_confirmButton.layer setBorderColor:RGBCOLOR(111, 111, 111).CGColor];
+        [_confirmButton.layer setBorderColor:RGBCOLOR(0, 0, 0).CGColor];
         [_confirmButton addTarget:self
                            action:@selector(changePassword)
                  forControlEvents:UIControlEventTouchUpInside];

@@ -72,7 +72,12 @@ static SHUserManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLoginOrRegisterServerError, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLoginOrRegisterServerError, errorMessage);
         }
     }];
 }
@@ -105,7 +110,12 @@ static SHUserManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLoginOrRegisterServerError, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLoginOrRegisterServerError, errorMessage);
         }
     }];
 }
@@ -135,7 +145,12 @@ static SHUserManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLoginOrRegisterServerError, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLoginOrRegisterServerError, errorMessage);
         }
     }];
 }
@@ -167,7 +182,12 @@ static SHUserManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLoginOrRegisterServerError, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLoginOrRegisterServerError, errorMessage);
         }
     }];
 }
@@ -199,7 +219,12 @@ static SHUserManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLoginOrRegisterServerError, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLoginOrRegisterServerError, errorMessage);
         }
     }];
 }
@@ -231,7 +256,12 @@ static SHUserManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLoginOrRegisterServerError, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLoginOrRegisterServerError, errorMessage);
         }
     }];
 }

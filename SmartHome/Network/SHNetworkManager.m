@@ -9,6 +9,7 @@
 #import "SHNetworkManager.h"
 #import "SHBaseURL.h"
 
+static CGFloat kSHNetworkTimeout = 60.0;
 
 @implementation SHNetworkManager
 
@@ -18,6 +19,7 @@
     dispatch_once(&onceToken, ^{
         NSURL *baseUrl = [NSURL URLWithString:[SHBaseURL sharedInstance].baseUrl];
         _baseManager = [[super alloc] initWithBaseURL:baseUrl];
+        _baseManager.requestSerializer.timeoutInterval = kSHNetworkTimeout;
     });
     return _baseManager;
 }
@@ -28,6 +30,7 @@
     dispatch_once(&onceToken, ^{
         NSURL *lockUrl = [NSURL URLWithString:[SHBaseURL sharedInstance].lockUrl];
         _lockManager = [[super alloc] initWithBaseURL:lockUrl];
+        _lockManager.requestSerializer.timeoutInterval = kSHNetworkTimeout;
     });
     return _lockManager;
 }
@@ -38,6 +41,7 @@
     dispatch_once(&onceToken, ^{
         NSURL *keyUrl = [NSURL URLWithString:[SHBaseURL sharedInstance].keyUrl];
         _keyManager = [[super alloc] initWithBaseURL:keyUrl];
+        _keyManager.requestSerializer.timeoutInterval = kSHNetworkTimeout;
     });
     return _keyManager;
 }
@@ -48,6 +52,7 @@
     dispatch_once(&onceToken, ^{
         NSURL *waterUrl = [NSURL URLWithString:[SHBaseURL sharedInstance].waterUrl];
         _waterManager = [[super alloc] initWithBaseURL:waterUrl];
+        _waterManager.requestSerializer.timeoutInterval = kSHNetworkTimeout;
         [_waterManager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"image/jpeg", nil]];
     });
     return _waterManager;

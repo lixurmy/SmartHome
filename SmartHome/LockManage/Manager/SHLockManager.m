@@ -41,7 +41,12 @@ static SHLockManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLockHttpStatusUnknown, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLockHttpStatusUnknown, errorMessage);
         }
     }];
 }
@@ -62,7 +67,12 @@ static SHLockManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLockHttpStatusUnknown, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLockHttpStatusUnknown, errorMessage);
         }
     }];
 }
@@ -95,7 +105,12 @@ static SHLockManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLockHttpStatusUnknown, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLockHttpStatusUnknown, errorMessage);
         }
     }];
 }
@@ -124,7 +139,12 @@ static SHLockManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLockHttpStatusUnknown, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLockHttpStatusUnknown, errorMessage);
         }
     }];
 }
@@ -148,7 +168,12 @@ static SHLockManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLockHttpStatusUnknown, @"网络异常");
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLockHttpStatusUnknown, errorMessage);
         }
     }];
 }
@@ -181,7 +206,12 @@ static SHLockManager * _instance;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (complete) {
-            complete(NO, SHLockHttpStatusUnknown, nil);
+            NSString *errorMessage = nil;
+            if (error) {
+                NSDictionary *userInfo = error.userInfo;
+                errorMessage = userInfo[@"NSLocalizedDescription"];
+            }
+            complete(NO, SHLockHttpStatusUnknown, errorMessage);
         }
     }];
 }

@@ -204,6 +204,7 @@ static NSString * const kSHKeyDetailCellIdentifiter = @"kSHKeyDetailCellIdentifi
     if (self.aliasField.text.length && ![self.keyModel.alias isEqualToString:self.aliasField.text]) {
         NSString *alias = self.aliasField.text;
         @weakify(self);
+        [self showLoading:YES hint:@"修改中..."];
         [[SHKeyManager sharedInstance] updateKeyWithLockId:self.keyModel.lockId keyNo:self.keyModel.keyNo alias:alias alert:self.keyModel.isAlertKey complete:^(BOOL succ, SHKeyHttpStatus statusCode, id info) {
             @strongify(self);
             if (succ) {
@@ -222,6 +223,7 @@ static NSString * const kSHKeyDetailCellIdentifiter = @"kSHKeyDetailCellIdentifi
 - (void)updateAlert:(BOOL)isAlert {
     if (!(self.keyModel.isAlertKey == isAlert)) {
         @weakify(self);
+        [self showLoading:YES hint:@"修改中..."];
         [[SHKeyManager sharedInstance] updateKeyWithLockId:self.keyModel.lockId keyNo:self.keyModel.keyNo alias:self.keyModel.alias alert:isAlert complete:^(BOOL succ, SHKeyHttpStatus statusCode, id info) {
             @strongify(self);
             if (succ) {
